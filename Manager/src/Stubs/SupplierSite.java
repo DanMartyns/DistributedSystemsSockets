@@ -5,21 +5,23 @@
  */
 package Stubs;
 
+import Interfaces.ManagerSupplierSite;
+
 /**
  *
  * @author danielmartins
  */
-public class GeneralInformationRepo {
-    
+public class SupplierSite implements ManagerSupplierSite {
+
     private final String server;
     private final int port;
     
-    public GeneralInformationRepo(String server, int port){
+    public SupplierSite(String server, int port) {
         this.server = server;
         this.port = port;
     }
     
-    public void setManagerState(String s){
-        
-    }
+    public int goToSupplier(String peca){
+        return 0;
+    }    
 }

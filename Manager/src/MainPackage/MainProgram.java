@@ -2,6 +2,11 @@
 package MainPackage;
 
 import static MainPackage.Constants.*;
+import Stubs.GeneralInformationRepo;
+import Stubs.Lounge;
+import Stubs.OutsideWorld;
+import Stubs.RepairArea;
+import Stubs.SupplierSite;
 
 /**
  * Main manager program.
@@ -15,13 +20,16 @@ public class MainProgram {
         /**
          * Stub initialization.
          */
-        // TODO
-        // Example : GeneralInformationRepo logger = new GeneralInformationRepo(Constants.LOGGER_HOST_NAME, Constants.LOGGER_PORT);
+        GeneralInformationRepo logger = new GeneralInformationRepo ( Constants.LOGGER_HOST_NAME, Constants.LOGGER_PORT);
+        Lounge lounge = new Lounge( Constants.LOUNGE_HOST_NAME,Constants.LOUNGE_PORT );
+        OutsideWorld outsideWorld = new OutsideWorld ( Constants.OUTSIDEWORLD_HOST_NAME, Constants.OUTSIDEWORLD_PORT );
+        SupplierSite supplierSite = new SupplierSite ( Constants.SUPPLIERSITE_HOST_NAME, Constants.SUPPLIERSITE_PORT );        
+        RepairArea repairArea = new RepairArea ( Constants.REPAIRAREA_HOST_NAME, Constants.REPAIRAREA_PORT );        
         
         /**
-         * Broker lifecycle start.
+         * Manager lifecycle start.
          */
-        Manager manager = new Manager(0, lounge,  supplierSite, repairArea,outsideWorld, logger); --> Initialize stubs of each one 
+        Manager manager = new Manager(0, lounge,  supplierSite, repairArea,outsideWorld, logger); 
         manager.start();
         try {
             manager.join();

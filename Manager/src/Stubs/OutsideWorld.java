@@ -5,21 +5,23 @@
  */
 package Stubs;
 
+import Interfaces.ManagerOutsideWorld;
+
 /**
  *
  * @author danielmartins
  */
-public class GeneralInformationRepo {
-    
+public class OutsideWorld implements ManagerOutsideWorld {
+
     private final String server;
     private final int port;
     
-    public GeneralInformationRepo(String server, int port){
+    public OutsideWorld(String server, int port) {
         this.server = server;
         this.port = port;
     }
     
-    public void setManagerState(String s){
+    public void phoneCustomer(String id){
         
-    }
+    }  
 }

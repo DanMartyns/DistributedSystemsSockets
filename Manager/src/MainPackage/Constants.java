@@ -38,6 +38,24 @@ public class Constants {
     /**
      * Name of the file used for the logger.
      */
-    public static final String FILE_NAME = "log.txt";    
-  
+    public static final String FILE_NAME = "log.txt";
+    
+/////////////////////////////// Server HOST NAME & PORT ////////////////////////
+////////////////////////////////////////////////////////////////////////////////    
+    
+    public static final String LOGGER_HOST_NAME = "";
+    public static final int LOGGER_PORT = 1;
+    
+    public static final String LOUNGE_HOST_NAME = "";
+    public static final int LOUNGE_PORT = 1;
+
+    public static final String OUTSIDEWORLD_HOST_NAME = "";
+    public static final int OUTSIDEWORLD_PORT = 1;    
+
+    public static final String SUPPLIERSITE_HOST_NAME = "";
+    public static final int SUPPLIERSITE_PORT = 1;
+    
+    public static final String REPAIRAREA_HOST_NAME = "";
+    public static final int REPAIRAREA_PORT = 1;       
+////////////////////////////////////////////////////////////////////////////////    
 }
