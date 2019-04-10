@@ -6,9 +6,45 @@
 package Communication;
 
 /**
- *
+ * 
  * @author danielmartins
  */
-public class MessageType {
+public enum MessageType {
+
+    /**
+     * When a shared region answers with an OK to a request made by an entity.
+     */
+    STATUS_OK,    
     
+    /**
+     *
+     */
+    GET_NEXT_TASK,
+    /**
+     * 
+     */
+    APRAISE_SIT,
+
+    /**
+     *
+     */
+    RETURN_APRAISE_SIT,
+    
+    TALK_TO_CUSTOMER,
+
+    RECEIVE_PAYMENT,
+
+    HAND_CAR_KEY,
+
+    REGISTER_SERVICE,
+
+    PHONE_CUSTOMER,
+
+    STORE_PART,
+
+    GO_TO_SUPPLIER,
+
+    RETURN_GO_TO_SUPPLIER,
+    
+    SHUTDOWN
 }

@@ -2,7 +2,6 @@
 package MainPackage;
 
 import static MainPackage.Constants.*;
-import Stubs.GeneralInformationRepo;
 import Stubs.Lounge;
 import Stubs.OutsideWorld;
 import Stubs.RepairArea;
@@ -20,7 +19,6 @@ public class MainProgram {
         /**
          * Stub initialization.
          */
-        GeneralInformationRepo logger = new GeneralInformationRepo ( Constants.LOGGER_HOST_NAME, Constants.LOGGER_PORT);
         Lounge lounge = new Lounge( Constants.LOUNGE_HOST_NAME,Constants.LOUNGE_PORT );
         OutsideWorld outsideWorld = new OutsideWorld ( Constants.OUTSIDEWORLD_HOST_NAME, Constants.OUTSIDEWORLD_PORT );
         SupplierSite supplierSite = new SupplierSite ( Constants.SUPPLIERSITE_HOST_NAME, Constants.SUPPLIERSITE_PORT );        
@@ -29,7 +27,7 @@ public class MainProgram {
         /**
          * Manager lifecycle start.
          */
-        Manager manager = new Manager(0, lounge,  supplierSite, repairArea,outsideWorld, logger); 
+        Manager manager = new Manager(0, lounge,  supplierSite, repairArea,outsideWorld); 
         manager.start();
         try {
             manager.join();
