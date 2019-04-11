@@ -14,6 +14,9 @@ public interface ManagerSupplierSite {
     
     /**
      * Go to Supplier (SupplierSite)
+     * @param peca, string argumento, type of the piece
+     * @param managerState the state of the manager
+     * @return the quantity of this kind of piece
      */
     public int goToSupplier(String peca, String managerState);
     

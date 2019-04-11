@@ -12,6 +12,7 @@ package Interfaces;
 public interface ManagerLounge {
     /**
      * Get a new Task for the Manager (Lounge)
+     * @param managerState the state of the manager
      * @return boolean 
      */
     public boolean getNextTask(String managerState);
@@ -24,17 +25,22 @@ public interface ManagerLounge {
     
     /**
      * Talk to Customer (Lounge)
+     * @param info the information about customer
+     * @param managerState the state of the manager
+     * 
      */
     public void talkToCustomer(String info, String managerState);
     
     /**
      * Receive Payment (Lounge)
+     * @param info the information about customer 
      */
     public void receivePayment(String info);
     
     /**
      * Hand Car Key (Lounge)
+     * @param info the information about customer 
      */
-    public void handCarKey(String customer);
+    public void handCarKey(String info);
     
 }

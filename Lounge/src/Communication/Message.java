@@ -5,7 +5,6 @@
  */
 package Communication;
 
-import EntitiesState.ManagerState;
 import java.io.Serializable;
 
 /**
@@ -50,6 +49,21 @@ public class Message implements Serializable {
      * The number of pieces who'll be stored
      */
     private int quantity;
+    
+    /**
+     * The customer id
+     */
+    private int customerID;
+    
+    /**
+     * The size of the queue
+     */
+    private int size_queue;
+    private int waitReplacement;
+    private String mechanicID;
+    private String flag_A;
+    private String flag_B;
+    private String flag_C;
 
     /**
      * Empty constructor for the message that initializes the default
@@ -95,7 +109,19 @@ public class Message implements Serializable {
                 break;
             case SHUTDOWN : 
                 this.state = value;
-                break;   
+                break;
+            case SET_MANAGER_STATE :
+                this.state = value;
+                break;
+            case SET_FLAG_A :
+                this.flag_A = value;
+                break;
+            case SET_FLAG_B :
+                this.flag_B = value;
+                break;
+            case SET_FLAG_C :
+                this.flag_C = value;
+                break;                
         }       
     }
     /**
@@ -108,7 +134,15 @@ public class Message implements Serializable {
         this.type = type;
         switch(type) {
             case RETURN_GO_TO_SUPPLIER:
-                this.quantity = value;     
+                this.quantity = value;
+                break;
+            case SET_SIZE_QUEUE:
+                this.size_queue = value;
+                break;
+            case SET_WAITING_CARS:
+                this.waitReplacement = value;
+                break;
+                
         }       
     }    
 
@@ -135,24 +169,26 @@ public class Message implements Serializable {
                 this.state = state;
                 break;                              
         }        
-    }
+    }    
 
     /**
      * Constructor with the type of the message and two String arguments.     
      * @param type type of the Message
-     * @param piece the piece who'll be stored
-     * @param quantity the number of pieces who'll be stored
-     * @param state the state of the entity
+     * @param id the id of the customer
+     * @param state the customer state
      */
-    public Message(MessageType type, String piece, int quantity, String state){
+    public Message(MessageType type, int id, String state){
         this();
         this.type = type;
         switch(type){
-            case STORE_PART:
-                this.piece = piece;
-                this.quantity = quantity;
+            case SET_CUSTOMER_STATE :
+                this.customerID = id;
                 this.state = state;
-                break;       
+                break;
+            case SET_MECHANIC_STATE :
+                this.mechanicID = state;
+                this.state = state;
+                break;
         }        
     }    
 
@@ -203,5 +239,36 @@ public class Message implements Serializable {
     public int getQuantity() {
         return quantity;
     }
-    
+
+    public long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public int getSize_queue() {
+        return size_queue;
+    }
+
+    public int getWaitReplacement() {
+        return waitReplacement;
+    }
+
+    public String getMechanicID() {
+        return mechanicID;
+    }
+
+    public String getFlag_A() {
+        return flag_A;
+    }
+
+    public String getFlag_B() {
+        return flag_B;
+    }
+
+    public String getFlag_C() {
+        return flag_C;
+    }
 }

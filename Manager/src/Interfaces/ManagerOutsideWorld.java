@@ -13,6 +13,8 @@ public interface ManagerOutsideWorld {
 
     /**
      * Call the Customer (Outside World)
+     * @param info the information about customer
+     * @param managerState the state of the manager
      */
-    public void phoneCustomer(String id, String managerState);        
+    public void phoneCustomer(String info, String managerState);        
 }

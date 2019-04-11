@@ -12,16 +12,23 @@ package Interfaces;
 public interface ManagerRepairArea {
     /**
      * Register a Service (RepairArea)
+     * @param info the information about customer
+     * @param managerState the state of the manager
      */
-    public void registerService(String customer, String managerState);  
+    public void registerService(String info, String managerState);  
     
     /**
      * Replace the pieces (RepairArea)
+     * @param peca, string argument, type of the piece
+     * @param quantidade, integer argument, number os pieces
+     * @param managerState the state of the manager
+     * 
      */
     public void storePart(String peca, int quantidade, String managerState);
     
     /**
      * Role responsible for telling mechanics that work is over (RepairArea)
+     * @param managerState the state of the manager
      */
     public void shutdownNow(String managerState);
 }
