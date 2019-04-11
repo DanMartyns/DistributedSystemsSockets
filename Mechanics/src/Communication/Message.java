@@ -33,6 +33,8 @@ public class Message implements Serializable {
      * The service chosen in the shared region 'Lounge'
      */
     private String apraiseSit;
+    
+
 
     /**
      * The information about client. 
@@ -55,10 +57,15 @@ public class Message implements Serializable {
      */
     private int idCust;
     
+    private int idMechan;
+    
     /**
      * The id of customer
      */
     private int carId;
+    
+    private String readPaper;
+
     
     
 
@@ -72,7 +79,7 @@ public class Message implements Serializable {
         apraiseSit = null;
         client = null;
         idCust = -1;
-        
+        idMechan = -1;
     }
     
     /**
@@ -108,7 +115,10 @@ public class Message implements Serializable {
                 break;
             case SHUTDOWN : 
                 this.state = value;
-                break;   
+                break;
+            case RETURN_READ_THE_PAPER:
+                this.readPaper = value;
+                break;
         }       
     }
     
@@ -137,6 +147,11 @@ public class Message implements Serializable {
                 this.carId = value;
                 this.state = state;
                 break;
+            case READ_THE_PAPER:
+                this.idMechan = value;
+                this.state = state;
+                break;
+            
         }       
     }
     
@@ -158,11 +173,17 @@ public class Message implements Serializable {
             case GET_VEHICLE:
                 this.carId = value;
                 break;
+            case BLOCK_VEHICLE:
+                this.carId = value;
+                break;
             case TALK_WITH_MANAGER:
                 this.idCust = value;
                 break;
             case PAY_FOR_THE_SERVICE:
                 this.idCust = value;
+                break;
+            case CHECK_REQUEST:
+                this.quantity = value;
                 break;
         }       
     }    
@@ -213,7 +234,30 @@ public class Message implements Serializable {
                 this.piece = piece;
                 this.quantity = quantity;
                 this.state = state;
-                break;       
+                break;  
+            case LET_MANAGER_KNOW:
+                this.piece = piece;
+                this.quantity = quantity;
+                this.state = state;
+                break;  
+        }        
+    }    
+    
+    /**
+     * Constructor with the type of the message and two String arguments.     
+     * @param type type of the Message
+     * @param piece the piece who'll be stored
+     * @param quantity the number of pieces who'll be stored
+     */
+    public Message(MessageType type, int currentCar, int quantity, String state){
+        this();
+        this.type = type;
+        switch(type){
+            case REPAIR_CONCLUDED:
+                 this.carId = currentCar;
+                 this.quantity = quantity;
+                 this.state = state;
+                 break;
         }        
     }    
 
@@ -266,5 +310,13 @@ public class Message implements Serializable {
     public int getCar() {
         return carId;
     }
+    
+    /**
+     * Get the service 
+     */
+    public String getReadPaper() {
+        return readPaper;
+    }
+    
     
 }

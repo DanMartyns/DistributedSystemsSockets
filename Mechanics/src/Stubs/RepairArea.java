@@ -5,89 +5,101 @@
  */
 package Stubs;
 
+import Communication.ClientCom;
+import Communication.Message;
+import Communication.MessageType;
 import Interfaces.MechanicsRepairArea;
+import genclass.GenericIO;
 import java.util.Map;
 /**
  * @author danielmartins
  * @author giselapinto
  */
 public class RepairArea implements MechanicsRepairArea {
-
+    
+    private String server;
+    private int port;
     
 
-    public RepairArea(String REPAIRAREA_HOST_NAME, int REPAIRAREA_PORT) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public RepairArea(String server, int port) {
+        this.server = server;
+        this.port = port;
     }
-
-    /**
-     * The mechanic remains in the "read paper" state, while the lists is empty. If not, continue
-     */    
-    public synchronized String readThePaper(int mechanic, String mechanicState) {
+    
+    
+    public String readThePaper(int mechanic, String mechanicState) {
+    
+        ClientCom com = new ClientCom (server, port);
         
-        logger.setMechanicState(mechanic, mechanicState);   
-        
-        while ( blockedServices.isEmpty() && services.isEmpty() && shutdown == false ){
+        while(!com.open()){
             try {
-                wait();
-            } catch (InterruptedException ex) {
-                System.exit(1);
-            }
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {}
+        }    
+        Message msg = new Message(MessageType.READ_THE_PAPER, mechanic, mechanicState);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close();
+        if ( inMessage.getType() != MessageType.RETURN_READ_THE_PAPER ){
+            GenericIO.writelnString("readThePaper - Manager thread was interrupted.");
+            System.exit(1);                     
         }
-        String service;        
-        if (!blockedServices.isEmpty()){
-            Map.Entry<Integer,String> entry = blockedServices.entrySet().iterator().next();
-            int key = entry.getKey();
-            String value = entry.getValue();
-            service = key+","+value;
-            blockedServices.remove(key,value);
-   
-        } else {
-            service = services.poll()+",-1";
-        }
-        if(shutdown){
-            service = "end";
-        }
-       notifyAll();
-       return service;
+        
+        return inMessage.getReadPaper();
     }
-    
-    /**
-     * The manager records the repair of a car. 
-     * @param customer 
-     */
-    public synchronized void registerService(int customer, String managerState) {
-      
-        /**
-         * Register a service, means register the customer id
-         * */
-        services.add( customer );
-        logger.setManagerState(managerState);
-        logger.setNumberServiceRequest(services.size());       
-        notifyAll();
-    }
+
 
     /**
      * In terms of simulation, indicates the service to be done
      * Transition state
      */
-    public synchronized void startRepairProcedure(int mechanic, String mechanicState) {
-        logger.setMechanicState(mechanic,mechanicState);
+    public void startRepairProcedure(int mechanic, String mechanicState) {
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {}
+        }    
+        Message msg = new Message(MessageType.START_REPAIR_PROCEDURE, mechanic, mechanicState);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close();
+        
+    }
+    
+    public void fixIt(){
+         ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {}
+        }    
+        Message msg = new Message(MessageType.FIX_IT);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close();
     }
 
     /*
     * Theoretically the mechanic will find out which part is missing from the car
     * A random value is generated to indicate the part missing from the car
     */
-    public synchronized String getRequiredPart(int mechanic, String mechanicState) {       
-        logger.setMechanicState(mechanic, mechanicState);        
-        /**
-          * 0 - piece A
-          * 1 - piece B
-          * 2 - piece C
-          */
-        int min = 0;
-        int max = 2;
-        return ""+(int)(Math.random() * ((max) + 1));
+    public String getRequiredPart(int mechanic, String mechanicState) {       
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {}
+        }    
+        Message msg = new Message(MessageType.GET_REQUIRED_PART, mechanic, mechanicState);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close();
+        
+        return inMessage.getPiece();
     }
 
     /*
@@ -95,64 +107,37 @@ public class RepairArea implements MechanicsRepairArea {
     * If there are no parts, the car is locked and is passed to a next service
     * @return true or false, if mechanics has parts with him or not
     */
-    public synchronized boolean partAvailable(String piece, int car) {       
-        logger.setPiecesAvabal(piece);
-        if (piece.equals("0") && Constants.pieceA <= 1 || piece.equals("1") && Constants.pieceB <= 1 || piece.equals("2") && Constants.pieceC <= 1){
-            blockedServices.put(car, piece);
-            return false;
-        } else
-            return true;
+    public boolean partAvailable(String piece, int car) {       
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {}
+        }    
+        Message msg = new Message(MessageType.PART_AVAILABLE, car, piece);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close();
+        
+        return true;
     }
+    
     /*
     * Decreases the number of pieces after verifying that they have
     */
-    public synchronized void resumeRepairProcedure(String piece, int mechanic, String mechanicState) {
-        logger.setMechanicState(mechanic, mechanicState); 
-        logger.setPieces0Stored(Constants.pieceA);
-        logger.setPieces1Stored(Constants.pieceB);
-        logger.setPieces2Stored(Constants.pieceC);
+    public void resumeRepairProcedure(String piece, int mechanic, String mechanicState) {
+        ClientCom com = new ClientCom (server, port);
         
-        if (piece.equals("0") )
-            Constants.pieceA--;
-        if (piece.equals("1") )
-            Constants.pieceB--;
-        if (piece.equals("2") )
-            Constants.pieceC--;    
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {}
+        }    
+        Message msg = new Message(MessageType.RESUME_REPAIR_PROCEDURE, piece, mechanic, mechanicState);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close();
        
     }
-
-    /*
-    * Process the fix the car from customer
-    * Transitional State
-    */
-    public synchronized void fixIt() {
-    }
-    
-    /**
-     * Function called by the manager to replace parts, according to a part and quantity.
-     * @param peca
-     * @param quantidade 
-     */
-    public synchronized void storePart(String peca, int quantidade, String managerState) {
-        logger.setManagerState(managerState);
-        if ( peca.equals("0") ){
-            Constants.pieceA = Constants.pieceA + quantidade;
-            logger.setPieces0Manager(Constants.pieceA);
-        }
-        if ( peca.equals("1") ) {
-            Constants.pieceB = Constants.pieceB + quantidade;
-            logger.setPieces1Manager(Constants.pieceB);
-        }
-
-        if ( peca.equals("2") ){
-            Constants.pieceC = Constants.pieceC + quantidade;
-            logger.setPieces2Manager(Constants.pieceC);
-        }
-    }
-    public synchronized void shutdownNow(String managerState){
-        logger.setManagerState(managerState);
-        this.shutdown = true;
-        notifyAll();
-    }
-     
 }
