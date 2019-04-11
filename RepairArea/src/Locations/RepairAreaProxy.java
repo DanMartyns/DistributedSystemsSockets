@@ -49,10 +49,10 @@ public class RepairAreaProxy implements InterfaceLocation {
                 l.shutdownNow(inMessage.getState());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
-//            case READ_THE_PAPER :
-//                String service = l.readThePaper(inMessage.getMechanicID(), inMessage.getState());
-//                outMessage = new Message (MessageType.RETURN_READ_THE_PAPER, service);
-//                break;
+            case READ_THE_PAPER :
+                String service = l.readThePaper(inMessage.getMechanicID(), inMessage.getState());
+                outMessage = new Message (MessageType.RETURN_READ_THE_PAPER, service);
+                break;
             
         }
         return outMessage;

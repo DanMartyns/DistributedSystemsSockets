@@ -89,7 +89,7 @@ public class Park implements CustomerPark{
             System.exit(1);                     
         }  
         com.close();
-        return inMessage.getCar();
+        return inMessage.getCarId();
        
        
     }

@@ -1,7 +1,6 @@
 
 package MainPackage;
 
-import static MainPackage.Constants.*;
 import Stubs.Lounge;
 import Stubs.OutsideWorld;
 import Stubs.RepairArea;

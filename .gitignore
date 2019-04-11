@@ -33,3 +33,7 @@ hs_err_pid*
 /RepairArea/nbproject/private/
 /RepairArea/dist/
 /RepairArea/build/
+/Customer/dist/
+/Customer/build/
+/Mechanics/dist/
+/Mechanics/build/
