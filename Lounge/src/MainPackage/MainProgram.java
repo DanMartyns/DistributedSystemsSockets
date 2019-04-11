@@ -60,7 +60,7 @@ public class MainProgram {
                 sp = new ServiceProvider(sconi, lp);
                 sp.start();
             } catch (SocketTimeoutException ex) {
-            }
+        }
             
         }
     }

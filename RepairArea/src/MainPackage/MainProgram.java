@@ -5,6 +5,12 @@
  */
 package MainPackage;
 
+import java.net.SocketTimeoutException;
+import Communication.ServerComm;
+import Stubs.GeneralInformationRepo;
+import Locations.ServiceProvider;
+import Locations.RepairArea;
+import Locations.RepairAreaProxy;
 /**
  *
  * @author danielmartins
@@ -12,10 +18,51 @@ package MainPackage;
 public class MainProgram {
 
     /**
-     * @param args the command line arguments
+     * Used to check if the service must terminate.
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static boolean serviceEnd = false;
+    
+    /**
+     * Main betting center launcher
+     * @param args args
+     */
+    public static void main(String [] args){
+        /**
+         * Communication channels.
+         */
+        ServerComm scon, sconi;
+        ServiceProvider sp;
+        
+        /**
+         * Stub initialization.
+         */
+        GeneralInformationRepo logger = new GeneralInformationRepo(Constants.LOGGER_HOST_NAME, Constants.LOGGER_PORT);
+        
+        /**
+         * Shared region and proxy initialization.
+         */
+        RepairArea l = new RepairArea(logger);
+        RepairAreaProxy rap = new RepairAreaProxy(l);
+        
+        /**
+         * Start listening on the communication channel.
+         */
+        scon = new ServerComm(Constants.LOUNGE_PORT);
+        scon.start();
+        
+        /**
+         * While the service is not terminated, accept connections and send them
+         * to the service provider.
+         */
+        while(!serviceEnd){
+            try {
+                sconi = scon.accept();
+                sp = new ServiceProvider(sconi, rap);
+                sp.start();
+            } catch (SocketTimeoutException ex) {
+        }
+            
+        }
     }
     
 }
