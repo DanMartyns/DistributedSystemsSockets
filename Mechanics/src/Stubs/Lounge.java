@@ -30,7 +30,11 @@ public class Lounge implements MechanicsLounge {
     /**
     * Let manager know that the mechanics needs more pieces from supplier site
     * @param peca pecas
+<<<<<<< HEAD
     * @param mechanic 's id
+=======
+    * @param mechanics 's id
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
     * @param mechanicState state
     **/
     public void letManagerKnow(String peca, int mechanic, String mechanicState) {
@@ -82,6 +86,10 @@ public class Lounge implements MechanicsLounge {
         Message inMessage = (Message) com.readObject();
         com.close();
         
+<<<<<<< HEAD
         return inMessage.isCheckRequest();
+=======
+        return true;
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
     }
 }

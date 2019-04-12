@@ -37,6 +37,7 @@ public class LoungeProxy implements InterfaceLocation {
         Message outMessage = null;
         
         switch(inMessage.getType()){
+<<<<<<< HEAD
             /**
              * The functions called by Customer
              */
@@ -59,12 +60,15 @@ public class LoungeProxy implements InterfaceLocation {
             /**
              * The functions called by Manager
              */
+=======
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
             case GET_NEXT_TASK :
                 l.getNextTask(inMessage.getState());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case APRAISE_SIT :
                 String choice = l.appraiseSit();
+<<<<<<< HEAD
                 outMessage = new Message(MessageType.RETURN_APRAISE_SIT, choice);
                 break;
             case TALK_TO_CUSTOMER : 
@@ -94,6 +98,22 @@ public class LoungeProxy implements InterfaceLocation {
                 boolean check = l.checkRequest(inMessage.getPiece());
                 outMessage = new Message (MessageType.RETURN_CHECK_REQUEST, check);
                 break;    
+=======
+                outMessage = new Message (MessageType.RETURN_APRAISE_SIT, choice);
+                break;
+            case TALK_TO_CUSTOMER:
+                l.talkToCustomer(inMessage.getClient(), inMessage.getState());
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;
+            case RECEIVE_PAYMENT:
+                l.receivePayment(inMessage.getClient());
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;
+            case HAND_CAR_KEY:
+                l.handCarKey(inMessage.getClient());
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
         }
         return outMessage;
     }    

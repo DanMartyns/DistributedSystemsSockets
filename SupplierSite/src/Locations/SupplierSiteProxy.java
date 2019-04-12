@@ -37,10 +37,14 @@ public class SupplierSiteProxy implements InterfaceLocation {
         Message outMessage = null;
         
         switch(inMessage.getType()){
+<<<<<<< HEAD
             case GO_TO_SUPPLIER :
                 int quantity = l.goToSupplier(inMessage.getPiece(), inMessage.getState());
                 outMessage = new Message (MessageType.RETURN_GO_TO_SUPPLIER);
                 break;        
+=======
+            
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
         }
         return outMessage;
     }    

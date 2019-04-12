@@ -47,7 +47,11 @@ public class MainProgram {
         /**
          * Start listening on the communication channel.
          */
+<<<<<<< HEAD
         scon = new ServerComm(Constants.SUPPLIERSITE_PORT);
+=======
+        scon = new ServerComm(Constants.LOUNGE_PORT);
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
         scon.start();
         
         /**
@@ -65,4 +69,8 @@ public class MainProgram {
         }
     }
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692

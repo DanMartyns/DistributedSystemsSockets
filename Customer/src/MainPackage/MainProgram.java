@@ -19,6 +19,10 @@ public class MainProgram {
          * Stub initialization.
          */
         Lounge lounge = new Lounge( Constants.LOUNGE_HOST_NAME,Constants.LOUNGE_PORT );
+<<<<<<< HEAD
+=======
+
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
         OutsideWorld outsideWorld = new OutsideWorld ( Constants.OUTSIDEWORLD_HOST_NAME, Constants.OUTSIDEWORLD_PORT );
         Park park = new Park(Constants.PARK_HOST_NAME, Constants.PARK_PORT);
         /**

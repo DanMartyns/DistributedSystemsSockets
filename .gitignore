@@ -40,5 +40,9 @@ hs_err_pid*
 /OutsideWorld/nbproject/private/
 /OutsideWorld/dist/
 /SupplierSite/nbproject/private/
+<<<<<<< HEAD
 /SupplierSite/dist/
 /Park/nbproject/private/
+=======
+/SupplierSite/dist/
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692

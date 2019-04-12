@@ -9,6 +9,10 @@ import Communication.ClientCom;
 import Communication.Message;
 import Communication.MessageType;
 import Interfaces.CustomerOutSideWorld;
+<<<<<<< HEAD
+=======
+import static MainPackage.Constants.NUM_CUSTOMERS;
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
 import genclass.GenericIO;
 
 /**
@@ -54,14 +58,22 @@ public class OutsideWorld implements CustomerOutSideWorld {
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         
+<<<<<<< HEAD
         if ( inMessage.getType() != MessageType.RETURN_DECIDE_ON_REPAIR ){
+=======
+        if ( inMessage.getType() != MessageType.STATUS_OK ){
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
             GenericIO.writelnString("decideOnRepair - Manager thread was interrupted.");
             System.exit(1);                     
         }        
         
         com.close ();
         
+<<<<<<< HEAD
         return inMessage.isDecideOnRepair();
+=======
+        return true;
+>>>>>>> de47baa29e1030af050f241539cb9a20afa32692
 
     }
 
