@@ -37,3 +37,7 @@ hs_err_pid*
 /Customer/build/
 /Mechanics/dist/
 /Mechanics/build/
+/OutsideWorld/nbproject/private/
+/OutsideWorld/dist/
+/SupplierSite/nbproject/private/
+/SupplierSite/dist/
