@@ -119,12 +119,7 @@ public class RepairArea implements MechanicsRepairArea {
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close();
-        
-<<<<<<< HEAD
         return inMessage.isPartAvailable();
-=======
-        return true;
->>>>>>> de47baa29e1030af050f241539cb9a20afa32692
     }
     
     /*

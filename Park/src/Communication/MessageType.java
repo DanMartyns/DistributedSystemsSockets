@@ -293,5 +293,13 @@ public enum MessageType {
     /**
      * Call the function resumeRepairProcedure
      */    
-    RESUME_REPAIR_PROCEDURE
+    RESUME_REPAIR_PROCEDURE,
+
+    SET_REPLACEMENT_CAR,
+
+    SET_ALREADY_REPAIRED,
+
+    SET_OWN_CAR,
+
+    SET_WAIT_REPLACEMENT
 }

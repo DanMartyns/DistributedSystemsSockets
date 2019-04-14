@@ -83,6 +83,21 @@ public class Message implements Serializable {
      * Result from findCar function
      */
     private int replacementCar;
+
+    /**
+     * Size of the queue in Lounge
+     */
+    private int queueIn;
+
+    /**
+     * Number of cars waiting
+     */
+    private int waits;
+
+    /**
+     * Cars Repaired
+     */
+    private int[] repairedCars;
     
     /**
      * Empty constructor for the message that initializes the default
@@ -100,6 +115,9 @@ public class Message implements Serializable {
         readPaper = null;
         partAvailable = false;
         decideOnRepair = false;
+        queueIn = -1;
+        waits = -1;
+        repairedCars = null;
     }
     
     /**
@@ -180,7 +198,37 @@ public class Message implements Serializable {
             case RETURN_GO_TO_SUPPLIER :
                 this.quantity = value;
                 break;
-        }       
+            case SET_SIZE_QUEUE : 
+                this.queueIn = value;
+                break;
+            case SET_WAITING_CARS :
+                this.waits = value;
+                break;
+            case SET_WAIT_REPLACEMENT:
+                this.waits = value;
+                break;
+            case SET_SERVICE :
+                this.quantity = value;
+                break;
+            case PIECES_A_STORED :
+                this.quantity = value;
+                break;                
+            case PIECES_B_STORED :
+                this.quantity = value;
+                break;
+            case PIECES_C_STORED :
+                this.quantity = value;
+                break;  
+            case PIECES_A_STORED_MANAGER:
+                this.quantity = value;
+                break;
+            case PIECES_B_STORED_MANAGER:
+                this.quantity = value;
+                break;
+            case PIECES_C_STORED_MANAGER:
+                this.quantity = value;
+                break;                                                    
+            }       
     }
     
     /**
@@ -229,6 +277,23 @@ public class Message implements Serializable {
                 this.customerID = value;
                 this.state = state;                
                 break;
+            case SET_CUSTOMER_STATE :
+                this.customerID = value;
+                this.state = state;
+                break;
+            case SET_MECHANIC_STATE :
+                this.mechanicID = value;
+                this.state = state;
+                break;
+            case SET_REPLACEMENT_CAR :
+                this.replacementCar = value;
+                this.infoCustomer = state;
+                break;
+            case SET_OWN_CAR :
+                this.customerID = value;
+                this.infoCustomer = state;
+                break;
+                            
         }        
     }
     
@@ -265,7 +330,22 @@ public class Message implements Serializable {
             case RETURN_GET_REQUIRED_PART :
                 this.piece = value;
                 break;
-        }       
+            case SET_MANAGER_STATE :
+                this.state = value; 
+                break;
+            case SET_FLAG_A:
+                this.piece = value;
+                break;
+            case SET_FLAG_B:
+                this.piece = value;
+                break;
+            case SET_FLAG_C:
+                this.piece = value;
+                break;
+            case SET_PIECE_AVAILABLE :
+                this.piece = value;
+                break;    
+            }       
     }
 
     /**
@@ -334,7 +414,24 @@ public class Message implements Serializable {
                 this.decideOnRepair = value;
         }        
     }
-            
+
+    /**
+     * Constructor with the type of the message, one int argument and one int array.     
+     * @param type type of the Message
+     * @param car the current car of the customer
+     * @param repairedCar cars already repaired
+     */
+    public Message(MessageType type, int car, int[] repairedCars){
+        this();
+        this.type = type;
+        switch(type){
+            case SET_ALREADY_REPAIRED:
+                 this.customerID = car;
+                 this.repairedCars = repairedCars;
+                 break;
+        }        
+    }    
+    
     public MessageType getType() {
         return type;
     }
@@ -383,4 +480,17 @@ public class Message implements Serializable {
         return decideOnRepair;
     }
     
+    public int getQueueIn() {
+        return queueIn;
+    }
+    
+    public int getWaits() {
+        return waits;
+    }
+    public int getReplacementCar() {
+        return replacementCar;
+    }
+    public int[] getRepairedCars(){
+        return repairedCars;
+    }
 }

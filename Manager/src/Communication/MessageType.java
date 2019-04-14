@@ -187,6 +187,11 @@ public enum MessageType {
     CHECK_REQUEST,
     
     /**
+     * Result of the function checkRequest
+     */
+    RETURN_CHECK_REQUEST,
+    
+    /**
      * Call the function backToWorkByCar
      */    
     BACK_TO_WORK_BY_CAR,
@@ -200,6 +205,11 @@ public enum MessageType {
      * Call the function decideOnRepair
      */    
     DECIDE_ON_REPAIR,
+    
+    /**
+     * Result from the function decideOnRepair
+     */
+    RETURN_DECIDE_ON_REPAIR,
 
     /**
      * Call the function backToWorkByBus
@@ -211,6 +221,10 @@ public enum MessageType {
      */    
     FIND_CAR,
 
+    /**
+     * Result from the findCar function
+     */
+    RETURN_FIND_CAR,
     /**
      * Call the function collectKey
      */    
@@ -259,15 +273,33 @@ public enum MessageType {
     /**
      * Call the function getRequiredPart
      */    
-    GET_REQUIRED_PART, 
+    GET_REQUIRED_PART,
+    
+    /**
+     * Result from the function getRequiredPart
+     */
+    RETURN_GET_REQUIRED_PART,
 
     /**
      * Call the function partAvailable
      */    
-    PART_AVAILABLE, 
+    PART_AVAILABLE,
+    
+    /**
+     * Result from the partAvailable function
+     */
+    RETURN_PART_AVAILABLE,
 
     /**
      * Call the function resumeRepairProcedure
      */    
-    RESUME_REPAIR_PROCEDURE
+    RESUME_REPAIR_PROCEDURE,
+
+    SET_REPLACEMENT_CAR,
+
+    SET_ALREADY_REPAIRED,
+
+    SET_OWN_CAR,
+
+    SET_WAIT_REPLACEMENT
 }

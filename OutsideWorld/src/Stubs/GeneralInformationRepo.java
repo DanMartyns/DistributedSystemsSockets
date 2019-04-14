@@ -39,24 +39,12 @@ public class GeneralInformationRepo {
     }    
 
     public void setCustomerState(int customer, String customerState) {
-<<<<<<< HEAD
     }
 
     public void setReplecementCar(int parseInt, String info) {
     }
 
     public void setManagerState(String managerState) {
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setReplecementCar(int parseInt, String info) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setManagerState(String managerState) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> de47baa29e1030af050f241539cb9a20afa32692
     }
 
 }

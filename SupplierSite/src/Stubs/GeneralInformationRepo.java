@@ -38,12 +38,23 @@ public class GeneralInformationRepo {
         this.port = port;
     }    
 
+    /**
+     * Update the state of the manager
+     * @param managerState the state of the manager
+     */
     public void setManagerState(String managerState) {
-<<<<<<< HEAD
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> de47baa29e1030af050f241539cb9a20afa32692
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {
+            }
+        }
+        Message msg = new Message(MessageType.SET_MANAGER_STATE, managerState);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close ();    
     }
 
 }

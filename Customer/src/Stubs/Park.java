@@ -89,11 +89,7 @@ public class Park implements CustomerPark{
             System.exit(1);                     
         }  
         com.close();
-<<<<<<< HEAD
         return inMessage.getCustomerID();
-=======
-        return inMessage.getCarId();
->>>>>>> de47baa29e1030af050f241539cb9a20afa32692
        
        
     }
@@ -122,52 +118,4 @@ public class Park implements CustomerPark{
         com.close();
         
     }
-<<<<<<< HEAD
-=======
-    /**
-     * To signal the return of the vehicle to the parking lot, the index of the position 
-     * of the array corresponds to the id of the car, and the value of that position is set to 1.
-     * @param car
-     */
-    public void returnVehicle(int car) {
-       ClientCom com = new ClientCom (server, port);
-        
-        while(!com.open()){
-            try {
-                Thread.currentThread ().sleep ((long) (10));
-            } catch (InterruptedException ex) {}
-        }    
-        Message msg = new Message(MessageType.RETURN_VEHICLE, car);
-        com.writeObject(msg);
-        Message inMessage = (Message) com.readObject();
-        if ( inMessage.getType() != MessageType.STATUS_OK ){
-            GenericIO.writelnString("returnVehicle - Manager thread was interrupted.");
-            System.exit(1);                     
-        }  
-        com.close();
-    }
-    
-    /**
-     * To signal the output of the parking vehicle, that vehicle is removed from the array of cars
-     * @param car
-     */
-    public void getVehicle(int car) {
-        ClientCom com = new ClientCom (server, port);
-        
-        while(!com.open()){
-            try {
-                Thread.currentThread ().sleep ((long) (10));
-            } catch (InterruptedException ex) {}
-        }    
-        Message msg = new Message(MessageType.GET_VEHICLE, car);
-        com.writeObject(msg);
-        Message inMessage = (Message) com.readObject();
-        if ( inMessage.getType() != MessageType.STATUS_OK ){
-            GenericIO.writelnString("getVehicle - Manager thread was interrupted.");
-            System.exit(1);                     
-        }  
-        com.close();
-        
-    }
->>>>>>> de47baa29e1030af050f241539cb9a20afa32692
 }

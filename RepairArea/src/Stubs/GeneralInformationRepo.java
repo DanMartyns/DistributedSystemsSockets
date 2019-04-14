@@ -58,62 +58,6 @@ public class GeneralInformationRepo {
     }
 
     /**
-     * Update the state of the customer
-     * @param customer the id of the customer
-     * @param customerState the state of the customer
-     */  
-    public void setCustomerState(int customer, String customerState) {
-        ClientCom com = new ClientCom (server, port);
-        
-        while(!com.open()){
-            try {
-                Thread.currentThread ().sleep ((long) (10));
-            } catch (InterruptedException ex) {
-            }
-        }
-        Message msg = new Message(MessageType.SET_CUSTOMER_STATE, customer, customerState);
-        com.writeObject(msg);
-        Message inMessage = (Message) com.readObject();
-        com.close ();  
-    }
-
-    /**
-     * Update the size of the queue
-     * @param size the size of the queue in repair Area
-     */
-    public void setValueQueueIn(int size) {
-        ClientCom com = new ClientCom (server, port);
-        
-        while(!com.open()){
-            try {
-                Thread.currentThread ().sleep ((long) (10));
-            } catch (InterruptedException ex) {
-            }
-        }
-        Message msg = new Message(MessageType.SET_SIZE_QUEUE, size);
-        com.writeObject(msg);
-        Message inMessage = (Message) com.readObject();
-        com.close (); 
-    }
-
-    /**
-     * Update the state of the mechanic
-     * @param length the number of customers waiting for a replacement car
-    */    
-    public void setNumberWaitingReplece(int length) {
-        ClientCom com = new ClientCom (server, port);
-        
-        while(!com.open()){
-            try {
-                Thread.currentThread ().sleep ((long) (10));
-            } catch (InterruptedException ex) {}
-        }
-        Message msg = new Message(MessageType.SET_WAITING_CARS, length);
-        com.writeObject(msg);
-        Message inMessage = (Message) com.readObject();
-        com.close (); 
-    }
-    /**
      * Update the state of the mechanic
      * @param mechanic the id of the mechanic
      * @param mechanicState the state of the mechanic
@@ -130,59 +74,6 @@ public class GeneralInformationRepo {
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close (); 
-    }
-
-    /**
-     * Warning of no C-type parts
-     * @param peca type of piece
-     */    
-    public void setFlagAPieces(String peca) {
-        ClientCom com = new ClientCom (server, port);
-        
-        while(!com.open()){
-            try {
-                Thread.currentThread ().sleep ((long) (10));
-            } catch (InterruptedException ex) {}
-        }
-        Message msg = new Message(MessageType.SET_FLAG_A, peca);
-        com.writeObject(msg);
-        Message inMessage = (Message) com.readObject();
-        com.close (); 
-    }
-
-    /**
-     * Warning of no C-type parts
-     * @param peca type of piece
-     */
-    public void setFlagBPieces(String peca) {
-        ClientCom com = new ClientCom (server, port);
-        
-        while(!com.open()){
-            try {
-                Thread.currentThread ().sleep ((long) (10));
-            } catch (InterruptedException ex) {}
-        }
-        Message msg = new Message(MessageType.SET_FLAG_B, peca);
-        com.writeObject(msg);
-        Message inMessage = (Message) com.readObject();
-        com.close ();     }
-
-    /**
-     * Warning of no C-type parts
-     * @param peca type of piece
-     */
-    public void setFlagCPieces(String peca) {
-        ClientCom com = new ClientCom (server, port);
-        
-        while(!com.open()){
-            try {
-                Thread.currentThread ().sleep ((long) (10));
-            } catch (InterruptedException ex) {}
-        }
-        Message msg = new Message(MessageType.SET_FLAG_C, peca);
-        com.writeObject(msg);
-        Message inMessage = (Message) com.readObject();
-        com.close ();     
     }
 
     public void setNumberServiceRequest(int size) {

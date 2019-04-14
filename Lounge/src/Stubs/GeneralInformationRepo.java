@@ -71,7 +71,7 @@ public class GeneralInformationRepo {
             } catch (InterruptedException ex) {
             }
         }
-        Message msg = new Message(MessageType.SET_MANAGER_STATE, customer, customerState);
+        Message msg = new Message(MessageType.SET_CUSTOMER_STATE, customer, customerState);
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close ();  

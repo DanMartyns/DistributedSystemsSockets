@@ -5,7 +5,6 @@ echo "${bold}*** Script Local ***${normal}"
 ###
 
 echo -e "\n${bold}* Copiar parâmetros de simulação *${normal}"
-<<<<<<< HEAD
 cp Constants/Constants_local.java Manager/src/MainPackage/Constants.java
 cp Constants/Constants_local.java Customer/src/MainPackage/Constants.java
 cp Constants/Constants_local.java Mechanics/src/MainPackage/Constants.java
@@ -14,6 +13,7 @@ cp Constants/Constants_local.java RepairArea/src/MainPackage/Constants.java
 cp Constants/Constants_local.java OutsideWorld/src/MainPackage/Constants.java
 cp Constants/Constants_local.java Park/src/MainPackage/Constants.java
 cp Constants/Constants_local.java SupplierSite/src/MainPackage/Constants.java
+cp Constants/Constants_local.java GeneralInformationRepo/src/MainPackage/Constants.java
 ###
 
 echo -e "\n${bold}* Compilação do código em cada nó *${normal}\n"
@@ -57,46 +57,22 @@ echo -e "${bold}->${normal} A compilar o SupplierSite"
 cd SupplierSite/
 javac $(find . -name '*.java')
 cd ..
-###
 
-echo -e "\n${bold}* Execução do código em cada nó *${normal}\n"
-=======
-cp Constants_local.java Manager/src/MainPackage/Constants.java
-
-
-###
-
-echo -e "\n${bold}* Compilação do código em cada nó *${normal}"
-
-echo -e "\n${bold}->${normal} A compilar o Manager"
-cd Manager/
+echo -e "${bold}->${normal} A compilar o General Information Repository "
+cd GeneralInformationRepo/
 javac $(find . -name '*.java')
 cd ..
-
-
 ###
 
 echo -e "\n${bold}* Execução do código em cada nó *${normal}"
->>>>>>> de47baa29e1030af050f241539cb9a20afa32692
 # Wait for the shared regions to be launched before lanching the intervening enities
 
+echo -e "${bold}->${normal} A executar General Information Repository"
+cd GeneralInformationRepo/src
+java -cp $(pwd) MainPackage/MainProgram &
+cd ../../
+
 sleep 1
-
-<<<<<<< HEAD
-echo -e "${bold}->${normal} A executar Manager"
-cd Manager/src
-java -cp $(pwd) MainPackage/MainProgram &
-cd ../../
-
-echo -e "${bold}->${normal} A executar Customer"
-cd Customer/src
-java -cp $(pwd) MainPackage/MainProgram &
-cd ../../
-
-echo -e "${bold}->${normal} A executar Mechanics"
-cd Mechanics/src
-java -cp $(pwd) MainPackage/MainProgram &
-cd ../../
 
 echo -e "${bold}->${normal} A executar Lounge"
 cd Lounge/src
@@ -123,18 +99,22 @@ cd SupplierSite/src
 java -cp $(pwd) MainPackage/MainProgram &
 cd ../../
 
-
-wait
-
-
-=======
-echo -e "\n${bold}->${normal} A executar Logger"
-cd Manager/src/
+echo -e "${bold}->${normal} A executar Manager"
+cd Manager/src
 java -cp $(pwd) MainPackage/MainProgram &
-cd ../../../..
+cd ../../
+
+echo -e "${bold}->${normal} A executar Customer"
+cd Customer/src
+java -cp $(pwd) MainPackage/MainProgram &
+cd ../../
+
+echo -e "${bold}->${normal} A executar Mechanics"
+cd Mechanics/src
+java -cp $(pwd) MainPackage/MainProgram &
+cd ../../
 
 wait
 
->>>>>>> de47baa29e1030af050f241539cb9a20afa32692
 echo -e "\n${bold}->${normal} A execução terminou"
 
