@@ -11,6 +11,7 @@ import genclass.GenericIO;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import MainPackage.MainProgram;
 
 /**
  * @author danielmartins
@@ -75,7 +76,7 @@ public class Park {
             cars.add(Integer.parseInt(inf[1])); 
             notifyAll();
         }
-        
+        GenericIO.writelnString("Customer "+info+" go to repair Shop");
     }
 
     /**
@@ -111,6 +112,7 @@ public class Park {
              
         CustomersInWait[id] = false;          
         notifyAll();
+        GenericIO.writelnString("Customer "+id+" find car");
         return replacementCars.poll();
     }
 
@@ -133,7 +135,7 @@ public class Park {
             repairedCars[car] = -1;            
         }
         notifyAll();
-
+        GenericIO.writelnString("Customer "+car+" collect car");
     }
     /**
      * To signal the return of the vehicle to the parking lot, the index of the position 
@@ -141,7 +143,8 @@ public class Park {
      */
     public synchronized void returnVehicle(int car) {
         repairedCars[car] = 1;
-        notifyAll();   
+        notifyAll();
+        GenericIO.writelnString("Mechanic return Vehicle from "+car);   
     }
     
     /**
@@ -151,12 +154,22 @@ public class Park {
         assert cars.contains(car);
         cars.remove(Integer.valueOf(car));
         notifyAll();
+        GenericIO.writelnString("Mechanic get Vehicle from "+car);           
     }
     
     public synchronized void blockVehicle(int car){
         cars.add(car);
         notifyAll();
+        GenericIO.writelnString("Mechanic block Vehicle from "+car);           
     }
 
+    /**
+     * Terminate the outsideWorld service.
+     */
+    public synchronized void serviceEnd(){
+        MainProgram.serviceEnd = true;
+        notifyAll();
+        GenericIO.writelnString(" Park will end");   
+    }     
    
 }

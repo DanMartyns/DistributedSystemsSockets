@@ -6,6 +6,7 @@ import Locations.GeneralInformationRepo;
 import Locations.GeneralInformationRepoProxy;
 import Locations.ServiceProvider;
 import static MainPackage.Constants.FILE_NAME;
+import genclass.GenericIO;
 
 /**
  * Main Logger program.
@@ -33,11 +34,11 @@ public class MainProgram {
         
         
         GeneralInformationRepo logger = new GeneralInformationRepo(FILE_NAME);
+        GeneralInformationRepoProxy loggerInt = new GeneralInformationRepoProxy(logger);
         
+
         logger.initStateLog();
         logger.printHeaderLog();  
-        
-        GeneralInformationRepoProxy loggerInt = new GeneralInformationRepoProxy(logger);
         
         /**
          * Start listening on the communication channel.
@@ -54,10 +55,9 @@ public class MainProgram {
                 sconi = scon.accept();
                 sp = new ServiceProvider(sconi, loggerInt);
                 sp.start();
-            } catch (SocketTimeoutException ex) {
-            }
-            
+            } catch (SocketTimeoutException ex) {}   
         }
+        GenericIO.writelnString("Logger it's over");
     }
     
 }

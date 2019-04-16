@@ -13,7 +13,7 @@ import genclass.GenericIO;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import MainPackage.MainProgram;
 
 
 /**
@@ -541,5 +541,12 @@ public class GeneralInformationRepo{
             this.pieces2Manager = ""+pieces2Manager;
         }
         printHeaderLog();
+    }
+
+    /**
+     * Terminate the logger service.
+     */
+    public synchronized void serviceEnd(){
+        MainProgram.serviceEnd = true;
     }    
 }

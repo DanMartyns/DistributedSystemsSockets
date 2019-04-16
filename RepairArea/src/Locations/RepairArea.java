@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-
+import MainPackage.MainProgram;
+import genclass.GenericIO;
 /**
  * @author danielmartins
  * @author giselapinto
@@ -72,6 +73,7 @@ public class RepairArea {
             service = "end";
         }
        notifyAll();
+       GenericIO.writelnString(" Mechanic "+mechanic+" read the paper ");   
        return service;
     }
     
@@ -89,6 +91,7 @@ public class RepairArea {
         logger.setManagerState(managerState);
         logger.setNumberServiceRequest(services.size());       
         notifyAll();
+        GenericIO.writelnString(" Manager register service "+customer); 
     }
 
     /**
@@ -99,6 +102,7 @@ public class RepairArea {
      */
     public synchronized void startRepairProcedure(int mechanic, String mechanicState) {
         logger.setMechanicState(mechanic,mechanicState);
+        GenericIO.writelnString(" Mechanic "+mechanic+" start repair procedure "); 
     }
 
     /*
@@ -116,6 +120,7 @@ public class RepairArea {
           */
         int min = 0;
         int max = 2;
+        GenericIO.writelnString(" Mechanic "+mechanic+" get required part "); 
         return ""+(int)(Math.random() * ((max) + 1));
     }
 
@@ -128,6 +133,10 @@ public class RepairArea {
     */
     public synchronized boolean partAvailable(String piece, int car) {       
         logger.setPiecesAvabal(piece);
+        GenericIO.writelnString(" Mechanic check part available ");
+        GenericIO.writelnString(" A-type pieces quantity : "+Constants.pieceA);
+        GenericIO.writelnString(" B-type pieces quantity : "+Constants.pieceB);
+        GenericIO.writelnString(" C-type pieces quantity : "+Constants.pieceC);                 
         if (piece.equals("0") && Constants.pieceA <= 1 || piece.equals("1") && Constants.pieceB <= 1 || piece.equals("2") && Constants.pieceC <= 1){
             blockedServices.put(car, piece);
             return false;
@@ -149,7 +158,7 @@ public class RepairArea {
             Constants.pieceB--;
         if (piece.equals("2") )
             Constants.pieceC--;    
-       
+        GenericIO.writelnString(" Mechanic "+mechanic+" resume repair procedure "); 
     }
 
     /*
@@ -180,6 +189,7 @@ public class RepairArea {
             Constants.pieceC = Constants.pieceC + quantidade;
             logger.setPieces2Manager(Constants.pieceC);
         }
+        GenericIO.writelnString(" Manager store part "); 
     }
     /**
      * Fuction to shutdown the repair area
@@ -189,6 +199,15 @@ public class RepairArea {
         logger.setManagerState(managerState);
         this.shutdown = true;
         notifyAll();
+        GenericIO.writelnString(" Manager shutdown Mechanics "); 
     }
-     
+    
+    /**
+     * Terminate the outsideWorld service.
+     */
+    public synchronized void serviceEnd(){
+        MainProgram.serviceEnd = true;
+        notifyAll();
+        GenericIO.writelnString(" Repair Area will end "); 
+    }      
 }

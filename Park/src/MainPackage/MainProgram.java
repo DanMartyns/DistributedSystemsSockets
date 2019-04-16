@@ -11,6 +11,7 @@ import Stubs.GeneralInformationRepo;
 import Locations.ServiceProvider;
 import Locations.Park;
 import Locations.ParkProxy;
+import genclass.GenericIO;
 /**
  *
  * @author danielmartins
@@ -59,10 +60,9 @@ public class MainProgram {
                 sconi = scon.accept();
                 sp = new ServiceProvider(sconi, rap);
                 sp.start();
-            } catch (SocketTimeoutException ex) {
+            } catch (SocketTimeoutException ex) {}
         }
-            
-        }
+        GenericIO.writelnString("Park it's over");
     }
     
 }

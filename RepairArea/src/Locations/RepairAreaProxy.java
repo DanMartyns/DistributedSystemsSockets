@@ -33,7 +33,7 @@ public class RepairAreaProxy implements InterfaceLocation {
      * @return message to be replied
      */
     @Override
-    public Message processAndReply(Message inMessage, ServerComm scon){
+    public Message processAndReply(Message inMessage){
         Message outMessage = null;
         
         switch(inMessage.getType()){
@@ -78,7 +78,11 @@ public class RepairAreaProxy implements InterfaceLocation {
             case RESUME_REPAIR_PROCEDURE :
                 l.resumeRepairProcedure(inMessage.getPiece(), inMessage.getMechanicID(), inMessage.getState());
                 outMessage = new Message(MessageType.STATUS_OK);
-                break;                     
+                break;
+            case SERVICE_END :
+                l.serviceEnd();
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;                                      
         }
         return outMessage;
     }    

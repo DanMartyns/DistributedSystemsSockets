@@ -33,7 +33,7 @@ public class OutsideWorldProxy implements InterfaceLocation {
      * @return message to be replied
      */
     @Override
-    public Message processAndReply(Message inMessage, ServerComm scon){
+    public Message processAndReply(Message inMessage){
         Message outMessage = null;
         
         switch(inMessage.getType()){
@@ -59,7 +59,10 @@ public class OutsideWorldProxy implements InterfaceLocation {
                 out.phoneCustomer(inMessage.getInfoCustomer(), inMessage.getState());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
-                                                                         
+            case SERVICE_END :
+                out.serviceEnd();
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;                                                                         
         }
         return outMessage;
     }    

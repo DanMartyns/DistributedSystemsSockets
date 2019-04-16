@@ -8,9 +8,15 @@ package MainPackage;
 import java.net.SocketTimeoutException;
 import Communication.ServerComm;
 import Locations.Lounge;
-import Stubs.GeneralInformationRepo;
 import Locations.ServiceProvider;
 import Locations.LoungeProxy;
+
+import Stubs.GeneralInformationRepo;
+import Stubs.OutsideWorld;
+import Stubs.Park;
+import Stubs.RepairArea;
+import Stubs.SupplierSite;
+import genclass.GenericIO;
 /**
  *
  * @author danielmartins
@@ -37,11 +43,15 @@ public class MainProgram {
          * Stub initialization.
          */
         GeneralInformationRepo logger = new GeneralInformationRepo(Constants.LOGGER_HOST_NAME, Constants.LOGGER_PORT);
-        
+        OutsideWorld outsideWorld = new OutsideWorld ( Constants.OUTSIDEWORLD_HOST_NAME, Constants.OUTSIDEWORLD_PORT );
+        SupplierSite supplierSite = new SupplierSite ( Constants.SUPPLIERSITE_HOST_NAME, Constants.SUPPLIERSITE_PORT );        
+        RepairArea repairArea = new RepairArea ( Constants.REPAIRAREA_HOST_NAME, Constants.REPAIRAREA_PORT );          
+        Park park = new Park(Constants.PARK_HOST_NAME, Constants.PARK_PORT);
+
         /**
          * Shared region and proxy initialization.
          */
-        Lounge l = new Lounge(logger);
+        Lounge l = new Lounge(logger,outsideWorld, supplierSite, repairArea, park);
         LoungeProxy lp = new LoungeProxy(l);
         
         /**
@@ -59,10 +69,9 @@ public class MainProgram {
                 sconi = scon.accept();
                 sp = new ServiceProvider(sconi, lp);
                 sp.start();
-            } catch (SocketTimeoutException ex) {
+            } catch (SocketTimeoutException ex) {}    
         }
-            
-        }
+        GenericIO.writelnString("Lounge it's over");
     }
     
 }

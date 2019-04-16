@@ -55,12 +55,13 @@ public class Lounge implements CustomerLounge {
         } 
         Message msg = new Message(MessageType.QUEUE_IN, id, customerState);
         com.writeObject(msg);
+        //GenericIO.writelnString("Find car "+id+" send Message");
         Message inMessage = (Message) com.readObject();
         if ( inMessage.getType() != MessageType.STATUS_OK ){
-            GenericIO.writelnString("queueIn - Manager thread was interrupted.");
+            GenericIO.writelnString("queueIn - Customer thread was interrupted.");
             System.exit(1);                     
-        }            
-        
+        }
+        //GenericIO.writelnString("Find car "+id+" receive Message - "+inMessage.getType());            
         com.close();  
     
     }
@@ -83,11 +84,13 @@ public class Lounge implements CustomerLounge {
         } 
         Message msg = new Message(MessageType.TALK_WITH_MANAGER, customer);
         com.writeObject(msg);
+        //GenericIO.writelnString("talk with manager "+customer+" send Message");        
         Message inMessage = (Message) com.readObject();
         if ( inMessage.getType() != MessageType.STATUS_OK ){
-            GenericIO.writelnString("talkWithManager - Manager thread was interrupted.");
+            GenericIO.writelnString("talkWithManager - Customer thread was interrupted.");
             System.exit(1);                     
-        }            
+        }
+        //GenericIO.writelnString("talk with manager "+customer+" receive Message - "+inMessage.getType());            
         
         com.close();    
     }
@@ -110,12 +113,13 @@ public class Lounge implements CustomerLounge {
         } 
         Message msg = new Message(MessageType.COLLECT_KEY, customer, customerState);
         com.writeObject(msg);
+        //GenericIO.writelnString("collectkey "+customer+" send Message");
         Message inMessage = (Message) com.readObject();
         if ( inMessage.getType() != MessageType.STATUS_OK ){
-            GenericIO.writelnString("collectKey - Manager thread was interrupted.");
+            GenericIO.writelnString("collectKey - Customer thread was interrupted.");
             System.exit(1);                     
         }            
-        
+        //GenericIO.writelnString("collectKey "+customer+" receice Message - "+inMessage.getType()); 
         com.close();    
     }
 
@@ -135,13 +139,36 @@ public class Lounge implements CustomerLounge {
         Message msg = new Message(MessageType.PAY_FOR_THE_SERVICE, customer);
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
+        //GenericIO.writelnString("payForTheService "+customer+" send Message");
         if ( inMessage.getType() != MessageType.STATUS_OK ){
-            GenericIO.writelnString("payForTheService - Manager thread was interrupted.");
+            GenericIO.writelnString("payForTheService - Customer thread was interrupted.");
             System.exit(1);                     
         }            
-        
+        //GenericIO.writelnString("payForTheService "+customer+" receice Message - "+inMessage.getType()); 
         com.close();    
     
     }
+
+    /**
+     * Alert Lounge that the service is finish
+     */
+    public void serviceEnd(){
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {}
+        } 
+        Message msg = new Message(MessageType.SERVICE_END);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        if ( inMessage.getType() != MessageType.STATUS_OK ){
+            GenericIO.writelnString("serviceEnd - Customer thread was interrupted.");
+            System.exit(1);                     
+        }            
+        
+        com.close();         
+    }    
 
 }

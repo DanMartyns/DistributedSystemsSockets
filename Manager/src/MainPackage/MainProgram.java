@@ -6,6 +6,8 @@ import Stubs.OutsideWorld;
 import Stubs.RepairArea;
 import Stubs.SupplierSite;
 
+import genclass.GenericIO;
+
 /**
  * Main manager program.
  * Initialize stubs and start manager lifecycle.
@@ -30,8 +32,9 @@ public class MainProgram {
         manager.start();
         try {
             manager.join();
-        } catch (InterruptedException ex) {
-        }
+        } catch (InterruptedException ex) { GenericIO.writelnString("Manager was interrupted - "+ex); }
+        lounge.serviceEnd();
+        GenericIO.writelnString("Manager it's over");
     }
     
     

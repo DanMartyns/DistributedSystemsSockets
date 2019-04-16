@@ -29,11 +29,10 @@ public class LoungeProxy implements InterfaceLocation {
     /**
      * Process and reply a message.
      * @param inMessage message received
-     * @param scon communication channel
      * @return message to be replied
      */
     @Override
-    public Message processAndReply(Message inMessage, ServerComm scon){
+    public Message processAndReply(Message inMessage){
         Message outMessage = null;
         
         switch(inMessage.getType()){
@@ -93,7 +92,14 @@ public class LoungeProxy implements InterfaceLocation {
             case CHECK_REQUEST :
                 boolean check = l.checkRequest(inMessage.getPiece());
                 outMessage = new Message (MessageType.RETURN_CHECK_REQUEST, check);
-                break;    
+                break;
+            /**
+             * Function called by all entities  
+             */
+            case SERVICE_END :
+                l.serviceEnd();    
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;                
         }
         return outMessage;
     }    

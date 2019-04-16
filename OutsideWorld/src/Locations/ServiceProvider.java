@@ -50,7 +50,7 @@ public class ServiceProvider extends Thread {
         /**
          * Process and reply request.
          */
-        Message outMessage = il.processAndReply(inMessage, com);
+        Message outMessage = il.processAndReply(inMessage);
         /**
          * Send reply and close communication channel.
          */

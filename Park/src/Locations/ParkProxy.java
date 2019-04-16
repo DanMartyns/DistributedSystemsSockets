@@ -33,7 +33,7 @@ public class ParkProxy implements InterfaceLocation {
      * @return message to be replied
      */
     @Override
-    public Message processAndReply(Message inMessage, ServerComm scon){
+    public Message processAndReply(Message inMessage){
         Message outMessage = null;
         
         switch(inMessage.getType()){
@@ -67,6 +67,10 @@ public class ParkProxy implements InterfaceLocation {
                 l.blockVehicle(inMessage.getCustomerID()); 
                 outMessage = new Message (MessageType.STATUS_OK);
                 break;   
+            case SERVICE_END :
+                l.serviceEnd();
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;           
             }
 
         return outMessage;

@@ -155,4 +155,26 @@ public class Lounge implements ManagerLounge {
         
         com.close();           
     }
+
+    /**
+     * Alert Lounge that the service is finish
+     */
+    public void serviceEnd(){
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {}
+        } 
+        Message msg = new Message(MessageType.SERVICE_END);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        if ( inMessage.getType() != MessageType.STATUS_OK ){
+            GenericIO.writelnString("serviceEnd - Manager thread was interrupted.");
+            System.exit(1);                     
+        }            
+        
+        com.close();         
+    }
 }

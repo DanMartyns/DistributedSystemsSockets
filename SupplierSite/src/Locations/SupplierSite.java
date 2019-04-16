@@ -6,6 +6,8 @@
 package Locations;
 
 import Stubs.GeneralInformationRepo;
+import MainPackage.MainProgram;
+import genclass.GenericIO;
 
 /**
  * @author danielmartins
@@ -42,8 +44,17 @@ public class SupplierSite {
         int range = max - min + 1;
         int result = (int) (Math.random() * range);
         this.sendingPieces[Integer.parseInt(peca)] = this.sendingPieces[Integer.parseInt(peca)] + result;
-        
+        GenericIO.writelnString(" Manager go to supplier. Restore type "+peca+", quantity : "+result); 
         return result;
     }
+
+    /**
+     * Terminate the supplier site service.
+     */
+    public synchronized void serviceEnd(){
+        MainProgram.serviceEnd = true;
+        notifyAll();
+        GenericIO.writelnString(" Supplier Site will end"); 
+    }     
         
 }

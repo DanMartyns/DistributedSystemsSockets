@@ -9,7 +9,12 @@ import Interfaces.ManagerLounge;
 import Interfaces.ManagerOutsideWorld;
 import Interfaces.ManagerRepairArea;
 import Interfaces.ManagerSupplierSite;
-import MainPackage.Constants.*;
+
+import static MainPackage.Constants.ALERTING_CUSTOMER;
+import static MainPackage.Constants.ATENDING_CUSTOMER;
+import static MainPackage.Constants.GETTING_NEW_PARTS;
+import static MainPackage.Constants.NUM_CUSTOMERS;
+
 import EntitiesState.ManagerState;
 
 /**
@@ -21,7 +26,6 @@ public class Manager extends Thread {
      * Identifier of the Manager.
      */
     private int id;
-    
     /**
      * Instance of the manager interface Lounge.
      */
@@ -37,15 +41,9 @@ public class Manager extends Thread {
      */
     private ManagerRepairArea repairArea;
     
-    /**
-     * Instance of the manager interface Outside World.
-     */
     private ManagerOutsideWorld outsideWorld;
     
-    private int numRepairedClients = 0;
-
-    
-    
+    private int numRepairedClients = 0;  
     
     /**
      * Manager constructor
@@ -55,6 +53,7 @@ public class Manager extends Thread {
      * @param supplierSite instance of the supplier site
      * @param repairArea instance of the repair area
      * @param outsideWorld instance of the outside world
+     * @param logger instance of the logger
      */
     
     public Manager(int id, ManagerLounge lounge, ManagerSupplierSite supplierSite, ManagerRepairArea repairArea, ManagerOutsideWorld outsideWorld) {
@@ -62,7 +61,8 @@ public class Manager extends Thread {
         this.lounge = lounge;
         this.supplierSite = supplierSite;
         this.repairArea = repairArea;
-        this.outsideWorld = outsideWorld;     
+        this.outsideWorld = outsideWorld;
+        
     }
     /**
      * Implements the life cycle of the broker.
@@ -73,7 +73,7 @@ public class Manager extends Thread {
         while(lounge.getNextTask(ManagerState.CHECKING_WHAT_TO_DO.toString())){            
             String[] choice = lounge.appraiseSit().split("@"); 
 
-            if(choice[0].equals(Constants.ATENDING_CUSTOMER)){
+            if(choice[0].equals(ATENDING_CUSTOMER)){
                 String[] customer = choice[1].split(",");
                 lounge.talkToCustomer(choice[1], ManagerState.ATTENDING_CUSTOMER.toString());
 
@@ -88,16 +88,16 @@ public class Manager extends Thread {
                     lounge.receivePayment(choice[1]);                       
                     numRepairedClients++;
 
-                    if( numRepairedClients == Constants.NUM_CUSTOMERS){
+                    if( numRepairedClients == NUM_CUSTOMERS){
                         repairArea.shutdownNow(ManagerState.CHECKING_WHAT_TO_DO.toString());               
                         break;    
                     }                    
                 }
             }  
-            else if(choice[0].equals(Constants.ALERTING_CUSTOMER)){
+            else if(choice[0].equals(ALERTING_CUSTOMER)){
                 outsideWorld.phoneCustomer(choice[1], ManagerState.ALERTING_CUSTOMER.toString());            
             }    
-            else if (choice[0].equals(Constants.GETTING_NEW_PARTS)){    
+            else if (choice[0].equals(GETTING_NEW_PARTS)){    
                 int quantidade = supplierSite.goToSupplier(choice[1], ManagerState.GETTING_NEW_PARTS.toString());
                 repairArea.storePart(choice[1], quantidade, ManagerState.REPLENISH_STOCK.toString());
             }                  

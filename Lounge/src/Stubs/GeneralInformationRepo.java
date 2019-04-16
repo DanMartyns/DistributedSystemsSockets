@@ -184,4 +184,22 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();     
     }
+
+    /**
+     * Terminate the service.
+     */
+    public void serviceEnd(){
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {
+            }
+        }
+        Message msg = new Message(MessageType.SERVICE_END);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close ();
+    }   
 }

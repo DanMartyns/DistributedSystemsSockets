@@ -11,6 +11,7 @@ import Locations.OutsideWorldProxy;
 import Locations.ServiceProvider;
 import Stubs.GeneralInformationRepo;
 import java.net.SocketTimeoutException;
+import genclass.GenericIO;
 
 /**
  *
@@ -62,5 +63,6 @@ public class MainProgram {
                 sp.start();
             } catch (SocketTimeoutException ex) {}    
         }
+        GenericIO.writelnString("OutsideWorld it's over");
     }
 }

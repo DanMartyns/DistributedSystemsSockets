@@ -118,3 +118,5 @@ wait
 
 echo -e "\n${bold}->${normal} A execução terminou"
 
+killall -9 java  
+

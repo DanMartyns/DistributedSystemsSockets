@@ -5,6 +5,7 @@ import static MainPackage.Constants.*;
 import Stubs.Lounge;
 import Stubs.Park;
 import Stubs.RepairArea;
+import genclass.GenericIO;
 
 /**
  * Main manager program.
@@ -28,18 +29,20 @@ public class MainProgram {
         Mechanic[] mechanic = new Mechanic[NUM_MECHANICS];
  
 
-        for(int i = 0; i<NUM_MECHANICS; i++){
+        for(int i = 0; i< NUM_MECHANICS; i++){
 
             mechanic[i] = new Mechanic(i, lounge, repairArea,  park);
             mechanic[i].start();
         }
         
         
-        for (int i = 0; i<NUM_CUSTOMERS; i++) {
+        for (int i = 0; i < NUM_MECHANICS; i++) {
             try{
                 mechanic[i].join();
             }
-            catch(InterruptedException e){}
+            catch(InterruptedException e){ GenericIO.writelnString("Mechanics was interrupted - "+e); }
         }
+        lounge.serviceEnd();
+        GenericIO.writelnString("Mechanics it's over");
     }
 }

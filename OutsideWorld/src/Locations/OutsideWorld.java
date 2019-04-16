@@ -8,6 +8,7 @@ package Locations;
 import Stubs.GeneralInformationRepo;
 import static MainPackage.Constants.NUM_CUSTOMERS;
 import genclass.GenericIO;
+import MainPackage.MainProgram;
 
 /**
  * @author danielmartins
@@ -48,6 +49,7 @@ public class OutsideWorld {
      */
     public synchronized boolean decideOnRepair(int customer, String customerState) {
         logger.setCustomerState(customer, customerState);
+        GenericIO.writelnString(" Customer "+customer+" decideOnRepair ");   
         return Math.random() > 0.5;
 
     }
@@ -73,8 +75,7 @@ public class OutsideWorld {
 
         carRepaired [customer] = false;
         notifyAll();
-
-
+        GenericIO.writelnString(" Customer "+customer+" back to work by bus ");   
     }
     /**
      * Synchronization point.
@@ -100,8 +101,7 @@ public class OutsideWorld {
             }
         }
         carRepaired [customer] = false;
-        
-
+        GenericIO.writelnString(" Customer "+customer+" back to work by car ");         
     }
     /**
      * Synchronization point.
@@ -112,6 +112,16 @@ public class OutsideWorld {
     public synchronized void phoneCustomer(String info, String managerState) {
         logger.setManagerState(managerState);
         carRepaired [Integer.parseInt(info.split(",")[0])] = true;  
-        notifyAll();      
-    }        
+        notifyAll();
+        GenericIO.writelnString(" Manager will call the customer "+info.split(",")[0]);      
+    }
+    
+    /**
+     * Terminate the outsideWorld service.
+     */
+    public synchronized void serviceEnd(){
+        MainProgram.serviceEnd = true;
+        notifyAll();
+        GenericIO.writelnString(" Outside world will end ");
+    }             
 }

@@ -83,11 +83,6 @@ public class Park implements CustomerPark{
         Message msg = new Message(MessageType.FIND_CAR, id, customerState);
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
-        
-        if ( inMessage.getType() != MessageType.STATUS_OK ){
-            GenericIO.writelnString("findCar - Manager thread was interrupted.");
-            System.exit(1);                     
-        }  
         com.close();
         return inMessage.getCustomerID();
        

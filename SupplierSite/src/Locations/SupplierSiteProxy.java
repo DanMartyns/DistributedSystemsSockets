@@ -33,14 +33,18 @@ public class SupplierSiteProxy implements InterfaceLocation {
      * @return message to be replied
      */
     @Override
-    public Message processAndReply(Message inMessage, ServerComm scon){
+    public Message processAndReply(Message inMessage){
         Message outMessage = null;
         
         switch(inMessage.getType()){
             case GO_TO_SUPPLIER :
                 int quantity = l.goToSupplier(inMessage.getPiece(), inMessage.getState());
-                outMessage = new Message (MessageType.RETURN_GO_TO_SUPPLIER);
-                break;        
+                outMessage = new Message (MessageType.RETURN_GO_TO_SUPPLIER, quantity);
+                break;
+            case SERVICE_END :
+                l.serviceEnd();
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;                         
         }
         return outMessage;
     }    

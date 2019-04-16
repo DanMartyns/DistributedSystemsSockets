@@ -5,6 +5,7 @@ import static MainPackage.Constants.*;
 import Stubs.Lounge;
 import Stubs.OutsideWorld;
 import Stubs.Park;
+import genclass.GenericIO;
 
 /**
  * Main manager program.
@@ -38,8 +39,12 @@ public class MainProgram {
             try{
                 customer[i].join();
             }
-            catch(InterruptedException e){}
+            catch(InterruptedException e){
+                GenericIO.writelnString("Customer was interrupted - "+e);
+            }
         }
+        lounge.serviceEnd();
+        GenericIO.writelnString("Customer it's over");
     }
     
     

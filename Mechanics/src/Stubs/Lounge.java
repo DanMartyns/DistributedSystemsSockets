@@ -29,9 +29,9 @@ public class Lounge implements MechanicsLounge {
      
     /**
     * Let manager know that the mechanics needs more pieces from supplier site
-    * @param peca pecas
-    * @param mechanic 's id
-    * @param mechanicState state
+    * @param peca the piece
+    * @param mechanics mechanic's id
+    * @param mechanicState mechanic's state
     **/
     public void letManagerKnow(String peca, int mechanic, String mechanicState) {
         ClientCom com = new ClientCom (server, port);
@@ -51,8 +51,8 @@ public class Lounge implements MechanicsLounge {
     /**
     * Notify the repair is concluded
     * @param currentCar id of current car
-    * @param mechanics 's id
-    * @param mechanicState state
+    * @param mechanics mechanic's id
+    * @param mechanicState mechanic's state
     **/
     public void repairConcluded(int currentCar, int mechanic, String mechanicState) {
         ClientCom com = new ClientCom (server, port);
@@ -69,6 +69,11 @@ public class Lounge implements MechanicsLounge {
         
     }
     
+    /**
+     * Check if the piece has already been ordered
+     * @param peca the piece
+     * @return true or false, if the piece has already been ordered
+     */
     public boolean checkRequest(String peca){
         ClientCom com = new ClientCom (server, port);
         
@@ -83,4 +88,26 @@ public class Lounge implements MechanicsLounge {
         com.close();
         return inMessage.isCheckRequest();
     }
+
+    /**
+     * Alert Lounge that the service is finish
+     */
+    public void serviceEnd(){
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {}
+        } 
+        Message msg = new Message(MessageType.SERVICE_END);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        if ( inMessage.getType() != MessageType.STATUS_OK ){
+            GenericIO.writelnString("serviceEnd - Mechanic thread was interrupted.");
+            System.exit(1);                     
+        }            
+        
+        com.close();         
+    }    
 }

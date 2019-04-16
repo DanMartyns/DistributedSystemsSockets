@@ -301,5 +301,7 @@ public enum MessageType {
 
     SET_OWN_CAR,
 
-    SET_WAIT_REPLACEMENT
+    SET_WAIT_REPLACEMENT,
+
+    SERVICE_END
 }
