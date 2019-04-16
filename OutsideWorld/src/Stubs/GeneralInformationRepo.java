@@ -38,13 +38,58 @@ public class GeneralInformationRepo {
         this.port = port;
     }    
 
+    /**
+     * Update the state of the customer
+     * @param customer the id of the customer
+     * @param customerState the state of the customer
+     */  
     public void setCustomerState(int customer, String customerState) {
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {
+            }
+        }
+        Message msg = new Message(MessageType.SET_CUSTOMER_STATE, customer, customerState);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close ();  
     }
 
     public void setReplecementCar(int parseInt, String info) {
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {
+            }
+        }
+        Message msg = new Message(MessageType.SET_REPLACEMENT_CAR, parseInt, info);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close ();     
     }
 
+    /**
+     * Update the state of the manager
+     * @param managerState the state of the manager
+     */
     public void setManagerState(String managerState) {
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {
+            }
+        }
+        Message msg = new Message(MessageType.SET_MANAGER_STATE, managerState);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close ();    
     }
 
 }

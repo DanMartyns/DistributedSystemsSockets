@@ -45,7 +45,7 @@ public class RepairArea implements MechanicsRepairArea {
             System.exit(1);                     
         }
         
-        return inMessage.getReadPaper();
+        return inMessage.getStr1();
     }
 
 
@@ -99,7 +99,7 @@ public class RepairArea implements MechanicsRepairArea {
         Message inMessage = (Message) com.readObject();
         com.close();
         
-        return inMessage.getPiece();
+        return inMessage.getStr1();
     }
 
     /*
@@ -119,7 +119,7 @@ public class RepairArea implements MechanicsRepairArea {
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close();
-        return inMessage.isPartAvailable();
+        return inMessage.isBoolean1();
     }
     
     /*

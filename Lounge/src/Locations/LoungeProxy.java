@@ -40,26 +40,26 @@ public class LoungeProxy implements InterfaceLocation {
              * The functions called by Customer
              */
             case QUEUE_IN :
-                l.queueIn(inMessage.getInfoCustomer(), inMessage.getState());
+                l.queueIn(inMessage.getStr1(), inMessage.getStr2());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case TALK_WITH_MANAGER :
-                l.talkWithManager(inMessage.getCustomerID());    
+                l.talkWithManager(inMessage.getInt1());    
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case COLLECT_KEY :
-                l.collectKey(inMessage.getCustomerID(),inMessage.getState());    
+                l.collectKey(inMessage.getInt1(),inMessage.getStr1());    
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;                        
             case PAY_FOR_THE_SERVICE :
-                l.talkWithManager(inMessage.getCustomerID());    
+                l.talkWithManager(inMessage.getInt1());    
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             /**
              * The functions called by Manager
              */
             case GET_NEXT_TASK :
-                l.getNextTask(inMessage.getState());
+                l.getNextTask(inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case APRAISE_SIT :
@@ -67,30 +67,30 @@ public class LoungeProxy implements InterfaceLocation {
                 outMessage = new Message(MessageType.RETURN_APRAISE_SIT, choice);
                 break;
             case TALK_TO_CUSTOMER : 
-                l.talkToCustomer(inMessage.getInfoCustomer(), inMessage.getState());  
+                l.talkToCustomer(inMessage.getStr1(), inMessage.getStr2());  
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case RECEIVE_PAYMENT :
-                l.receivePayment(inMessage.getInfoCustomer());
+                l.receivePayment(inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case HAND_CAR_KEY :
-                l.handCarKey(inMessage.getInfoCustomer());
+                l.handCarKey(inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             /**
              * The functions called by Manager
              */
             case LET_MANAGER_KNOW :
-                l.letManagerKnow( inMessage.getPiece(), inMessage.getMechanicID(), inMessage.getState());
+                l.letManagerKnow( inMessage.getStr1(), inMessage.getInt1(), inMessage.getStr2());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case REPAIR_CONCLUDED :
-                l.repairConcluded(inMessage.getCustomerID(), inMessage.getQuantity(), inMessage.getState());                    
+                l.repairConcluded(inMessage.getInt1(), inMessage.getInt2(), inMessage.getStr1());                    
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case CHECK_REQUEST :
-                boolean check = l.checkRequest(inMessage.getPiece());
+                boolean check = l.checkRequest(inMessage.getStr1());
                 outMessage = new Message (MessageType.RETURN_CHECK_REQUEST, check);
                 break;
             /**

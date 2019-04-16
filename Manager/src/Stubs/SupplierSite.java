@@ -59,6 +59,6 @@ public class SupplierSite implements ManagerSupplierSite {
             System.exit(1);                     
         }
 
-        return inMessage.getQuantity();
+        return inMessage.getInt1();
     }    
 }

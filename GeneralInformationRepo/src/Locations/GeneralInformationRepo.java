@@ -219,35 +219,40 @@ public class GeneralInformationRepo{
     
     /**
      * vehicle driven by customer: 
-     * own car – customer id; 
-     * replacement car – R0, R1, R2 ; 
-     * none - ‘-’
+     * own car  customer id; 
+     * replacement car - R0, R1, R2 ; 
+     * none - '-'
      * @param id customer Id
      * @param ownCar it own car or replecment car
      */
     public synchronized void setOwnCar(int id, String ownCar) {
-        String[] inf = ownCar.split(",");
+        String [] inf = ownCar.split(",");
+        int currentCar = Integer.parseInt(inf[2]);
         
-        if(inf[1].equals(inf[2]) && id<=9)
-        {
-            this.ownCar[id] = ("0"+inf[2]);
-        }
+        this.ownCar[id] =  inf[1].equals(inf[2]) ? String.format("%02d",currentCar) : 
+                            currentCar == -1 ? "R0" : 
+                            currentCar == -2 ? "R1"  : "R2" ;
         
-        else if(inf[1].equals(inf[2])){
-            this.ownCar[id] = inf[2];
-        }
-        else{
-            if(Integer.parseInt(inf[2]) == -1)
-            {
-                this.ownCar[id] = "R0";
-            }
-            else if(Integer.parseInt(inf[2]) == -2){
-                this.ownCar[id] = "R1";
-            }
-            else {
-                 this.ownCar[id] = "R2";
-            }
-        }
+//        if(inf[1].equals(inf[2]) && id<=9)
+//        {
+//            this.ownCar[id] = ("0"+inf[2]);
+//        }
+        
+//        else if(inf[1].equals(inf[2])){
+//            this.ownCar[id] = inf[2];
+//        }
+//        else{
+//            if(Integer.parseInt(inf[2]) == -1)
+//            {
+//                this.ownCar[id] = "R0";
+//            }
+//            else if(Integer.parseInt(inf[2]) == -2){
+//                this.ownCar[id] = "R1";
+//            }
+//            else {
+//                 this.ownCar[id] = "R2";
+//            }
+//        }
 
         printHeaderLog();
     }
@@ -259,12 +264,14 @@ public class GeneralInformationRepo{
      */
     public synchronized void setReplecementCar(int id, String replecementCar) {
         String[] inf = replecementCar.split(",");
-        if(inf[3].equals("1")){
-            this.replecementCar[id] = "T";
-        }
-        else{
-            this.replecementCar[id] = "F";
-        }
+        this.replecementCar[id] = inf[3].equals("1") ? "T" : "F";
+        
+//        if(inf[3].equals("1")){
+//            this.replecementCar[id] = "T";
+//        }
+//        else{
+//            this.replecementCar[id] = "F";
+//        }
         
         printHeaderLog();
 
@@ -273,12 +280,15 @@ public class GeneralInformationRepo{
     /*TODO customer vehicle has already been repaired: T or F (# - 0 .. 29)*/
     public synchronized void setAlreadyRepaired(int id, int repairedCar[]) {
         //String[] inf = repairedCar.split(",");
-        if(repairedCar[id]==1){
-            this.repairedCar[id] = "T";
-        }
-        else{
-            this.repairedCar[id] = "F";
-        }
+
+        this.repairedCar[id] = repairedCar[id]==1 ? "T" : "F";
+        
+//        if(repairedCar[id]==1){
+//            this.repairedCar[id] = "T";
+//        }
+//        else{
+//            this.repairedCar[id] = "F";
+//        }
 
         printHeaderLog();
 
@@ -289,13 +299,16 @@ public class GeneralInformationRepo{
      * @param valueQueueIn value of customer on queue
      */
     public synchronized void setValueQueueIn(int valueQueueIn) {
-        if(valueQueueIn<=9)
-        {
-            this.valueQueueIn = "0"+valueQueueIn;
-        }
-        else{
-            this.valueQueueIn = ""+valueQueueIn;
-        }
+
+        this.valueQueueIn = String.format("%02d",valueQueueIn);
+
+//        if(valueQueueIn<=9)
+//        {
+//            this.valueQueueIn = "0"+valueQueueIn;
+//        }
+//        else{
+//            this.valueQueueIn = ""+valueQueueIn;
+//        }
        
         printHeaderLog();
     }
@@ -305,13 +318,15 @@ public class GeneralInformationRepo{
      * @param numberWaitingReplece number of replacement car
      */
     public synchronized void setNumberWaitingReplece(int numberWaitingReplece) {
-        if(numberWaitingReplece<=9)
-        {
-            this.numberWaitingReplece = "0"+numberWaitingReplece;
-        }
-        else{
-           this.numberWaitingReplece = ""+numberWaitingReplece;
-        }
+
+        this.numberWaitingReplece = String.format("%02d",numberWaitingReplece);
+//        if(numberWaitingReplece<=9)
+//        {
+//            this.numberWaitingReplece = "0"+numberWaitingReplece;
+//        }
+//        else{
+//           this.numberWaitingReplece = ""+numberWaitingReplece;
+//        }
         printHeaderLog();
         
     }
@@ -321,12 +336,14 @@ public class GeneralInformationRepo{
      * @param numberRepair number of cars repaired
      */
     public synchronized void setNumberRepair(int numberRepair) {
-        if(numberRepair<=9){
-            this.numberRepair = "0"+numberRepair;
-        }
-        else{
-            this.numberRepair = ""+numberRepair;
-        }
+
+        this.numberRepair = String.format("%02d",numberRepair);
+//        if(numberRepair<=9){
+//            this.numberRepair = "0"+numberRepair;
+//        }
+//        else{
+//            this.numberRepair = ""+numberRepair;
+//        }
         printHeaderLog();
     }
 
@@ -335,12 +352,13 @@ public class GeneralInformationRepo{
      * @param numberParkCars number of cars in the park
      */
     public synchronized void setNumberParkCars(int numberParkCars) {
-        if(numberParkCars<=9){
-            this.numberParkCars = "0"+numberParkCars;
-        }
-        else{
-            this.numberParkCars = ""+numberParkCars;
-        }
+        this.numberParkCars = String.format("%02d",numberParkCars);
+//        if(numberParkCars<=9){
+//            this.numberParkCars = "0"+numberParkCars;
+//        }
+//        else{
+//            this.numberParkCars = ""+numberParkCars;
+//        }
         
         printHeaderLog();
     }
@@ -350,13 +368,15 @@ public class GeneralInformationRepo{
      * @param numberReplacementPark number of replacement cars in the park
      */
     public synchronized void setNumberReplacementPark(int numberReplacementPark) {
-        if(numberReplacementPark<=9){
-            this.numberReplacementPark = "0"+numberReplacementPark;
-        }
-        else{
-            this.numberReplacementPark = ""+numberReplacementPark;
-        }
-        
+
+        this.numberReplacementPark = String.format("%02d",numberReplacementPark);
+//        if(numberReplacementPark<=9){
+//            this.numberReplacementPark = "0"+numberReplacementPark;
+//        }
+//        else{
+//            this.numberReplacementPark = ""+numberReplacementPark;
+//        }
+//        
         printHeaderLog();
     }
 
@@ -365,12 +385,15 @@ public class GeneralInformationRepo{
      * @param numberServiceRequest number of registed services by manager
      */
     public synchronized void setNumberServiceRequest(int numberServiceRequest) {
-        if(numberServiceRequest<=9){
-            this.numberServiceRequest = "0"+numberServiceRequest;
-        }
-        else{
-            this.numberServiceRequest = ""+numberServiceRequest;
-        }
+
+        this.numberServiceRequest = String.format("%02d",numberServiceRequest);
+
+//        if(numberServiceRequest<=9){
+//            this.numberServiceRequest = "0"+numberServiceRequest;
+//        }
+//        else{
+//            this.numberServiceRequest = ""+numberServiceRequest;
+//        }
         printHeaderLog();
     }
 
@@ -379,12 +402,13 @@ public class GeneralInformationRepo{
      * @param pieces0Stored number of A-pieces in the repair area
      */
     public synchronized void setPieces0Stored(int pieces0Stored) {
-        if(pieces0Stored<=9){
-            this.pieces0Stored = "0"+pieces0Stored;
-        }
-        else{
-            this.pieces0Stored = ""+pieces0Stored;
-        }
+        this.pieces0Stored = String.format("%02d",pieces0Stored);
+//        if(pieces0Stored<=9){
+//            this.pieces0Stored = "0"+pieces0Stored;
+//        }
+//        else{
+//            this.pieces0Stored = ""+pieces0Stored;
+//        }
         printHeaderLog();
     }
 
@@ -393,12 +417,14 @@ public class GeneralInformationRepo{
      * @param pieces1Stored number of B-pieces in the repair area
      */
     public synchronized void setPieces1Stored(int pieces1Stored) {
-        if(pieces1Stored<=9){
-            this.pieces1Stored = "0"+pieces1Stored;
-        }
-        else{
-            this.pieces1Stored = ""+pieces1Stored;
-        }
+        this.pieces1Stored = String.format("%02d",pieces1Stored);
+        
+//        if(pieces1Stored<=9){
+//            this.pieces1Stored = "0"+pieces1Stored;
+//        }
+//        else{
+//            this.pieces1Stored = ""+pieces1Stored;
+//        }
         printHeaderLog();
     }
 
@@ -407,12 +433,13 @@ public class GeneralInformationRepo{
      * @param pieces2Stored number of C-pieces in the repair area
      */
     public synchronized void setPieces2Stored(int pieces2Stored) {
-        if(pieces2Stored<=9){
-            this.pieces2Stored = "0"+pieces2Stored;
-        }
-        else{
-            this.pieces2Stored = ""+pieces2Stored;
-        }
+        this.pieces2Stored = String.format("%02d",pieces2Stored);
+//        if(pieces2Stored<=9){
+//            this.pieces2Stored = "0"+pieces2Stored;
+//        }
+//        else{
+//            this.pieces2Stored = ""+pieces2Stored;
+//        }
         printHeaderLog();
     }
 
@@ -421,30 +448,34 @@ public class GeneralInformationRepo{
      * @param piecesAvabal
      */
     public synchronized void setPiecesAvabal(String piecesAvabal) {
-        if(piecesAvabal.equals("0")){
-            if(Integer.parseInt(piecesAvabal)<=9){
-                this.piecesAAvabal = "0"+piecesAvabal;
-            }
-            else{
-                this.piecesAAvabal = ""+piecesAvabal;
-            }
-        }
-        else if(piecesAvabal.equals("1")){
-            if(Integer.parseInt(piecesAvabal)<=9){
-                this.piecesBAvabal = "0"+piecesAvabal;
-            }
-            else{
-                this.piecesBAvabal = ""+piecesAvabal;
-            }
-        }
-        else if(piecesAvabal.equals("2")){
-            if(Integer.parseInt(piecesAvabal)<=9){
-                this.piecesCAvabal = "0"+piecesAvabal;
-            }
-            else{
-                this.piecesCAvabal = ""+piecesAvabal;
-            }
-        }
+        if (piecesAvabal.equals("0")) this.piecesAAvabal = String.format("%02d",Integer.parseInt(piecesAvabal)) ;
+        if (piecesAvabal.equals("1")) this.piecesBAvabal = String.format("%02d",Integer.parseInt(piecesAvabal)) ;
+        if (piecesAvabal.equals("2")) this.piecesCAvabal = String.format("%02d",Integer.parseInt(piecesAvabal)) ;
+
+//        if(piecesAvabal.equals("0")){
+//            if(Integer.parseInt(piecesAvabal)<=9){
+//                this.piecesAAvabal = "0"+piecesAvabal;
+//            }
+//            else{
+//                this.piecesAAvabal = ""+piecesAvabal;
+//            }
+//        }
+//        else if(piecesAvabal.equals("1")){
+//            if(Integer.parseInt(piecesAvabal)<=9){
+//                this.piecesBAvabal = "0"+piecesAvabal;
+//            }
+//            else{
+//                this.piecesBAvabal = ""+piecesAvabal;
+//            }
+//        }
+//        else if(piecesAvabal.equals("2")){
+//            if(Integer.parseInt(piecesAvabal)<=9){
+//                this.piecesCAvabal = "0"+piecesAvabal;
+//            }
+//            else{
+//                this.piecesCAvabal = ""+piecesAvabal;
+//            }
+//        }
         
         printHeaderLog();
     }
@@ -454,14 +485,15 @@ public class GeneralInformationRepo{
      * @param flagPieces A-piece type
      */
     public synchronized void setFlagAPieces(String flagPieces) {
-        if(flagPieces.equals("0")){
-            this.flagAPieces = "T";
-        }
+        this.flagAPieces = flagPieces.equals("0") ? "T" : "F";
+//        if(flagPieces.equals("0")){
+//            this.flagAPieces = "T";
+//        }
         
-        else{
-            this.flagAPieces = "F";
+//        else{
+//            this.flagAPieces = "F";
            
-        }
+//        }
         
         printHeaderLog();
     }
@@ -471,14 +503,15 @@ public class GeneralInformationRepo{
      * @param flagPieces B-piece type 
      */
     public synchronized void setFlagBPieces(String flagPieces) {
-        if(flagPieces.equals("1")){
-            this.flagBPieces = "T";
-        }
+        this.flagBPieces = flagPieces.equals("1") ? "T" : "F";
+//        if(flagPieces.equals("1")){
+//            this.flagBPieces = "T";
+//        }
         
-        else{
-            this.flagBPieces = "F";
+//        else{
+//            this.flagBPieces = "F";
            
-        }
+//        }
         
         printHeaderLog();
     }
@@ -488,13 +521,14 @@ public class GeneralInformationRepo{
      * @param flagPieces C-piece type
      */
     public synchronized void setFlagCPieces(String flagPieces) {
-        if(flagPieces.equals("2")){
-            this.flagCPieces = "T";
-        }
-        else{
+        this.flagCPieces = flagPieces.equals("2") ? "T" : "F";
+//        if(flagPieces.equals("2")){
+//            this.flagCPieces = "T";
+//        }
+//        else{
             
-            this.flagCPieces = "F";
-        }
+//            this.flagCPieces = "F";
+//        }
         
         printHeaderLog();
     }
@@ -504,13 +538,14 @@ public class GeneralInformationRepo{
      * @param pieces0Manager A-pieces returned by the manager
      */
     public synchronized void setPieces0Manager(int pieces0Manager) {
-        if(pieces0Manager<=9){
-            this.pieces0Manager = "0"+pieces0Manager;
+        this.pieces0Manager = String.format("%02d",pieces0Manager) ;
+//        if(pieces0Manager<=9){
+//            this.pieces0Manager = "0"+pieces0Manager;
 
-        }
-        else{
-            this.pieces0Manager = ""+pieces0Manager;
-        }
+//        }
+//        else{
+//            this.pieces0Manager = ""+pieces0Manager;
+//        }
         
         printHeaderLog();
     }
@@ -520,12 +555,13 @@ public class GeneralInformationRepo{
      * @param pieces1Manager B-pieces returned by the manager
      */
     public synchronized void setPieces1Manager(int pieces1Manager) {
-        if(pieces1Manager<=9){
-            this.pieces1Manager = "0"+pieces1Manager;
-        }
-        else{
-            this.pieces1Manager = ""+pieces1Manager;
-        }
+        this.pieces1Manager = String.format("%02d",pieces1Manager) ;        
+//        if(pieces1Manager<=9){
+//            this.pieces1Manager = "0"+pieces1Manager;
+//        }
+//        else{
+//            this.pieces1Manager = ""+pieces1Manager;
+//        }
         printHeaderLog();
     }
 
@@ -534,12 +570,13 @@ public class GeneralInformationRepo{
      * @param pieces2Manager C-pieces returned by the manager
      */
     public synchronized void setPieces2Manager(int pieces2Manager) {
-        if(pieces2Manager<=9){
-            this.pieces2Manager = "0"+pieces2Manager;
-        }
-        else{
-            this.pieces2Manager = ""+pieces2Manager;
-        }
+        this.pieces2Manager = String.format("%02d",pieces2Manager) ;
+//        if(pieces2Manager<=9){
+//            this.pieces2Manager = "0"+pieces2Manager;
+//        }
+//        else{
+//            this.pieces2Manager = ""+pieces2Manager;
+//        }
         printHeaderLog();
     }
 

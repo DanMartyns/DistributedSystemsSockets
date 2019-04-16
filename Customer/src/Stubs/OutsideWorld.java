@@ -62,7 +62,7 @@ public class OutsideWorld implements CustomerOutSideWorld {
         //GenericIO.writelnString("decide On Repair "+customer+" receive Message");
         com.close ();
         
-        return inMessage.isDecideOnRepair();
+        return inMessage.isBoolean1();
 
     }
 

@@ -14,6 +14,17 @@ cp Constants/Constants_local.java OutsideWorld/src/MainPackage/Constants.java
 cp Constants/Constants_local.java Park/src/MainPackage/Constants.java
 cp Constants/Constants_local.java SupplierSite/src/MainPackage/Constants.java
 cp Constants/Constants_local.java GeneralInformationRepo/src/MainPackage/Constants.java
+
+
+cp Constants/Message_Generic.java Manager/src/Communication/Message.java
+cp Constants/Message_Generic.java Customer/src/Communication/Message.java
+cp Constants/Message_Generic.java Mechanics/src/Communication/Message.java
+cp Constants/Message_Generic.java Lounge/src/Communication/Message.java
+cp Constants/Message_Generic.java RepairArea/src/Communication/Message.java
+cp Constants/Message_Generic.java OutsideWorld/src/Communication/Message.java
+cp Constants/Message_Generic.java Park/src/Communication/Message.java
+cp Constants/Message_Generic.java SupplierSite/src/Communication/Message.java
+cp Constants/Message_Generic.java GeneralInformationRepo/src/Communication/Message.java
 ###
 
 echo -e "\n${bold}* Compilação do código em cada nó *${normal}\n"

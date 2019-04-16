@@ -84,7 +84,7 @@ public class Park implements CustomerPark{
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close();
-        return inMessage.getCustomerID();
+        return inMessage.getInt1();
        
        
     }

@@ -84,7 +84,7 @@ public class Lounge implements ManagerLounge {
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close();
-        return inMessage.getApraiseSit();
+        return inMessage.getStr1();
     }
     
     /**

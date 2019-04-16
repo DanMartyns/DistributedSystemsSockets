@@ -86,7 +86,7 @@ public class Lounge implements MechanicsLounge {
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close();
-        return inMessage.isCheckRequest();
+        return inMessage.isBoolean1();
     }
 
     /**

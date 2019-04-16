@@ -41,22 +41,22 @@ public class OutsideWorldProxy implements InterfaceLocation {
              * Functions called by Customer
              */
             case DECIDE_ON_REPAIR :
-                boolean decide = out.decideOnRepair(inMessage.getCustomerID(), inMessage.getState());
+                boolean decide = out.decideOnRepair(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message(MessageType.RETURN_DECIDE_ON_REPAIR, decide);
                 break;
             case BACK_TO_WORK_BY_BUS :
-                out.backToWorkByBus(inMessage.getCustomerID(), inMessage.getState());
+                out.backToWorkByBus(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case BACK_TO_WORK_BY_CAR :
-                out.backToWorkByCar(inMessage.getInfoCustomer(), inMessage.getState());
+                out.backToWorkByCar(inMessage.getStr1(), inMessage.getStr2());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             /**
              * Functions called by Manager
              */
              case PHONE_CUSTOMER :
-                out.phoneCustomer(inMessage.getInfoCustomer(), inMessage.getState());
+                out.phoneCustomer(inMessage.getStr1(), inMessage.getStr2());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case SERVICE_END :

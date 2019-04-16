@@ -41,26 +41,26 @@ public class RepairAreaProxy implements InterfaceLocation {
              * Functions called by Manager
              */            
             case REGISTER_SERVICE :
-                l.registerService(inMessage.getInfoCustomer(), inMessage.getState());
+                l.registerService(inMessage.getStr1(), inMessage.getStr2());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case STORE_PART : 
-                l.storePart(inMessage.getPiece(), inMessage.getQuantity(), inMessage.getState());
+                l.storePart(inMessage.getStr1(), inMessage.getInt1(), inMessage.getStr2());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case SHUTDOWN :
-                l.shutdownNow(inMessage.getState());
+                l.shutdownNow(inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             /**
              * Functions called by Mechanic
              */                  
             case READ_THE_PAPER :
-                String service = l.readThePaper(inMessage.getMechanicID(), inMessage.getState());
+                String service = l.readThePaper(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message (MessageType.RETURN_READ_THE_PAPER, service);
                 break;
             case START_REPAIR_PROCEDURE :
-                l.startRepairProcedure(inMessage.getMechanicID(), inMessage.getState());
+                l.startRepairProcedure(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case FIX_IT :
@@ -68,15 +68,15 @@ public class RepairAreaProxy implements InterfaceLocation {
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;                                        
             case GET_REQUIRED_PART :
-                String piece = l.getRequiredPart(inMessage.getMechanicID(), inMessage.getState());
+                String piece = l.getRequiredPart(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message (MessageType.RETURN_GET_REQUIRED_PART, piece);
                 break;
             case PART_AVAILABLE :
-                boolean available = l.partAvailable(inMessage.getPiece(), inMessage.getCustomerID());
+                boolean available = l.partAvailable(inMessage.getStr1(), inMessage.getInt1());
                 outMessage = new Message (MessageType.RETURN_PART_AVAILABLE, available);
                 break;
             case RESUME_REPAIR_PROCEDURE :
-                l.resumeRepairProcedure(inMessage.getPiece(), inMessage.getMechanicID(), inMessage.getState());
+                l.resumeRepairProcedure(inMessage.getStr1(), inMessage.getInt1(), inMessage.getStr2());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case SERVICE_END :

@@ -41,30 +41,30 @@ public class ParkProxy implements InterfaceLocation {
              * Functions called by Customer
              */
             case GO_TO_REPAIR_SHOP :
-                l.goToRepairShop(inMessage.getInfoCustomer(), inMessage.getState());
+                l.goToRepairShop(inMessage.getStr1(), inMessage.getStr2());
                 outMessage = new Message (MessageType.STATUS_OK);
                 break;
             case FIND_CAR :
-                int replacementCar = l.findCar(inMessage.getCustomerID(), inMessage.getState());
+                int replacementCar = l.findCar(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message (MessageType.RETURN_FIND_CAR, replacementCar);
                 break;
             case COLLECT_CAR :
-                l.collectCar(inMessage.getCustomerID(), inMessage.getState());
+                l.collectCar(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message (MessageType.STATUS_OK);
                 break;
             /**
              * Function called by Mechanic
              */
             case RETURN_VEHICLE :
-                l.returnVehicle(inMessage.getCustomerID());
+                l.returnVehicle(inMessage.getInt1());
                 outMessage = new Message (MessageType.STATUS_OK);
                 break;                                    
             case GET_VEHICLE :
-                l.getVehicle(inMessage.getCustomerID()); 
+                l.getVehicle(inMessage.getInt1()); 
                 outMessage = new Message (MessageType.STATUS_OK);
                 break;
             case BLOCK_VEHICLE :
-                l.blockVehicle(inMessage.getCustomerID()); 
+                l.blockVehicle(inMessage.getInt1()); 
                 outMessage = new Message (MessageType.STATUS_OK);
                 break;   
             case SERVICE_END :

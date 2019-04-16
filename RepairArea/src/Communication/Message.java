@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Communication;
 
 import java.io.Serializable;
-
 /**
- *
+ * Generic message that will pass through the socket
  * @author danielmartins
  */
 public class Message implements Serializable {
@@ -23,81 +17,32 @@ public class Message implements Serializable {
      * Type of the message.
      */    
     private MessageType type;
-
+ 
     /**
-     * State of an entity
+     * String argument
+     */
+    private String str1;
+    /**
+     * String argument
      */    
-    private String state;
+    private String str2;
 
     /**
-     * The Information about Customer
-     */
-    private String infoCustomer;
-    
-    /**
-     * Customer id
-     */
-    private int customerID;
-    
-    /**
-     * Mechanic id
-     */
-    private int mechanicID;
-    
-    /**
-     * The service chosen
-     */
-    private String apraiseSit;
-    
-    /**
-     * Type of the piece
-     */
-    private String piece;
-    
-    /**
-     * Number of pieces
-     */
-    private int quantity;
-    
-    /**
-     * Result from checkRequest function
-     */
-    private boolean checkRequest;
-    
-    /**
-     * Result from readThePaper function
-     */
-    private String readPaper;
-    
-    /**
-     * Result from partAvailable function
+     * Integer argument
      */    
-    private boolean partAvailable;
-    
-    /**
-     * Result from decideOnRepair function
-     */
-    private boolean decideOnRepair;
-    
-    /**
-     * Result from findCar function
-     */
-    private int replacementCar;
+    private int int1;
 
     /**
-     * Size of the queue in Lounge
-     */
-    private int queueIn;
+     * Integer argument
+     */      
+    private int int2;
+
+    private boolean boolean1;
 
     /**
-     * Number of cars waiting
-     */
-    private int waits;
-
-    /**
-     * Cars Repaired
-     */
-    private int[] repairedCars;
+     * Array argument
+     */      
+    private int[] array;
     
     /**
      * Empty constructor for the message that initializes the default
@@ -105,19 +50,16 @@ public class Message implements Serializable {
      */     
     public Message(){
         type = null;   
-        state = null;
-        infoCustomer = null;
-        customerID = -1;
-        apraiseSit = null;
-        piece = null;
-        quantity = -1;
-        checkRequest = false;
-        readPaper = null;
-        partAvailable = false;
-        decideOnRepair = false;
-        queueIn = -1;
-        waits = -1;
-        repairedCars = null;
+        
+        str1 = null;
+        str2 = null;
+        
+        int1 = -1;
+        int2 = -1;
+        
+        boolean1 = false;
+
+        array = null;
     }
     
     /**
@@ -132,39 +74,24 @@ public class Message implements Serializable {
     /**
      * Constructor with the type of the message and two String arguments.     
      * @param type type of the Message
-     * @param value String argument
-     * @param state state of the entity
+     * @param value1 String argument
+     * @param value2 state of the entity
      */
-    public Message(MessageType type, String value, String state){
+    public Message(MessageType type, String value1, String value2){
         this();
         this.type = type;
         switch(type){
             case QUEUE_IN:
-                this.infoCustomer = value;
-                this.state = state;
-            case TALK_TO_CUSTOMER :
-                this.infoCustomer = value;
-                this.state = state;
-            case REGISTER_SERVICE :
-                this.infoCustomer = value;
-                this.state = state;
-            case BACK_TO_WORK_BY_CAR :
-                this.infoCustomer = value;
-                this.state = state;
-                break;
-            case PHONE_CUSTOMER :
-                this.infoCustomer = value;
-                this.state = state;
-                break;
-            case GO_TO_REPAIR_SHOP :
-                this.infoCustomer = value;
-                this.state = state;
-                break;
-            case GO_TO_SUPPLIER :
-                this.piece = value;
-                this.state = state;
-                break;
-                
+            case TALK_TO_CUSTOMER:
+            case REGISTER_SERVICE:
+            case BACK_TO_WORK_BY_CAR:
+            case PHONE_CUSTOMER:
+            case GO_TO_REPAIR_SHOP:
+            case GO_TO_SUPPLIER : {
+                this.str1 = value1;
+                this.str2 = value2;
+                break;             
+            }       
         }        
     }    
 
@@ -178,172 +105,79 @@ public class Message implements Serializable {
         this.type = type;
         switch(type) {
             case TALK_WITH_MANAGER:
-                this.customerID = value;
-                break;
             case PAY_FOR_THE_SERVICE:
-                this.customerID = value;
-                break;
             case RETURN_FIND_CAR :
-                this.replacementCar = value;
-                break;
             case RETURN_VEHICLE :
-                this.customerID = value;
-                break;
-            case GET_VEHICLE :
-                this.customerID = value;
-                break;
+            case GET_VEHICLE :            
             case BLOCK_VEHICLE :
-                this.customerID = value;
-                break;
             case RETURN_GO_TO_SUPPLIER :
-                this.quantity = value;
-                break;
-            case SET_SIZE_QUEUE : 
-                this.queueIn = value;
-                break;
+            case SET_SIZE_QUEUE :
             case SET_WAITING_CARS :
-                this.waits = value;
-                break;
             case SET_WAIT_REPLACEMENT:
-                this.waits = value;
-                break;
             case SET_SERVICE :
-                this.quantity = value;
-                break;
             case PIECES_A_STORED :
-                this.quantity = value;
-                break;                
             case PIECES_B_STORED :
-                this.quantity = value;
-                break;
             case PIECES_C_STORED :
-                this.quantity = value;
-                break;  
             case PIECES_A_STORED_MANAGER:
-                this.quantity = value;
-                break;
             case PIECES_B_STORED_MANAGER:
-                this.quantity = value;
-                break;
             case PIECES_C_STORED_MANAGER:
-                this.quantity = value;
-                break;                                                    
+                this.int1 = value;
+                break;                                                 
             }       
     }
     
     /**
      * Constructor with the type of the message and two String arguments.     
      * @param type type of the Message
-     * @param value the id of the customer
-     * @param state the customer state
+     * @param value1 integer argument
+     * @param value2 string argument
      */
-    public Message(MessageType type, int value, String state){
+    public Message(MessageType type, int value1, String value2){
         this();
         this.type = type;
         switch(type){
             case COLLECT_KEY:
-                this.customerID = value;
-                this.state = state;
-                break;
             case READ_THE_PAPER:
-                this.mechanicID = value;
-                this.state = state;
-                break;
             case START_REPAIR_PROCEDURE :
-                this.mechanicID = value;
-                this.state = state;
-                break;
             case GET_REQUIRED_PART :
-                this.mechanicID = value;
-                this.state = state;
-                break;
             case PART_AVAILABLE :
-                this.customerID = value;
-                this.piece = state;
-                break;
             case DECIDE_ON_REPAIR :
-                this.customerID = value;
-                this.state = state;
-                break;
             case BACK_TO_WORK_BY_BUS :
-                this.customerID = value;
-                this.state = state;
-                break;
             case FIND_CAR :
-                this.customerID = value;
-                this.state = state;
-                break;
             case COLLECT_CAR :
-                this.customerID = value;
-                this.state = state;                
-                break;
             case SET_CUSTOMER_STATE :
-                this.customerID = value;
-                this.state = state;
-                break;
             case SET_MECHANIC_STATE :
-                this.mechanicID = value;
-                this.state = state;
-                break;
             case SET_REPLACEMENT_CAR :
-                this.replacementCar = value;
-                this.infoCustomer = state;
-                break;
             case SET_OWN_CAR :
-                this.customerID = value;
-                this.infoCustomer = state;
-                break;
-                            
+                this.int1 = value1;
+                this.str1 = value2;
+                break;                   
         }        
     }
     
     /**
      * Constructor with the type of the message and a String argument.    
      * @param type type of the Message
-     * @param value String argument, the string can assume multiple definitions
+     * @param value String argument
      */
     public Message(MessageType type, String value){
         this();
         this.type = type;
         switch(type) {
             case GET_NEXT_TASK:
-                this.state = value;
-                break;
             case RETURN_APRAISE_SIT :
-                this.apraiseSit = value;
-                break;
             case RECEIVE_PAYMENT :
-                this.infoCustomer = value;
-                break;
-            case HAND_CAR_KEY : 
-                this.infoCustomer = value;
-                break;
-            case CHECK_REQUEST : 
-                this.piece = value;
-                break;
-            case SHUTDOWN : 
-                this.state = value;
-                break;
+            case HAND_CAR_KEY :
+            case CHECK_REQUEST :
+            case SHUTDOWN :
             case RETURN_READ_THE_PAPER :
-                this.readPaper = value;
-                break;
             case RETURN_GET_REQUIRED_PART :
-                this.piece = value;
-                break;
             case SET_MANAGER_STATE :
-                this.state = value; 
-                break;
             case SET_FLAG_A:
-                this.piece = value;
-                break;
             case SET_FLAG_B:
-                this.piece = value;
-                break;
             case SET_FLAG_C:
-                this.piece = value;
-                break;
-            case SET_PIECE_AVAILABLE :
-                this.piece = value;
+            case SET_PIECE_AVAILABLE : 
+                this.str1 = value;
                 break;    
             }       
     }
@@ -351,46 +185,39 @@ public class Message implements Serializable {
     /**
      * Constructor with the type of the message and two String arguments.     
      * @param type type of the Message
-     * @param piece the piece who'll be stored
-     * @param value integer argument
-     * @param state the state of an entity
+     * @param value1 string argument
+     * @param value2 integer argument
+     * @param value3 string argument
      */
-    public Message(MessageType type, String piece, int value, String state){
+    public Message(MessageType type, String value1, int value2, String value3){
         this();
         this.type = type;
         switch(type){ 
             case LET_MANAGER_KNOW :
-                this.piece = piece;
-                this.mechanicID = value;
-                this.state = state;
-                break;
             case STORE_PART :
-                this.piece = piece;
-                this.quantity = value;
-                this.state = state;
-                break;
             case RESUME_REPAIR_PROCEDURE :
-                this.piece = piece;
-                this.mechanicID = value;
-                this.state = state;
+                this.str1 = value1;
+                this.int1 = value2;
+                this.str2 = value3;
+                break;
                 
         }        
     }
     /**
      * Constructor with the type of the message and two String arguments.     
      * @param type type of the Message
-     * @param currentCar the current car of the customer
-     * @param quantity the number of pieces who'll be stored
-     * @param state the state of an entity 
+     * @param value1 integer argument
+     * @param value2 integer argument
+     * @param value3 string argument 
      */
-    public Message(MessageType type, int currentCar, int quantity, String state){
+    public Message(MessageType type, int value1, int value2, String value3){
         this();
         this.type = type;
         switch(type){
             case REPAIR_CONCLUDED:
-                 this.customerID = currentCar;
-                 this.quantity = quantity;
-                 this.state = state;
+                 this.int1 = value1;
+                 this.int2 = value2;
+                 this.str1 = value3;
                  break;
         }        
     }
@@ -405,29 +232,27 @@ public class Message implements Serializable {
         this.type = type;
         switch(type){
             case RETURN_CHECK_REQUEST :
-                this.checkRequest = value;
-                break;
             case RETURN_PART_AVAILABLE :
-                this.partAvailable = value;
-                break;
             case RETURN_DECIDE_ON_REPAIR :
-                this.decideOnRepair = value;
+                this.boolean1 = value;
+                break;
+                
         }        
     }
 
     /**
      * Constructor with the type of the message, one int argument and one int array.     
      * @param type type of the Message
-     * @param car the current car of the customer
-     * @param repairedCar cars already repaired
+     * @param value1 integer argument
+     * @param array array argument
      */
-    public Message(MessageType type, int car, int[] repairedCars){
+    public Message(MessageType type, int value1, int[] array){
         this();
         this.type = type;
         switch(type){
             case SET_ALREADY_REPAIRED:
-                 this.customerID = car;
-                 this.repairedCars = repairedCars;
+                 this.int1 = value1;
+                 this.array = array;
                  break;
         }        
     }    
@@ -436,61 +261,28 @@ public class Message implements Serializable {
         return type;
     }
 
-    public String getInfoCustomer() {
-        return infoCustomer;
+    public String getStr1() {
+        return str1;
     }
 
-    public String getState() {
-        return state;
+    public String getStr2() {
+        return str2;
     }
 
-    public int getCustomerID() {
-        return customerID;
+    public int getInt1() {
+        return int1;
     }
 
-    public String getApraiseSit() {
-        return apraiseSit;
+    public int getInt2() {
+        return int2;
     }
 
-    public int getMechanicID() {
-        return mechanicID;
+    public boolean isBoolean1() {
+        return boolean1;
     }
 
-    public String getPiece() {
-        return piece;
+    public int[] getArray() {
+        return array;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public boolean isCheckRequest() {
-        return checkRequest;
-    }
-
-    public String getReadPaper() {
-        return readPaper;
-    }
-
-    public boolean isPartAvailable() {
-        return partAvailable;
-    }
-
-    public boolean isDecideOnRepair() {
-        return decideOnRepair;
-    }
-    
-    public int getQueueIn() {
-        return queueIn;
-    }
-    
-    public int getWaits() {
-        return waits;
-    }
-    public int getReplacementCar() {
-        return replacementCar;
-    }
-    public int[] getRepairedCars(){
-        return repairedCars;
-    }
 }
