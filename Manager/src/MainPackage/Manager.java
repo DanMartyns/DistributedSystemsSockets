@@ -53,7 +53,6 @@ public class Manager extends Thread {
      * @param supplierSite instance of the supplier site
      * @param repairArea instance of the repair area
      * @param outsideWorld instance of the outside world
-     * @param logger instance of the logger
      */
     
     public Manager(int id, ManagerLounge lounge, ManagerSupplierSite supplierSite, ManagerRepairArea repairArea, ManagerOutsideWorld outsideWorld) {

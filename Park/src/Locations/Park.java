@@ -50,6 +50,8 @@ public class Park {
      * In this state you can get in, 
      * customers who will repair a car, 
      * customers who will get the car after repair and who has a replacement car.
+     * @param info customer's info
+     * @param customerState customer's state
      */
     public synchronized void goToRepairShop(String info, String customerState) {
         /**
@@ -83,6 +85,9 @@ public class Park {
      * Method used by the customer to search for a replacement car
      * Each customer will poll the list of replacement cars, and 
      * if there are no cars, they wait.
+     * @param id customer's id
+     * @param customerState customer's state
+     * @return replacement car
      */
     public synchronized int findCar(int id, String customerState) {
         logger.setCustomerState(id, customerState);
@@ -119,6 +124,8 @@ public class Park {
     /**
      * Method to signal when a car is repaired, signaling the position 
      * with the index equal to the car id, with a value of 1.
+     * @param car customer's car id
+     * @param customerState customer's state
      */
     public synchronized void collectCar( int car , String customerState ) {
         
@@ -140,6 +147,7 @@ public class Park {
     /**
      * To signal the return of the vehicle to the parking lot, the index of the position 
      * of the array corresponds to the id of the car, and the value of that position is set to 1.
+     * @param car customer's car id
      */
     public synchronized void returnVehicle(int car) {
         repairedCars[car] = 1;
@@ -149,6 +157,7 @@ public class Park {
     
     /**
      * To signal the output of the parking vehicle, that vehicle is removed from the array of cars
+     * @param car customer's car id
      */
     public synchronized void getVehicle(int car) {
         assert cars.contains(car);
@@ -156,7 +165,11 @@ public class Park {
         notifyAll();
         GenericIO.writelnString("Mechanic get Vehicle from "+car);           
     }
-    
+
+    /**
+     * To signal the block of the parking vehicle, that vehicle is added to array of cars
+     * @param car customer's car id
+     */    
     public synchronized void blockVehicle(int car){
         cars.add(car);
         notifyAll();

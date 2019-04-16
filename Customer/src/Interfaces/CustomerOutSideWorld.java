@@ -14,6 +14,8 @@ public interface CustomerOutSideWorld {
     /**
      * customer decide repair car
      * (Class OutsideWorld)
+     * @param customer customer's id
+     * @param customerState customer's state
      * @return true if customer decide Repair the car, false if they still on outside world activity
      */
     boolean decideOnRepair(int customer, String customerState);
@@ -21,6 +23,8 @@ public interface CustomerOutSideWorld {
     /**
      * if customer decide on repair car and choose leave with replecement car, 
      * he goes back to outside world activitys by replecement car
+     * @param customer customer's id 
+     * @param customerState customer's state 
      * (Class OutsideWorld)
      */
     void backToWorkByCar(String customer, String customerState);
@@ -29,6 +33,8 @@ public interface CustomerOutSideWorld {
      * if customer decide on repair car and choose not leaving with replecement car, 
      * he goes back to outside world activitys by replecement bus
      * (Class OutsideWorld)
+     * @param customer customer's id 
+     * @param customerState customer's state
      */
     void backToWorkByBus(int customer, String customerState);
     

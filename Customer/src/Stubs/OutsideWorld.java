@@ -37,8 +37,8 @@ public class OutsideWorld implements CustomerOutSideWorld {
 
     /**
      * Decide whether to get the car or not.
-     * @param customer
-     * @param customerState
+     * @param customer customer's id
+     * @param customerState customer's state
      * @return true or false, if he wants or not
      */
     public boolean decideOnRepair(int customer, String customerState) {
@@ -70,8 +70,8 @@ public class OutsideWorld implements CustomerOutSideWorld {
      * Synchronization point.
      * Get back to your normal life without a car. 
      * It waits to be notified that your car is repaired.
-     * @param customer
-     * @param customerState
+     * @param customer customer's id
+     * @param customerState customer's state
      */
     public void backToWorkByBus(int customer, String customerState) {
         ClientCom com = new ClientCom (server, port);
@@ -102,8 +102,8 @@ public class OutsideWorld implements CustomerOutSideWorld {
      * Get back to your normal life with your car after it's fixed 
      * or with a replacement car. If he is with a replacement car, 
      * he waits to be notified that his car is repaired.
-     * @param info 
-     * @param customerState 
+     * @param info customer's info
+     * @param customerState customer's state
      */
     public void backToWorkByCar(String info, String customerState) {
         ClientCom com = new ClientCom (server, port);

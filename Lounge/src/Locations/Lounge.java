@@ -104,6 +104,7 @@ public class Lounge {
       * In theoretical terms, it will confirm if there is a new task to be done.
       * In practical terms, the manager waits if the vectors of each service are empty. 
       * As soon as they are not, they perform a task.
+      * @param managerState manager's state
       * @return true, when the vectores are not empty
       */
     public synchronized boolean getNextTask(String managerState) {
@@ -141,6 +142,8 @@ public class Lounge {
     
     /**
      * The costumer go into the Lounge and waits for his turn
+     * @param id customer's id
+     * @param customerState customer's state
      */
     public synchronized void queueIn(String id, String customerState) {
         int customer = Integer.parseInt(id.split(",")[0]);
@@ -154,6 +157,8 @@ public class Lounge {
      * Synchronization point.
      * In theoretical terms, you will receive the key to the replacement car.
      * In practical terms, synchronization will only be done using the key variable.
+     * @param customer customer's id
+     * @param customerState customer's state 
      */
     public synchronized void collectKey(int customer, String customerState) {    
         logger.setCustomerState(customer, customerState);
@@ -175,6 +180,7 @@ public class Lounge {
      * Synchronization point.
      * In theoretical terms, it will give the key to the replacement car if the customer wants to.
      * In practical terms, synchronization will only be done using the key variable.
+     * @param info customer's info
      */
     public synchronized void handCarKey(String info) {
         int id = Integer.parseInt(info.split(",")[0]);
@@ -196,6 +202,8 @@ public class Lounge {
      * If the variable is already true, you expect the client to respond 
      * before talking to another client.
      * Remove this customer from the service queue.
+     * @param customer customer's info
+     * @param managerState manager's state
      */
     public synchronized void talkToCustomer(String customer, String managerState) {
 
@@ -224,6 +232,7 @@ public class Lounge {
      * variable to false if that client is the client that the manager initiated a conversation.
      * If the variable is already false, it means that the manager has not started a conversation 
      * yet and therefore expects the manager to respond.
+     * @param customer customer's id
      */
     public synchronized void talkWithManager(int customer) {
 
@@ -251,6 +260,7 @@ public class Lounge {
      * In theoretical terms, the manager receives payment from the customer for the service rendered.
      * In practical terms, it is a synchronization point where the manager updates the variable "pay" to false, 
      * meaning the collection of the payment.
+     * @param info customer's info
      */
     public synchronized void receivePayment(String info) {
         int id = Integer.parseInt(info.split(",")[0]);
@@ -272,6 +282,7 @@ public class Lounge {
     /**
      * In theoretical terms will effect the payment.
      * In practical terms, it is just a state of transition.
+     * @param customer customer's id
      */
     public synchronized void payForTheService(int customer) {
         while(clients [customer] == false){

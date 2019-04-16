@@ -42,8 +42,8 @@ public class Lounge implements CustomerLounge {
     
     /**
      * The costumer go into the Lounge and waits for his turn
-     * @param id
-     * @param customerState
+     * @param id customer's id
+     * @param customerState customer's state
      */
     public void queueIn(String id, String customerState){
         ClientCom com = new ClientCom (server, port);
@@ -72,7 +72,7 @@ public class Lounge implements CustomerLounge {
      * variable to false if that client is the client that the manager initiated a conversation.
      * If the variable is already false, it means that the manager has not started a conversation 
      * yet and therefore expects the manager to respond.
-     * @param customer
+     * @param customer customer's id
      */
     public void talkWithManager(int customer){
         ClientCom com = new ClientCom (server, port);
@@ -99,8 +99,8 @@ public class Lounge implements CustomerLounge {
      * Synchronization point.
      * In theoretical terms, you will receive the key to the replacement car.
      * In practical terms, synchronization will only be done using the key variable.
-     * @param customer
-     * @param customerState
+     * @param customer customer's id
+     * @param customerState customer's state
      */
     
     public void collectKey(int customer, String customerState){
@@ -126,7 +126,7 @@ public class Lounge implements CustomerLounge {
     /**
      * In theoretical terms will effect the payment.
      * In practical terms, it is just a state of transition.
-     * @param customer
+     * @param customer customer's id
      */
     public void payForTheService(int customer){
         ClientCom com = new ClientCom (server, port);

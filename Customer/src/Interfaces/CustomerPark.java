@@ -14,6 +14,8 @@ public interface CustomerPark {
     /**
      * Customer collects the car that is already done
      * (Class Park)
+     * @param myCar customer's car id
+     * @param customerState customer's state
      */
     void collectCar(int myCar, String customerState);
     
@@ -21,12 +23,16 @@ public interface CustomerPark {
     /**
      * customer go to repair shop
      * (Class Park)
-     */
+     * @param info customer's info
+     * @param customerState customer's state
+    */
     void goToRepairShop(String info, String customerState);
     
     /**
      * customer find the replecment car on park
      * (Class Park)
-     */
+     * @param id customer's id
+     * @param customerState customer's state    
+    */
     int findCar(int id, String customerState);
 }

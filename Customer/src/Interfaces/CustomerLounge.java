@@ -14,24 +14,28 @@ public interface CustomerLounge {
      * customer is waiting for manager to talk
      * (Class Lounge)
      * @param id from customer
+     * @param customerState customer's state
      */
     void queueIn(String id, String customerState);
     
     /**
      * customer talks with manager
-     * @param customer 
+     * @param customer customer's id
      */
     void talkWithManager(int customer);
     
     /**
      * customer wants a replecement car so he need the key
      * (Class Lounge)
+     * @param customer customer's id
+     * @param customerState customr's state
      */
     void collectKey(int customer, String customerState);
     
     /**
      * customer pay for the service to Manager
      * (Class Lounge)
+     * @param customer's id
      */
     void payForTheService(int customer);
     

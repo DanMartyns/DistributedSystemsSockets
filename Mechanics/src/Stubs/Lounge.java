@@ -10,7 +10,6 @@ import Communication.Message;
 import Communication.MessageType;
 import Interfaces.*;
 import genclass.GenericIO;
-import java.util.*;
 
 /**
  * @author danielmartins
@@ -30,7 +29,7 @@ public class Lounge implements MechanicsLounge {
     /**
     * Let manager know that the mechanics needs more pieces from supplier site
     * @param peca the piece
-    * @param mechanics mechanic's id
+    * @param mechanic mechanic's id
     * @param mechanicState mechanic's state
     **/
     public void letManagerKnow(String peca, int mechanic, String mechanicState) {
@@ -51,7 +50,7 @@ public class Lounge implements MechanicsLounge {
     /**
     * Notify the repair is concluded
     * @param currentCar id of current car
-    * @param mechanics mechanic's id
+    * @param mechanic mechanic's id
     * @param mechanicState mechanic's state
     **/
     public void repairConcluded(int currentCar, int mechanic, String mechanicState) {

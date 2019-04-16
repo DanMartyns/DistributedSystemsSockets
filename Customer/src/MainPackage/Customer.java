@@ -56,10 +56,9 @@ public class Customer extends Thread {
      *
      * @param id identifier of the customer
      * @param outsideWorld instance of the outside world
-     * @param carID
+     * @param carID customer's car id
      * @param park instance of the Park
      * @param lounge instance of the lounge
-     * @param logger
      */     
     public Customer(int id, CustomerOutSideWorld outsideWorld,int carID, CustomerPark park, CustomerLounge lounge) {
         /**

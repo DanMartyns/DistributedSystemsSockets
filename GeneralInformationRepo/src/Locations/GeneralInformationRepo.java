@@ -445,7 +445,7 @@ public class GeneralInformationRepo{
 
     /**
      * number of customer vehicles waiting for part # to be available so that the repair may resume 
-     * @param piecesAvabal
+     * @param piecesAvabal piece's type
      */
     public synchronized void setPiecesAvabal(String piecesAvabal) {
         if (piecesAvabal.equals("0")) this.piecesAAvabal = String.format("%02d",Integer.parseInt(piecesAvabal)) ;

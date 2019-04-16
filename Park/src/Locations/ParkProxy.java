@@ -7,7 +7,6 @@ package Locations;
 
 import Communication.Message;
 import Communication.MessageType;
-import Communication.ServerComm;
 
 /*
  * @author danielmartins
@@ -29,7 +28,6 @@ public class ParkProxy implements InterfaceLocation {
     /**
      * Process and reply a message.
      * @param inMessage message received
-     * @param scon communication channel
      * @return message to be replied
      */
     @Override

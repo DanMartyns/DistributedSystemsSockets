@@ -39,8 +39,8 @@ public class Park implements CustomerPark{
      * In this state you can get in, 
      * customers who will repair a car, 
      * customers who will get the car after repair and who has a replacement car.
-     * @param info
-     * @param customerState
+     * @param info customer's info
+     * @param customerState customer's state
      */
     public void goToRepairShop(String info, String customerState) {
         
@@ -69,8 +69,8 @@ public class Park implements CustomerPark{
      * Method used by the customer to search for a replacement car
      * Each customer will poll the list of replacement cars, and 
      * if there are no cars, they wait.
-     * @param id
-     * @param customerState
+     * @param id customer's id
+     * @param customerState customer's state
      */
     public int findCar(int id, String customerState) {
        ClientCom com = new ClientCom (server, port);
@@ -92,8 +92,8 @@ public class Park implements CustomerPark{
     /**
      * Method to signal when a car is repaired, signaling the position 
      * with the index equal to the car id, with a value of 1.
-     * @param car
-     * @param customerState
+     * @param car customer's car id
+     * @param customerState customer's state
      */
     public void collectCar( int car , String customerState ) {
         ClientCom com = new ClientCom (server, port);

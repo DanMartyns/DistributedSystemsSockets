@@ -57,6 +57,7 @@ public class Mechanic extends Thread {
      * @param id identifier of the mechanic
      * @param lounge instance of the lounge
      * @param repairArea instance of the repair area
+     * @param park instance of the park
      */ 
     public Mechanic(int id, MechanicsLounge lounge, MechanicsRepairArea repairArea, MechanicsPark park) {
         this.id = id;

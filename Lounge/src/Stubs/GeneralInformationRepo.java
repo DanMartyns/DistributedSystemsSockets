@@ -134,7 +134,7 @@ public class GeneralInformationRepo {
 
     /**
      * Warning of no C-type parts
-     * @param peca 
+     * @param peca piece's type
      */    
     public void setFlagAPieces(String peca) {
         ClientCom com = new ClientCom (server, port);
@@ -152,7 +152,7 @@ public class GeneralInformationRepo {
 
     /**
      * Warning of no C-type parts
-     * @param peca 
+     * @param peca piece's type
      */
     public void setFlagBPieces(String peca) {
         ClientCom com = new ClientCom (server, port);
@@ -169,7 +169,7 @@ public class GeneralInformationRepo {
 
     /**
      * Warning of no C-type parts
-     * @param peca 
+     * @param peca piece's type
      */
     public void setFlagCPieces(String peca) {
         ClientCom com = new ClientCom (server, port);
