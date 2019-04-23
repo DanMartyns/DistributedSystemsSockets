@@ -226,12 +226,13 @@ public class GeneralInformationRepo{
      * @param ownCar it own car or replecment car
      */
     public synchronized void setOwnCar(int id, String ownCar) {
-        String [] inf = ownCar.split(",");
-        int currentCar = Integer.parseInt(inf[2]);
-        
-        this.ownCar[id] =  inf[1].equals(inf[2]) ? String.format("%02d",currentCar) : 
-                            currentCar == -1 ? "R0" : 
-                            currentCar == -2 ? "R1"  : "R2" ;
+        String[] inf = ownCar.split(",");
+    
+        this.ownCar[id] = inf[1].equals(inf[2]) ? String.format("%02d",Integer.parseInt(inf[2]))
+                        : inf[2].equals("-1") ? "R0"
+                        : inf[2].equals("-2") ? "R1"
+                        : inf[2].equals("-3") ? "R2"
+                        : "--";
 
         printHeaderLog();
     }

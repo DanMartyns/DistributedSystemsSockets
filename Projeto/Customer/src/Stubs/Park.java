@@ -92,10 +92,10 @@ public class Park implements CustomerPark{
     /**
      * Method to signal when a car is repaired, signaling the position 
      * with the index equal to the car id, with a value of 1.
-     * @param car customer's car id
+     * @param info customer's info
      * @param customerState customer's state
      */
-    public void collectCar( int car , String customerState ) {
+    public void collectCar( String info , String customerState ) {
         ClientCom com = new ClientCom (server, port);
         
         while(!com.open()){
@@ -103,7 +103,7 @@ public class Park implements CustomerPark{
                 Thread.currentThread ().sleep ((long) (10));
             } catch (InterruptedException ex) {}
         }    
-        Message msg = new Message(MessageType.COLLECT_CAR, car, customerState);
+        Message msg = new Message(MessageType.COLLECT_CAR, info, customerState);
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         if ( inMessage.getType() != MessageType.STATUS_OK ){

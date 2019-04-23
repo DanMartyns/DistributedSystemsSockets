@@ -87,9 +87,9 @@ public class Customer extends Thread {
         while ( outsideWorld.decideOnRepair(id,CustomerState.NORMAL_LIFE_WITH_CAR.toString()) == false){}                         
         
         park.goToRepairShop(info,CustomerState.PARK.toString());
-        setCurrentCar(info,""+NUM_CUSTOMERS); // CurrentCar change to NUM_CUSTOMERS, that means without car
+        setCurrentCar(info,""+NUM_CUSTOMERS);
 
-        lounge.queueIn(info, CustomerState.RECEPTION.toString());       
+        lounge.queueIn(info, CustomerState.RECEPTION.toString()); //actualizar carro atual
 
         lounge.talkWithManager(this.id);
 
@@ -113,8 +113,8 @@ public class Customer extends Thread {
 
         lounge.payForTheService(this.id); 
 
-        park.collectCar(this.id, CustomerState.PARK.toString());
-        setCurrentCar(info,""+this.id);
+        setCurrentCar(info,""+this.id);        
+        park.collectCar(info, CustomerState.PARK.toString());
                       
     }
     

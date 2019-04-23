@@ -142,13 +142,14 @@ public class Lounge {
     
     /**
      * The costumer go into the Lounge and waits for his turn
-     * @param id customer's id
+     * @param info customer's info
      * @param customerState customer's state
      */
-    public synchronized void queueIn(String id, String customerState) {
-        int customer = Integer.parseInt(id.split(",")[0]);
+    public synchronized void queueIn(String info, String customerState) {
+        int customer = Integer.parseInt(info.split(",")[0]);
         logger.setCustomerState(customer, customerState);
-        atending_customer.add(id);       
+        logger.setOwnCar(customer, info);
+        atending_customer.add(info);       
         logger.setValueQueueIn(atending_customer.size());
         notifyAll();
         GenericIO.writelnString(" Customer "+customer+" queue in ");

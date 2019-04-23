@@ -178,36 +178,36 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws01.ua.pt << !
 echo -e "\n${bold}->${normal} A executar Lounge na máquina ${bold}2${normal}"
 sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws02.ua.pt << !
 	cd Lounge/src/MainPackage/
-	nohup java -cp /home/sd0401/Lounge/src/ MainPackage.MainProgram > /dev/null 2>&1 &
+	nohup java -cp /home/sd0401/Lounge/src/ MainPackage.MainProgram > /dev/null 2>&1 & > log.txt
 	exit
 !
 
 echo -e "\n${bold}->${normal} A executar OutsideWorld na máquina ${bold}3${normal}"
 sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws03.ua.pt << !
 	cd OutsideWorld/src/MainPackage/
-	nohup java -cp /home/sd0401/OutsideWorld/src/ MainPackage.MainProgram > /dev/null 2>&1 &
+	nohup java -cp /home/sd0401/OutsideWorld/src/ MainPackage.MainProgram > /dev/null 2>&1 & > log.txt
 	exit
 !
 
 echo -e "\n${bold}->${normal} A executar RepairArea na máquina ${bold}4${normal}"
 sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws04.ua.pt << !
 	cd RepairArea/src/MainPackage/
-	nohup java -cp /home/sd0401/RepairArea/src/ MainPackage.MainProgram > /dev/null 2>&1 &
+	nohup java -cp /home/sd0401/RepairArea/src/ MainPackage.MainProgram > /dev/null 2>&1 & > log.txt
 	exit
 !
 
 echo -e "\n${bold}->${normal} A executar Park na máquina ${bold}5${normal}"
 sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws05.ua.pt << !
 	cd Park/src/MainPackage/
-	nohup java -cp /home/sd0401/Park/src/ MainPackage.MainProgram > /dev/null 2>&1 &
+	nohup java -cp /home/sd0401/Park/src/ MainPackage.MainProgram > /dev/null 2>&1 & > log.txt
 	exit
 !
 
 echo -e "\n${bold}->${normal} A executar SupplierSite na máquina ${bold}6${normal}"
 sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws06.ua.pt << !
 	cd SupplierSite/src/MainPackage/
-	nohup java -cp /home/sd0401/SupplierSite/src/ MainPackage.MainProgram > /dev/null 2>&1 &
-	exit
+	nohup java -cp /home/sd0401/SupplierSite/src/ MainPackage.MainProgram > /dev/null 2>&1 & > log.txt
+	exit 
 !
 
 # Wait for the shared regions to be launched before lanching the intervening enities
@@ -217,7 +217,7 @@ sleep 1
 echo -e "\n${bold}->${normal} A executar Manager na máquina ${bold}7${normal}"
 sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws07.ua.pt << !
 	cd Manager/src/MainPackage/
-	nohup java -cp /home/sd0401/Manager/src/ MainPackage.MainProgram > /dev/null 2>&1 &
+	nohup java -cp /home/sd0401/Manager/src/ MainPackage.MainProgram > /dev/null 2>&1 & 
 	exit
 !
 

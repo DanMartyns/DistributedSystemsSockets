@@ -87,7 +87,8 @@ public class Message implements Serializable {
             case BACK_TO_WORK_BY_CAR:
             case PHONE_CUSTOMER:
             case GO_TO_REPAIR_SHOP:
-            case GO_TO_SUPPLIER : {
+            case GO_TO_SUPPLIER :
+           case COLLECT_CAR : {
                 this.str1 = value1;
                 this.str2 = value2;
                 break;             
@@ -144,7 +145,6 @@ public class Message implements Serializable {
             case DECIDE_ON_REPAIR :
             case BACK_TO_WORK_BY_BUS :
             case FIND_CAR :
-            case COLLECT_CAR :
             case SET_CUSTOMER_STATE :
             case SET_MECHANIC_STATE :
             case SET_REPLACEMENT_CAR :

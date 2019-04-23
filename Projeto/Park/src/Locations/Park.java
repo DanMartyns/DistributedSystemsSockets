@@ -27,7 +27,7 @@ public class Park {
     /**
      * Replacement Car Kit
      */
-    private Queue<Integer> replacementCars = new LinkedList<Integer>() {{add(-1); }};
+    private Queue<Integer> replacementCars = new LinkedList<Integer>() {{add(-1); add(-2); add(-3);}};
     
     /**
      * Set of parked cars
@@ -118,17 +118,19 @@ public class Park {
         CustomersInWait[id] = false;          
         notifyAll();
         GenericIO.writelnString("Customer "+id+" find car");
+	    GenericIO.writelnString("Customer "+id+" will take it off a replacement car.\n The replacementCars before poll : "+replacementCars);
         return replacementCars.poll();
     }
 
     /**
      * Method to signal when a car is repaired, signaling the position 
      * with the index equal to the car id, with a value of 1.
-     * @param car customer's car id
+     * @param info customer's info
      * @param customerState customer's state
      */
-    public synchronized void collectCar( int car , String customerState ) {
-        
+    public synchronized void collectCar( String info , String customerState ) {
+        String[] inf = info.split(",");
+        int car = Integer.parseInt(inf[0]);
         /**
          * If the list of repairedCards contains your car
          * repairedCars[car] == 0    => car not repaired
@@ -137,6 +139,7 @@ public class Park {
          */
         logger.setCustomerState(car, customerState);
         logger.setAlreadyRepaired(car, repairedCars);
+        logger.setOwnCar(car, info);
 
         if (repairedCars[car] == 1){
             repairedCars[car] = -1;            

@@ -47,7 +47,7 @@ public class ParkProxy implements InterfaceLocation {
                 outMessage = new Message (MessageType.RETURN_FIND_CAR, replacementCar);
                 break;
             case COLLECT_CAR :
-                l.collectCar(inMessage.getInt1(), inMessage.getStr1());
+                l.collectCar(inMessage.getStr1(), inMessage.getStr2());
                 outMessage = new Message (MessageType.STATUS_OK);
                 break;
             /**

@@ -6,7 +6,7 @@
 package EntitiesState;
 
 /**
- *
+ * @author danielmartins
  * @author giselapinto
  */
 public enum CustomerState {

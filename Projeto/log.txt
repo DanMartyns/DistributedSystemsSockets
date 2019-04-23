@@ -1,0 +1,1434 @@
+[1m*** Script Local ***(B[m
+
+[1m* Copiar parâmetros de simulação *(B[m
+
+[1m* Compilação do código em cada nó *(B[m
+
+[1m->(B[m A compilar o Manager
+[1m->(B[m A compilar o Customer
+[1m->(B[m A compilar o Mechanics
+[1m->(B[m A compilar o Lounge
+[1m->(B[m A compilar o RepairArea
+[1m->(B[m A compilar o OutsideWorld
+[1m->(B[m A compilar o Park
+[1m->(B[m A compilar o SupplierSite
+[1m->(B[m A compilar o General Information Repository 
+
+[1m* Execução do código em cada nó *(B[m
+[1m->(B[m A executar General Information Repository
+[1m->(B[m A executar Lounge
+[1m->(B[m A executar RepairArea
+[1m->(B[m A executar OutsideWorld
+[1m->(B[m A executar Park
+[1m->(B[m A executar SupplierSite
+[1m->(B[m A executar Manager
+[1m->(B[m A executar Customer
+[1m->(B[m A executar Mechanics
+ Customer 7 decideOnRepair 
+ Customer 28 decideOnRepair 
+ Customer 25 decideOnRepair 
+ Customer 6 decideOnRepair 
+ Customer 4 decideOnRepair 
+ Customer 12 decideOnRepair 
+ Customer 20 decideOnRepair 
+ Customer 13 decideOnRepair 
+Customer 25,25,25,0,0 go to repair Shop
+ Customer 21 decideOnRepair 
+ Customer 2 decideOnRepair 
+ Customer 29 decideOnRepair 
+ Customer 3 decideOnRepair 
+ Customer 25 queue in 
+ Manager get next task 
+ Customer 9 decideOnRepair 
+The state of the queues
+ Atending customer : [25,25,30,0,0]
+ Alerting customer : []
+ Getting new parts : [];
+ Customer 23 decideOnRepair 
+ Customer 11 decideOnRepair 
+Customer 3,3,3,1,0 go to repair Shop
+ Manager talk to customer 25
+ Customer 25 talk with Manager 
+ Customer 26 decideOnRepair 
+Customer 23,23,23,1,0 go to repair Shop
+ Customer 17 decideOnRepair 
+ Customer 3 queue in 
+ Customer 19 decideOnRepair 
+Customer 11,11,11,0,0 go to repair Shop
+ Customer 15 decideOnRepair 
+ Manager register service 25
+ Mechanic 1 read the paper 
+ Customer 23 queue in 
+ Customer 8 decideOnRepair 
+ Customer 16 decideOnRepair 
+ Mechanic 1 start repair procedure 
+Customer 15,15,15,1,0 go to repair Shop
+ Customer 10 decideOnRepair 
+ Customer 11 queue in 
+ Customer 24 decideOnRepair 
+ Manager get next task 
+Customer 16,16,16,0,0 go to repair Shop
+Mechanic get Vehicle from 25
+ Customer 18 decideOnRepair 
+ Customer 1 decideOnRepair 
+ Customer 15 queue in 
+ Mechanic 1 get required part 
+Customer 24,24,24,0,0 go to repair Shop
+ Customer 0 decideOnRepair 
+ Customer 16 queue in 
+The state of the queues
+ Atending customer : [3,3,30,1,0, 23,23,30,1,0, 11,11,30,0,0, 15,15,30,1,0, 16,16,30,0,0]
+ Alerting customer : []
+ Getting new parts : [];
+ Customer 14 decideOnRepair 
+ Mechanic check part available 
+ A-type pieces quantity : 5
+ B-type pieces quantity : 5
+ C-type pieces quantity : 5
+ Customer 5 decideOnRepair 
+ Customer 24 queue in 
+ Customer 27 decideOnRepair 
+Customer 0,0,0,0,0 go to repair Shop
+ Manager talk to customer 3
+ Customer 3 talk with Manager 
+ Customer 22 decideOnRepair 
+Customer 14,14,14,1,0 go to repair Shop
+ Customer 5 decideOnRepair 
+ Customer 1 decideOnRepair 
+ Customer 0 queue in 
+ Mechanic 1 resume repair procedure 
+ Customer 18 decideOnRepair 
+Customer 27,27,27,0,0 go to repair Shop
+ Customer 10 decideOnRepair 
+ Customer 14 queue in 
+ Customer 8 decideOnRepair 
+Customer 1,1,1,1,0 go to repair Shop
+ Customer 19 decideOnRepair 
+ Customer 3 collect car key 
+ Customer 17 decideOnRepair 
+Customer 10,10,10,1,0 go to repair Shop
+Mechanic return Vehicle from 25
+ Manager register service 3
+ Mechanic 0 read the paper 
+ Customer 27 queue in 
+ Customer 26 decideOnRepair 
+Customer 18,18,18,1,0 go to repair Shop
+ Mechanic 0 start repair procedure 
+ Customer 1 queue in 
+Customer 3 find car
+ Customer 9 decideOnRepair 
+Customer 3 will take it off a replacement car.
+ The replacementCars before poll : [-1, -2, -3]
+Mechanic get Vehicle from 3
+ Customer 29 decideOnRepair 
+ Customer 18 queue in 
+ Customer 2 decideOnRepair 
+ Mechanic 0 get required part 
+ Manager get next task 
+Customer 9,9,9,0,0 go to repair Shop
+ Customer 21 decideOnRepair 
+ Customer 13 decideOnRepair 
+ Mechanic check part available 
+ A-type pieces quantity : 4
+ B-type pieces quantity : 5
+ C-type pieces quantity : 5
+ Customer 10 queue in 
+ Customer 20 decideOnRepair 
+Customer 29,29,29,1,0 go to repair Shop
+ Customer 12 decideOnRepair 
+ Mechanic conclud the repair. Car 25
+The state of the queues
+ Atending customer : [23,23,30,1,0, 11,11,30,0,0, 15,15,30,1,0, 16,16,30,0,0, 24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0]
+ Alerting customer : [25]
+ Getting new parts : [];
+ Customer 4 decideOnRepair 
+Customer 13,13,13,0,0 go to repair Shop
+ Customer 6 decideOnRepair 
+ Customer 9 queue in 
+ Customer 28 decideOnRepair 
+Customer 12,12,12,1,0 go to repair Shop
+ Mechanic 0 resume repair procedure 
+ Customer 7 decideOnRepair 
+ Customer 29 queue in 
+Customer 20,20,20,1,0 go to repair Shop
+ Customer 28 decideOnRepair 
+ Customer 6 decideOnRepair 
+ Customer 12 queue in 
+Customer 4,4,4,0,0 go to repair Shop
+Mechanic return Vehicle from 3
+ Manager will call the customer 25
+ Customer 21 decideOnRepair 
+ Customer 13 queue in 
+Customer 7,7,7,0,0 go to repair Shop
+ Customer 2 decideOnRepair 
+ Manager get next task 
+Customer 6,6,6,1,0 go to repair Shop
+ Customer 4 queue in 
+ Customer 26 decideOnRepair 
+ Mechanic conclud the repair. Car 3
+Customer 21,21,21,0,0 go to repair Shop
+ Customer 17 decideOnRepair 
+ Customer 19 decideOnRepair 
+ Customer 20 queue in 
+ Customer 8 decideOnRepair 
+Customer 17,17,17,0,0 go to repair Shop
+ Customer 5 decideOnRepair 
+ Customer 21 queue in 
+ Customer 22 decideOnRepair 
+ Customer 5 decideOnRepair 
+ Customer 6 queue in 
+The state of the queues
+ Atending customer : [23,23,30,1,0, 11,11,30,0,0, 15,15,30,1,0, 16,16,30,0,0, 24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0]
+ Alerting customer : [3]
+ Getting new parts : [];
+ Customer 8 decideOnRepair 
+ Customer 19 decideOnRepair 
+ Customer 7 queue in 
+ Customer 26 decideOnRepair 
+ Customer 2 decideOnRepair 
+ Customer 25 back to work by bus 
+ Customer 17 queue in 
+ Customer 28 decideOnRepair 
+Customer 19,19,19,0,0 go to repair Shop
+ Customer 26 decideOnRepair 
+ Customer 8 decideOnRepair 
+Customer 2,2,2,1,0 go to repair Shop
+ Customer 25 queue in 
+ Manager will call the customer 3
+ Customer 5 decideOnRepair 
+Customer 26,26,26,0,0 go to repair Shop
+ Customer 19 queue in 
+ Customer 22 decideOnRepair 
+ Customer 3 back to work by car 
+ Manager get next task 
+ Customer 28 decideOnRepair 
+Customer 8,8,8,1,0 go to repair Shop
+ Customer 5 decideOnRepair 
+ Customer 2 queue in 
+ Customer 28 decideOnRepair 
+Customer 22,22,22,1,0 go to repair Shop
+ Customer 8 queue in 
+The state of the queues
+ Atending customer : [23,23,30,1,0, 11,11,30,0,0, 15,15,30,1,0, 16,16,30,0,0, 24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0]
+ Alerting customer : []
+ Getting new parts : [];
+Customer 3,3,-1,1,0 go to repair Shop
+ Customer 26 queue in 
+Customer 28,28,28,1,0 go to repair Shop
+ Customer 3 queue in 
+Customer 5,5,5,0,0 go to repair Shop
+ Manager talk to customer 23
+ Customer 23 talk with Manager 
+ Customer 22 queue in 
+ Customer 23 collect car key 
+ Manager register service 23
+ Mechanic 0 read the paper 
+ Customer 5 queue in 
+Customer 23 find car
+Customer 23 will take it off a replacement car.
+ The replacementCars before poll : [-2, -3, -1]
+ Mechanic 0 start repair procedure 
+Mechanic get Vehicle from 23
+ Customer 28 queue in 
+ Manager get next task 
+ Mechanic 0 get required part 
+The state of the queues
+ Atending customer : [11,11,30,0,0, 15,15,30,1,0, 16,16,30,0,0, 24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic check part available 
+ A-type pieces quantity : 4
+ B-type pieces quantity : 5
+ C-type pieces quantity : 4
+ Manager talk to customer 11
+ Customer 11 talk with Manager 
+ Mechanic 0 resume repair procedure 
+ Manager register service 11
+ Mechanic 1 read the paper 
+Mechanic return Vehicle from 23
+ Manager get next task 
+ Mechanic 1 start repair procedure 
+Mechanic get Vehicle from 11
+ Mechanic conclud the repair. Car 23
+The state of the queues
+ Atending customer : [15,15,30,1,0, 16,16,30,0,0, 24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0]
+ Alerting customer : [23]
+ Getting new parts : [];
+ Mechanic 1 get required part 
+ Manager will call the customer 23
+ Customer 23 back to work by car 
+ Mechanic check part available 
+ A-type pieces quantity : 4
+ B-type pieces quantity : 4
+ C-type pieces quantity : 4
+ Manager get next task 
+The state of the queues
+ Atending customer : [15,15,30,1,0, 16,16,30,0,0, 24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0]
+ Alerting customer : []
+ Getting new parts : [];
+Customer 23,23,-2,1,0 go to repair Shop
+ Manager talk to customer 15
+ Customer 15 talk with Manager 
+ Mechanic 1 resume repair procedure 
+ Customer 23 queue in 
+Mechanic return Vehicle from 11
+ Customer 15 collect car key 
+ Manager register service 15
+ Mechanic 0 read the paper 
+ Mechanic conclud the repair. Car 11
+Customer 15 find car
+Customer 15 will take it off a replacement car.
+ The replacementCars before poll : [-3, -1, -2]
+ Mechanic 0 start repair procedure 
+ Manager get next task 
+The state of the queues
+ Atending customer : [16,16,30,0,0, 24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1]
+ Alerting customer : [11]
+ Getting new parts : [];Mechanic get Vehicle from 15
+
+ Mechanic 0 get required part 
+ Manager will call the customer 11
+ Customer 11 back to work by bus 
+ Mechanic check part available 
+ Manager get next task 
+ A-type pieces quantity : 4
+ B-type pieces quantity : 4
+ C-type pieces quantity : 3
+ Customer 11 queue in 
+The state of the queues
+ Atending customer : [16,16,30,0,0, 24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 16
+ Customer 16 talk with Manager 
+ Mechanic 0 resume repair procedure 
+ Manager register service 16
+ Mechanic 1 read the paper 
+Mechanic return Vehicle from 15
+ Manager get next task 
+ Mechanic 1 start repair procedure 
+ Mechanic conclud the repair. Car 15
+The state of the queues
+ Atending customer : [24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1]
+ Alerting customer : [15]
+ Getting new parts : [];Mechanic get Vehicle from 16
+
+ Manager will call the customer 15
+ Customer 15 back to work by car 
+ Mechanic 1 get required part 
+ Manager get next task 
+Customer 15,15,-3,1,0 go to repair Shop
+ Mechanic check part available 
+ A-type pieces quantity : 4
+ B-type pieces quantity : 3
+ C-type pieces quantity : 3
+The state of the queues
+ Atending customer : [24,24,30,0,0, 0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Customer 15 queue in 
+ Manager talk to customer 24
+ Customer 24 talk with Manager 
+ Mechanic 1 resume repair procedure 
+ Manager register service 24
+ Mechanic 0 read the paper 
+Mechanic return Vehicle from 16
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+Mechanic get Vehicle from 24
+ Mechanic conclud the repair. Car 16
+The state of the queues
+ Atending customer : [0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1]
+ Alerting customer : [16]
+ Getting new parts : [];
+ Mechanic 0 get required part 
+ Manager will call the customer 16
+ Customer 16 back to work by bus 
+ Mechanic check part available 
+ Manager get next task  A-type pieces quantity : 4
+
+ B-type pieces quantity : 2
+ C-type pieces quantity : 3
+ Customer 16 queue in 
+The state of the queues
+ Atending customer : [0,0,30,0,0, 14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 0
+ Customer 0 talk with Manager 
+ Mechanic 0 resume repair procedure 
+ Manager register service 0
+ Mechanic 1 read the paper 
+Mechanic return Vehicle from 24
+ Mechanic 1 start repair procedure 
+ Manager get next task 
+Mechanic get Vehicle from 0
+ Mechanic conclud the repair. Car 24
+The state of the queues
+ Atending customer : [14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1]
+ Alerting customer : [24]
+ Getting new parts : [];
+ Mechanic 1 get required part 
+ Manager will call the customer 24
+ Customer 24 back to work by bus 
+ Mechanic check part available 
+ A-type pieces quantity : 4
+ B-type pieces quantity : 1
+ C-type pieces quantity : 3
+ Manager get next task 
+ Customer 24 queue in 
+The state of the queues
+ Atending customer : [14,14,30,1,0, 27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 14
+ Customer 14 talk with Manager 
+ Mechanic 1 resume repair procedure 
+Mechanic return Vehicle from 0
+ Customer 14 collect car key 
+ Mechanic conclud the repair. Car 0
+ Manager register service 14
+ Mechanic 0 read the paper 
+Customer 14 find car
+Customer 14 will take it off a replacement car.
+ The replacementCars before poll : [-1, -2, -3]
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+The state of the queues
+ Atending customer : [27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1]
+ Alerting customer : [0]
+ Getting new parts : [];
+Mechanic get Vehicle from 14
+ Mechanic 0 get required part 
+ Manager will call the customer 0
+ Customer 0 back to work by bus 
+ Mechanic check part available 
+ A-type pieces quantity : 4
+ B-type pieces quantity : 1
+ C-type pieces quantity : 2
+ Customer 0 queue in 
+Mechanic block Vehicle from 14
+ Manager get next task 
+ Mechanic check the piece 1
+The state of the queues
+ Atending customer : [27,27,30,0,0, 1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic let Manager Know the piece 1
+ Manager talk to customer 27
+ Customer 27 talk with Manager 
+ Mechanic 0 read the paper 
+ Manager register service 27
+ Mechanic 1 read the paper 
+ Mechanic 0 start repair procedure 
+Mechanic get Vehicle from 14
+ Manager get next task 
+ Mechanic 1 start repair procedure 
+The state of the queues
+ Atending customer : [1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1]
+ Alerting customer : []
+ Getting new parts : [1];
+Mechanic get Vehicle from 27
+ Mechanic check part available 
+ A-type pieces quantity : 4
+ B-type pieces quantity : 1
+ C-type pieces quantity : 2
+Mechanic block Vehicle from 14
+ Mechanic 1 get required part 
+ Mechanic check the piece 1
+ Manager go to supplier. Restore type 1, quantity : 3
+ Mechanic check part available 
+ A-type pieces quantity : 4
+ B-type pieces quantity : 1
+ C-type pieces quantity : 2
+ Manager store part 
+ Mechanic let Manager Know the piece 1
+ Manager get next task 
+The state of the queues
+ Atending customer : [1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1]
+ Alerting customer : []
+ Getting new parts : [1];
+ Mechanic 1 resume repair procedure 
+ Mechanic 0 read the paper 
+ Manager go to supplier. Restore type 1, quantity : 5
+Mechanic return Vehicle from 27
+ Mechanic 0 start repair procedure 
+ Mechanic conclud the repair. Car 27
+Mechanic get Vehicle from 14
+ Manager store part 
+ Mechanic check part available 
+ A-type pieces quantity : 3
+ Manager get next task 
+ B-type pieces quantity : 9
+ C-type pieces quantity : 2
+The state of the queues
+ Atending customer : [1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1]
+ Alerting customer : [27]
+ Getting new parts : [];
+ Manager will call the customer 27
+ Customer 27 back to work by bus 
+ Mechanic 0 resume repair procedure 
+ Manager get next task 
+Mechanic return Vehicle from 14
+ Customer 27 queue in 
+The state of the queues
+ Atending customer : [1,1,30,1,0, 18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic conclud the repair. Car 14
+ Manager talk to customer 1
+ Customer 1 talk with Manager 
+ Customer 1 collect car key 
+Customer 1 find car
+Customer 1 will take it off a replacement car.
+ The replacementCars before poll : [-2, -3]
+ Manager register service 1
+ Mechanic 0 read the paper 
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+The state of the queues
+ Atending customer : [18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1]
+ Alerting customer : [14]
+ Getting new parts : [];Mechanic get Vehicle from 1
+
+ Manager will call the customer 14 Mechanic 0 get required part 
+
+ Customer 14 back to work by car 
+ Mechanic check part available 
+ Manager get next task  A-type pieces quantity : 3
+
+ B-type pieces quantity : 8
+ C-type pieces quantity : 2
+Customer 14,14,-1,1,0 go to repair Shop
+The state of the queues
+ Atending customer : [18,18,30,1,0, 10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Customer 14 queue in 
+ Mechanic 0 resume repair procedure 
+ Manager talk to customer 18
+ Customer 18 talk with Manager 
+Mechanic return Vehicle from 1
+ Customer 18 collect car key 
+ Manager register service 18
+ Mechanic 1 read the paper 
+ Mechanic conclud the repair. Car 1
+Customer 18 find car
+Customer 18 will take it off a replacement car.
+ The replacementCars before poll : [-3, -1]
+ Manager get next task 
+ Mechanic 1 start repair procedure 
+Mechanic get Vehicle from 18The state of the queues
+ Atending customer : [10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1]
+ Alerting customer : [1]
+ Getting new parts : [];
+
+ Mechanic 1 get required part 
+ Manager will call the customer 1
+ Customer 1 back to work by car 
+ Mechanic check part available 
+ A-type pieces quantity : 3
+ B-type pieces quantity : 7
+ C-type pieces quantity : 2
+ Manager get next task 
+The state of the queues
+ Atending customer : [10,10,30,1,0, 9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+Customer 1,1,-2,1,0 go to repair Shop
+ Manager talk to customer 10
+ Customer 10 talk with Manager 
+ Mechanic 1 resume repair procedure 
+ Customer 1 queue in 
+Mechanic return Vehicle from 18
+ Customer 10 collect car key 
+ Manager register service 10
+ Mechanic 0 read the paper 
+ Mechanic conclud the repair. Car 18
+Customer 10 find car
+Customer 10 will take it off a replacement car.
+ The replacementCars before poll : [-1, -2]
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+The state of the queues
+ Atending customer : [9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1]
+ Alerting customer : [18]
+ Getting new parts : [];
+Mechanic get Vehicle from 10
+ Manager will call the customer 18
+ Customer 18 back to work by car 
+ Mechanic 0 get required part 
+ Manager get next task 
+ Mechanic check part available 
+ A-type pieces quantity : 3
+ B-type pieces quantity : 7
+ C-type pieces quantity : 1
+The state of the queues
+ Atending customer : [9,9,30,0,0, 29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+Customer 18,18,-3,1,0 go to repair Shop
+ Manager talk to customer 9
+ Customer 9 talk with Manager 
+ Customer 18 queue in 
+ Mechanic 0 resume repair procedure 
+ Manager register service 9
+ Mechanic 1 read the paper 
+Mechanic return Vehicle from 10
+ Manager get next task 
+ Mechanic 1 start repair procedure 
+Mechanic get Vehicle from 9
+ Mechanic conclud the repair. Car 10
+The state of the queues
+ Atending customer : [29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1]
+ Alerting customer : [10]
+ Getting new parts : [];
+ Mechanic 1 get required part 
+ Manager will call the customer 10
+ Customer 10 back to work by car 
+ Mechanic check part available 
+ A-type pieces quantity : 3
+ B-type pieces quantity : 6
+ C-type pieces quantity : 1
+ Manager get next task 
+The state of the queues
+ Atending customer : [29,29,30,1,0, 12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+Customer 10,10,-1,1,0 go to repair Shop
+ Manager talk to customer 29
+ Customer 29 talk with Manager 
+ Mechanic 1 resume repair procedure 
+ Customer 10 queue in 
+Mechanic return Vehicle from 9
+ Customer 29 collect car key 
+ Mechanic conclud the repair. Car 9
+ Manager register service 29
+ Mechanic 0 read the paper 
+Customer 29 find car
+Customer 29 will take it off a replacement car.
+ The replacementCars before poll : [-2, -3, -1]
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+The state of the queues
+ Atending customer : [12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1]
+ Alerting customer : [9]
+ Getting new parts : [];
+Mechanic get Vehicle from 29
+ Manager will call the customer 9
+ Customer 9 back to work by bus 
+ Mechanic 0 get required part 
+ Mechanic check part available 
+ A-type pieces quantity : 2
+ Manager get next task 
+ B-type pieces quantity : 6
+ C-type pieces quantity : 1
+ Customer 9 queue in 
+The state of the queues
+ Atending customer : [12,12,30,1,0, 13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 12
+ Customer 12 talk with Manager 
+ Mechanic 0 resume repair procedure 
+Mechanic return Vehicle from 29
+ Customer 12 collect car key 
+ Manager register service 12
+ Mechanic 1 read the paper 
+ Mechanic conclud the repair. Car 29
+Customer 12 find car
+Customer 12 will take it off a replacement car.
+ The replacementCars before poll : [-3, -1]
+ Manager get next task 
+ Mechanic 1 start repair procedure 
+The state of the queues
+ Atending customer : [13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1]
+ Alerting customer : [29]
+ Getting new parts : [];
+Mechanic get Vehicle from 12
+ Manager will call the customer 29
+ Customer 29 back to work by car 
+ Mechanic 1 get required part 
+ Manager get next task 
+ Mechanic check part available 
+ A-type pieces quantity : 2
+ B-type pieces quantity : 5
+ C-type pieces quantity : 1
+Customer 29,29,-2,1,0 go to repair Shop
+Mechanic block Vehicle from 12
+The state of the queues
+ Atending customer : [13,13,30,0,0, 4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic check the piece 2
+ Customer 29 queue in 
+ Manager talk to customer 13
+ Customer 13 talk with Manager 
+ Manager register service 13
+ Mechanic 0 read the paper 
+ Mechanic let Manager Know the piece 2
+ Mechanic 0 start repair procedure 
+ Manager get next task 
+Mechanic get Vehicle from 12
+The state of the queues
+ Atending customer : [4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1]
+ Alerting customer : []
+ Getting new parts : [2];
+ Mechanic 1 read the paper 
+ Mechanic check part available 
+ A-type pieces quantity : 2
+ B-type pieces quantity : 5
+ C-type pieces quantity : 1
+ Manager go to supplier. Restore type 2, quantity : 5
+ Mechanic 1 start repair procedure 
+Mechanic block Vehicle from 12
+Mechanic get Vehicle from 13
+ Mechanic check the piece 2
+ Manager store part 
+ Mechanic 1 get required part 
+ Mechanic check part available 
+ A-type pieces quantity : 2
+ B-type pieces quantity : 5
+ C-type pieces quantity : 6
+ Mechanic let Manager Know the piece 2
+ Manager get next task 
+The state of the queues
+ Atending customer : [4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1]
+ Alerting customer : []
+ Getting new parts : [2];
+ Mechanic 1 resume repair procedure 
+ Manager go to supplier. Restore type 2, quantity : 4
+ Mechanic 0 read the paper 
+Mechanic return Vehicle from 13
+ Manager store part 
+ Mechanic conclud the repair. Car 13
+ Mechanic 0 start repair procedure 
+Mechanic get Vehicle from 12
+ Manager get next task 
+The state of the queues
+ Atending customer : [4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1]
+ Alerting customer : [13]
+ Getting new parts : [];
+ Mechanic check part available 
+ A-type pieces quantity : 2
+ B-type pieces quantity : 5
+ C-type pieces quantity : 9
+ Manager will call the customer 13
+ Customer 13 back to work by bus 
+ Manager get next task 
+ Mechanic 0 resume repair procedure 
+ Customer 13 queue in 
+The state of the queues
+ Atending customer : [4,4,30,0,0, 20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+Mechanic return Vehicle from 12
+ Manager talk to customer 4
+ Customer 4 talk with Manager 
+ Mechanic conclud the repair. Car 12
+ Manager register service 4
+ Mechanic 1 read the paper 
+ Mechanic 1 start repair procedure 
+ Manager get next task 
+The state of the queues
+ Atending customer : [20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1]
+ Alerting customer : [12]
+ Getting new parts : [];Mechanic get Vehicle from 4
+
+ Mechanic 1 get required part 
+ Manager will call the customer 12
+ Customer 12 back to work by car 
+ Mechanic check part available 
+ A-type pieces quantity : 2
+ B-type pieces quantity : 5
+ C-type pieces quantity : 8
+ Manager get next task 
+Customer 12,12,-3,1,0 go to repair Shop
+The state of the queues
+ Atending customer : [20,20,30,1,0, 21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Customer 12 queue in 
+ Mechanic 1 resume repair procedure 
+ Manager talk to customer 20
+ Customer 20 talk with Manager 
+Mechanic return Vehicle from 4
+ Customer 20 collect car key 
+ Mechanic conclud the repair. Car 4
+ Manager register service 20
+ Mechanic 0 read the paper 
+Customer 20 find car
+Customer 20 will take it off a replacement car.
+ The replacementCars before poll : [-1, -2, -3]
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+The state of the queues
+ Atending customer : [21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1]
+ Alerting customer : [4]
+ Getting new parts : [];
+Mechanic get Vehicle from 20
+ Manager will call the customer 4
+ Customer 4 back to work by bus 
+ Mechanic 0 get required part 
+ Manager get next task 
+ Mechanic check part available 
+ A-type pieces quantity : 2
+ B-type pieces quantity : 4
+ C-type pieces quantity : 8
+ Customer 4 queue in 
+The state of the queues
+ Atending customer : [21,21,30,0,0, 6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 21
+ Customer 21 talk with Manager 
+ Mechanic 0 resume repair procedure 
+ Manager register service 21
+ Mechanic 1 read the paper 
+Mechanic return Vehicle from 20
+ Mechanic 1 start repair procedure 
+ Manager get next task 
+Mechanic get Vehicle from 21
+ Mechanic conclud the repair. Car 20
+The state of the queues
+ Atending customer : [6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1]
+ Alerting customer : [20]
+ Getting new parts : [];
+ Manager will call the customer 20
+ Customer 20 back to work by car 
+ Mechanic 1 get required part 
+ Manager get next task 
+ Mechanic check part available 
+ A-type pieces quantity : 2
+ B-type pieces quantity : 4
+ C-type pieces quantity : 7
+The state of the queues
+ Atending customer : [6,6,30,1,0, 7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+Customer 20,20,-1,1,0 go to repair Shop
+ Manager talk to customer 6
+ Customer 6 talk with Manager 
+ Customer 20 queue in 
+ Mechanic 1 resume repair procedure 
+ Customer 6 collect car key 
+ Manager register service 6
+ Mechanic 0 read the paper 
+Customer 6 find car
+Customer 6 will take it off a replacement car.
+ The replacementCars before poll : [-2, -3, -1]
+Mechanic return Vehicle from 21
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+Mechanic get Vehicle from 6
+ Mechanic conclud the repair. Car 21
+The state of the queues
+ Atending customer : [7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1]
+ Alerting customer : [21]
+ Getting new parts : [];
+ Mechanic 0 get required part 
+ Manager will call the customer 21
+ Customer 21 back to work by bus 
+ Mechanic check part available 
+ A-type pieces quantity : 1
+ B-type pieces quantity : 4
+ C-type pieces quantity : 7
+ Manager get next task 
+ Customer 21 queue in 
+The state of the queues
+ Atending customer : [7,7,30,0,0, 17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 7
+ Customer 7 talk with Manager 
+ Mechanic 0 resume repair procedure 
+ Manager register service 7
+ Mechanic 1 read the paper 
+Mechanic return Vehicle from 6
+ Manager get next task 
+ Mechanic 1 start repair procedure 
+ Mechanic conclud the repair. Car 6
+The state of the queues
+ Atending customer : [17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1]
+ Alerting customer : [6]
+ Getting new parts : [];
+Mechanic get Vehicle from 7
+ Manager will call the customer 6
+ Customer 6 back to work by car 
+ Mechanic 1 get required part 
+ Manager get next task 
+ Mechanic check part available 
+ A-type pieces quantity : 1
+ B-type pieces quantity : 4
+ C-type pieces quantity : 6
+The state of the queues
+ Atending customer : [17,17,30,0,0, 25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+Customer 6,6,-2,1,0 go to repair Shop
+ Manager talk to customer 17
+ Customer 17 talk with Manager 
+ Customer 6 queue in 
+ Mechanic 1 resume repair procedure 
+ Manager register service 17
+ Mechanic 0 read the paper 
+Mechanic return Vehicle from 7
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+Mechanic get Vehicle from 17
+ Mechanic conclud the repair. Car 7
+The state of the queues
+ Atending customer : [25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1]
+ Alerting customer : [7]
+ Getting new parts : [];
+ Manager will call the customer 7
+ Customer 7 back to work by bus 
+ Mechanic 0 get required part 
+ Manager get next task 
+ Mechanic check part available 
+ A-type pieces quantity : 1
+ B-type pieces quantity : 3
+ C-type pieces quantity : 6
+ Customer 7 queue in 
+The state of the queues
+ Atending customer : [25,25,30,0,1, 19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 25
+ Customer 25 pay for the service 
+ Manager receive payment from 25
+ Mechanic 0 resume repair procedure 
+ Manager get next task 
+Customer 25 collect car
+Mechanic return Vehicle from 17
+The state of the queues
+ Atending customer : [19,19,30,0,0, 2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic conclud the repair. Car 17
+ Manager talk to customer 19
+ Customer 19 talk with Manager 
+ Manager register service 19
+ Mechanic 0 read the paper 
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+The state of the queues
+ Atending customer : [2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1]
+ Alerting customer : [17]
+ Getting new parts : [];
+Mechanic get Vehicle from 19
+ Manager will call the customer 17
+ Customer 17 back to work by bus 
+ Mechanic 0 get required part 
+ Manager get next task 
+ Mechanic check part available 
+ A-type pieces quantity : 1
+ B-type pieces quantity : 3
+ C-type pieces quantity : 5
+ Customer 17 queue in 
+The state of the queues
+ Atending customer : [2,2,30,1,0, 8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 2
+ Customer 2 talk with Manager 
+ Mechanic 0 resume repair procedure 
+Mechanic return Vehicle from 19
+ Customer 2 collect car key 
+ Manager register service 2
+ Mechanic 1 read the paper 
+ Mechanic conclud the repair. Car 19
+Customer 2 find car
+Customer 2 will take it off a replacement car.
+ The replacementCars before poll : [-3, -1, -2]
+ Mechanic 1 start repair procedure 
+ Manager get next task 
+The state of the queues
+ Atending customer : [8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1]
+ Alerting customer : [19]
+ Getting new parts : [];
+Mechanic get Vehicle from 2
+ Manager will call the customer 19
+ Customer 19 back to work by bus 
+ Mechanic 1 get required part 
+ Manager get next task 
+ Mechanic check part available 
+ A-type pieces quantity : 1
+ B-type pieces quantity : 3
+ C-type pieces quantity : 4
+Mechanic block Vehicle from 2
+ Customer 19 queue in 
+The state of the queues
+ Atending customer : [8,8,30,1,0, 26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic check the piece 0
+ Manager talk to customer 8
+ Customer 8 talk with Manager 
+ Mechanic let Manager Know the piece 0
+ Mechanic 1 read the paper 
+ Customer 8 collect car key 
+ Manager register service 8
+ Mechanic 0 read the paper 
+Customer 8 find car
+Customer 8 will take it off a replacement car.
+ The replacementCars before poll : [-1, -2]
+ Mechanic 1 start repair procedure 
+ Manager get next task 
+Mechanic get Vehicle from 2
+ Mechanic 0 start repair procedure 
+The state of the queues
+ Atending customer : [26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1]
+ Alerting customer : []
+ Getting new parts : [0];
+Mechanic get Vehicle from 8
+ Mechanic check part available 
+ A-type pieces quantity : 1
+ B-type pieces quantity : 3
+ C-type pieces quantity : 4
+ Manager go to supplier. Restore type 0, quantity : 6
+Mechanic block Vehicle from 2
+ Mechanic 0 get required part 
+ Mechanic check the piece 0
+ Mechanic check part available 
+ A-type pieces quantity : 1
+ B-type pieces quantity : 3
+ C-type pieces quantity : 4
+ Manager store part 
+ Mechanic let Manager Know the piece 0
+ Manager get next task 
+ Mechanic 0 resume repair procedure 
+The state of the queues
+ Atending customer : [26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1]
+ Alerting customer : []
+ Getting new parts : [0];
+ Mechanic 1 read the paper 
+Mechanic return Vehicle from 8
+ Manager go to supplier. Restore type 0, quantity : 1
+ Mechanic 1 start repair procedure 
+Mechanic get Vehicle from 2
+ Mechanic conclud the repair. Car 8
+ Manager store part 
+ Mechanic check part available 
+ A-type pieces quantity : 8
+ B-type pieces quantity : 3
+ C-type pieces quantity : 3
+ Manager get next task 
+The state of the queues
+ Atending customer : [26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1]
+ Alerting customer : [8]
+ Getting new parts : [];
+ Manager will call the customer 8
+ Customer 8 back to work by car 
+ Mechanic 1 resume repair procedure 
+ Manager get next task 
+The state of the queues
+ Atending customer : [26,26,30,0,0, 3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+Customer 8,8,-1,1,0 go to repair Shop
+Mechanic return Vehicle from 2
+ Manager talk to customer 26
+ Customer 26 talk with Manager 
+ Customer 8 queue in 
+ Manager register service 26
+ Mechanic conclud the repair. Car 2 Mechanic 0 read the paper 
+
+ Manager get next task 
+The state of the queues
+ Atending customer : [3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1]
+ Alerting customer : [2]
+ Getting new parts : [];
+ Mechanic 0 start repair procedure 
+Mechanic get Vehicle from 26
+ Manager will call the customer 2
+ Customer 2 back to work by car 
+ Mechanic 0 get required part 
+ Manager get next task 
+The state of the queues
+ Atending customer : [3,3,30,1,1, 22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic check part available 
+ A-type pieces quantity : 7
+ B-type pieces quantity : 3
+ C-type pieces quantity : 3
+Customer 2,2,-3,1,0 go to repair Shop
+ Manager talk to customer 3
+ Customer 3 pay for the service 
+ Customer 2 queue in 
+ Manager receive payment from 3
+ Mechanic 0 resume repair procedure 
+Customer 3 collect car
+ Manager get next task 
+Mechanic return Vehicle from 26
+The state of the queues
+ Atending customer : [22,22,30,1,0, 5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic conclud the repair. Car 26
+ Manager talk to customer 22
+ Customer 22 talk with Manager 
+ Customer 22 collect car key 
+ Manager register service 22
+ Mechanic 0 read the paper 
+Customer 22 find car
+Customer 22 will take it off a replacement car.
+ The replacementCars before poll : [-2, -1, -3]
+ Mechanic 0 start repair procedure 
+ Manager get next task 
+The state of the queues
+ Atending customer : [5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1]
+ Alerting customer : [26]
+ Getting new parts : [];
+Mechanic get Vehicle from 22
+ Mechanic 0 get required part 
+ Manager will call the customer 26
+ Customer 26 back to work by bus 
+ Mechanic check part available 
+ A-type pieces quantity : 7
+ B-type pieces quantity : 2
+ C-type pieces quantity : 3
+ Manager get next task 
+ Customer 26 queue in 
+The state of the queues
+ Atending customer : [5,5,30,0,0, 28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 5
+ Customer 5 talk with Manager 
+ Mechanic 0 resume repair procedure 
+ Manager register service 5
+ Mechanic 1 read the paper 
+Mechanic return Vehicle from 22
+ Manager get next task 
+ Mechanic 1 start repair procedure 
+Mechanic get Vehicle from 5
+ Mechanic conclud the repair. Car 22
+The state of the queues
+ Atending customer : [28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1]
+ Alerting customer : [22]
+ Getting new parts : [];
+ Manager will call the customer 22
+ Customer 22 back to work by car 
+ Mechanic 1 get required part 
+ Manager get next task 
+The state of the queues
+ Atending customer : [28,28,30,1,0, 23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic check part available 
+ A-type pieces quantity : 6
+ B-type pieces quantity : 2
+ C-type pieces quantity : 3
+Customer 22,22,-2,1,0 go to repair Shop
+ Manager talk to customer 28
+ Customer 28 talk with Manager 
+ Customer 22 queue in 
+ Mechanic 1 resume repair procedure 
+ Customer 28 collect car key 
+ Manager register service 28
+ Mechanic 0 read the paper 
+Customer 28 find car
+Customer 28 will take it off a replacement car.
+ The replacementCars before poll : [-1, -3, -2]
+Mechanic return Vehicle from 5
+ Manager get next task 
+ Mechanic 0 start repair procedure 
+Mechanic get Vehicle from 28
+ Mechanic conclud the repair. Car 5
+The state of the queues
+ Atending customer : [23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1]
+ Alerting customer : [5]
+ Getting new parts : [];
+ Mechanic 0 get required part 
+ Manager will call the customer 5
+ Customer 5 back to work by bus 
+ Mechanic check part available 
+ A-type pieces quantity : 6
+ B-type pieces quantity : 1
+ C-type pieces quantity : 3
+ Customer 5 queue in 
+ Manager get next task 
+The state of the queues
+ Atending customer : [23,23,30,1,1, 11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic 0 resume repair procedure 
+ Manager talk to customer 23
+ Customer 23 pay for the service 
+ Manager receive payment from 23
+ Manager get next task 
+Customer 23 collect car
+Mechanic return Vehicle from 28
+The state of the queues
+ Atending customer : [11,11,30,0,1, 15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Mechanic conclud the repair. Car 28
+ Manager talk to customer 11
+ Customer 11 pay for the service 
+ Manager receive payment from 11
+ Manager get next task 
+Customer 11 collect car
+The state of the queues
+ Atending customer : [15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1]
+ Alerting customer : [28]
+ Getting new parts : [];
+ Manager will call the customer 28
+ Customer 28 back to work by car 
+ Manager get next task 
+The state of the queues
+ Atending customer : [15,15,30,1,1, 16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1]
+ Alerting customer : []
+ Getting new parts : [];
+Customer 28,28,-1,1,0 go to repair Shop
+ Manager talk to customer 15
+ Customer 15 pay for the service 
+ Customer 28 queue in 
+ Manager receive payment from 15
+Customer 15 collect car
+ Manager get next task 
+The state of the queues
+ Atending customer : [16,16,30,0,1, 24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 16
+ Customer 16 pay for the service 
+ Manager receive payment from 16
+ Manager get next task 
+Customer 16 collect car
+The state of the queues
+ Atending customer : [24,24,30,0,1, 0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 24
+ Customer 24 pay for the service 
+ Manager receive payment from 24
+ Manager get next task 
+Customer 24 collect car
+The state of the queues
+ Atending customer : [0,0,30,0,1, 27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 0
+ Customer 0 pay for the service 
+ Manager receive payment from 0
+ Manager get next task 
+Customer 0 collect car
+The state of the queues
+ Atending customer : [27,27,30,0,1, 14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 27
+ Customer 27 pay for the service 
+ Manager receive payment from 27
+ Manager get next task 
+Customer 27 collect car
+The state of the queues
+ Atending customer : [14,14,30,1,1, 1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 14
+ Customer 14 pay for the service 
+ Manager receive payment from 14
+ Manager get next task 
+Customer 14 collect car
+The state of the queues
+ Atending customer : [1,1,30,1,1, 18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 1
+ Customer 1 pay for the service 
+ Manager receive payment from 1
+ Manager get next task 
+Customer 1 collect car
+The state of the queues
+ Atending customer : [18,18,30,1,1, 10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 18
+ Customer 18 pay for the service 
+ Manager receive payment from 18
+ Manager get next task 
+Customer 18 collect car
+The state of the queues
+ Atending customer : [10,10,30,1,1, 9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 10
+ Customer 10 pay for the service 
+ Manager receive payment from 10
+ Manager get next task 
+Customer 10 collect car
+The state of the queues
+ Atending customer : [9,9,30,0,1, 29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 9
+ Customer 9 pay for the service 
+ Manager receive payment from 9
+ Manager get next task 
+Customer 9 collect car
+The state of the queues
+ Atending customer : [29,29,30,1,1, 13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 29
+ Customer 29 pay for the service 
+ Manager receive payment from 29
+ Manager get next task 
+Customer 29 collect car
+The state of the queues
+ Atending customer : [13,13,30,0,1, 12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 13
+ Customer 13 pay for the service 
+ Manager receive payment from 13
+ Manager get next task 
+Customer 13 collect car
+The state of the queues
+ Atending customer : [12,12,30,1,1, 4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 12
+ Customer 12 pay for the service 
+ Manager receive payment from 12
+ Manager get next task 
+Customer 12 collect car
+The state of the queues
+ Atending customer : [4,4,30,0,1, 20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 4
+ Customer 4 pay for the service 
+ Manager receive payment from 4
+ Manager get next task 
+Customer 4 collect car
+The state of the queues
+ Atending customer : [20,20,30,1,1, 21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 20
+ Customer 20 pay for the service 
+ Manager receive payment from 20
+ Manager get next task 
+Customer 20 collect car
+The state of the queues
+ Atending customer : [21,21,30,0,1, 6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 21
+ Customer 21 pay for the service 
+ Manager receive payment from 21
+ Manager get next task 
+Customer 21 collect car
+The state of the queues
+ Atending customer : [6,6,30,1,1, 7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 6
+ Customer 6 pay for the service 
+ Manager receive payment from 6
+ Manager get next task 
+Customer 6 collect car
+The state of the queues
+ Atending customer : [7,7,30,0,1, 17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 7
+ Customer 7 pay for the service 
+ Manager receive payment from 7
+ Manager get next task 
+Customer 7 collect car
+The state of the queues
+ Atending customer : [17,17,30,0,1, 19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 17
+ Customer 17 pay for the service 
+ Manager receive payment from 17
+ Manager get next task 
+Customer 17 collect car
+The state of the queues
+ Atending customer : [19,19,30,0,1, 8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 19
+ Customer 19 pay for the service 
+ Manager receive payment from 19
+ Manager get next task 
+Customer 19 collect car
+The state of the queues
+ Atending customer : [8,8,30,1,1, 2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 8
+ Customer 8 pay for the service 
+ Manager receive payment from 8
+ Manager get next task 
+Customer 8 collect car
+The state of the queues
+ Atending customer : [2,2,30,1,1, 26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 2
+ Customer 2 pay for the service 
+ Manager receive payment from 2
+ Manager get next task 
+Customer 2 collect car
+The state of the queues
+ Atending customer : [26,26,30,0,1, 22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 26
+ Customer 26 pay for the service 
+ Manager receive payment from 26
+ Manager get next task 
+Customer 26 collect car
+The state of the queues
+ Atending customer : [22,22,30,1,1, 5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 22
+ Customer 22 pay for the service 
+ Manager receive payment from 22
+ Manager get next task 
+Customer 22 collect car
+The state of the queues
+ Atending customer : [5,5,30,0,1, 28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 5
+ Customer 5 pay for the service 
+ Manager receive payment from 5
+ Manager get next task 
+Customer 5 collect car
+The state of the queues
+ Atending customer : [28,28,30,1,1]
+ Alerting customer : []
+ Getting new parts : [];
+ Manager talk to customer 28
+ Customer 28 pay for the service 
+ Manager receive payment from 28
+ Manager shutdown Mechanics 
+Customer 28 collect car
+ Mechanic 0 read the paper 
+ Mechanic 1 read the paper 
+Manager it's over
+Customer it's over
+ Repair Area will end 
+ Supplier Site will end
+ Park will end
+ Outside world will end 
+ Lounge will end all servers, include yourself 
+Mechanics it's over
+Lounge it's over
+Repair Area it's over
+SupplierSite it's over
+Park it's over
+OutsideWorld it's over
+Logger it's over
+
+[1m->(B[m A execução terminou

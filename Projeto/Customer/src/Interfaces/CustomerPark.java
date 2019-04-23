@@ -14,10 +14,10 @@ public interface CustomerPark {
     /**
      * Customer collects the car that is already done
      * (Class Park)
-     * @param myCar customer's car id
+     * @param info customer's info
      * @param customerState customer's state
      */
-    void collectCar(int myCar, String customerState);
+    void collectCar(String info, String customerState);
     
     
     /**

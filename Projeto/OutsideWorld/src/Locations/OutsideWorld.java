@@ -92,6 +92,7 @@ public class OutsideWorld {
         int customer = Integer.parseInt(inf[0]);
         logger.setReplecementCar(Integer.parseInt(inf[0]), info);
         logger.setCustomerState(customer, customerState);
+        logger.setOwnCar(Integer.parseInt(inf[0]), info);
         while(carRepaired [customer] == false){
             try {
                 wait();
