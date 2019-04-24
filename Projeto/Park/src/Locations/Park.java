@@ -9,8 +9,13 @@ import Stubs.GeneralInformationRepo;
 import static MainPackage.Constants.NUM_CUSTOMERS;
 import genclass.GenericIO;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.stream.Collectors;
+
 import MainPackage.MainProgram;
 
 /**
@@ -27,7 +32,7 @@ public class Park {
     /**
      * Replacement Car Kit
      */
-    private Queue<Integer> replacementCars = new LinkedList<Integer>() {{add(-1); add(-2); add(-3);}};
+    private Queue<Integer> replacementCars = new LinkedList<Integer>() {{add(-1); }};
     
     /**
      * Set of parked cars
@@ -43,7 +48,7 @@ public class Park {
         this.logger = logger;
     }
 
-    private boolean []CustomersInWait = new boolean[NUM_CUSTOMERS];
+    private Integer[] CustomersInWait = new Integer[NUM_CUSTOMERS];
     
     /**
      * The customer park the car in the park.
@@ -94,28 +99,22 @@ public class Park {
         /**
          * If the list of replacement car is not empty, he give a car to the customer.
         */
-        int wait = 0;
+        int wait = 0;    
         while (replacementCars.isEmpty() ){
             try {
                 /**
                  * If the list of replacement car is empty, he's wait for a car.
                  */
-                CustomersInWait[id] = true;
-                wait = 0;
-                for(boolean x : CustomersInWait)
-                    if (x == true){
-                        wait++;
-                        logger.setNumberWaitingReplece(wait);
-                    }
-                
+                CustomersInWait[id] = 1;
+                logger.setNumberWaitingReplece(Collections.frequency(Arrays.asList(CustomersInWait), 1));                    
                 wait();
-            } catch (InterruptedException ex) {
+            } catch (Exception ex) {
                 GenericIO.writelnString("findCar - Customer thread was interrupted.");
                 System.exit(1);
             }
-        }
-             
-        CustomersInWait[id] = false;          
+        }     
+        CustomersInWait[id] = 0;
+        logger.setNumberWaitingReplece(Collections.frequency(Arrays.asList(CustomersInWait), 1));          
         notifyAll();
         GenericIO.writelnString("Customer "+id+" find car");
 	    GenericIO.writelnString("Customer "+id+" will take it off a replacement car.\n The replacementCars before poll : "+replacementCars);

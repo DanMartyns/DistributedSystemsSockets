@@ -98,23 +98,6 @@ public class GeneralInformationRepo {
 
     /**
      * Update the state of the mechanic
-     * @param length the number of customers waiting for a replacement car
-    */    
-    public void setNumberWaitingReplece(int length) {
-        ClientCom com = new ClientCom (server, port);
-        
-        while(!com.open()){
-            try {
-                Thread.currentThread ().sleep ((long) (10));
-            } catch (InterruptedException ex) {}
-        }
-        Message msg = new Message(MessageType.SET_WAITING_CARS, length);
-        com.writeObject(msg);
-        Message inMessage = (Message) com.readObject();
-        com.close (); 
-    }
-    /**
-     * Update the state of the mechanic
      * @param mechanic the id of the mechanic
      * @param mechanicState the state of the mechanic
      */

@@ -109,6 +109,8 @@ public class Lounge {
       */
     public synchronized boolean getNextTask(String managerState) {
         logger.setManagerState(managerState);
+        logger.setValueQueueIn(atending_customer.size());
+        
         while(atending_customer.isEmpty() && alerting_customer.isEmpty() && getting_new_parts.isEmpty()){ 
             try {
                 wait();
@@ -149,8 +151,7 @@ public class Lounge {
         int customer = Integer.parseInt(info.split(",")[0]);
         logger.setCustomerState(customer, customerState);
         logger.setOwnCar(customer, info);
-        atending_customer.add(info);       
-        logger.setValueQueueIn(atending_customer.size());
+        atending_customer.add(info);
         notifyAll();
         GenericIO.writelnString(" Customer "+customer+" queue in ");
     }
@@ -166,13 +167,11 @@ public class Lounge {
         while(clients [customer] == false){
             try {
                 wait();
-
             } catch (InterruptedException ex) {
                 System.exit(1);                                        
             }
         }      
-        clients [customer] = false;     
-        logger.setNumberWaitingReplece(clients.length);
+        clients [customer] = false;
         notifyAll();
         GenericIO.writelnString(" Customer "+customer+" collect car key ");
     }
@@ -346,6 +345,7 @@ public class Lounge {
      * If all entities sent a shutdown, send a shutdown to all other shared regions.
      */
     public synchronized void serviceEnd(){
+        logger.setValueQueueIn(atending_customer.size());
         shutdownNumber++;
         if(shutdownNumber==3){
             repairArea.serviceEnd();
