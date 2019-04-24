@@ -47,4 +47,5 @@ hs_err_pid*
 /Customer/Customer/nbproject/private/
 /GeneralInformationRepo/nbproject/private/
 /GeneralInformationRepo/dist/
-/Park/dist/
+/Park/dist/.DS_Store
+.DS_Store
