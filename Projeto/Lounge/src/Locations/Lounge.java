@@ -11,7 +11,6 @@ import Stubs.OutsideWorld;
 import Stubs.Park;
 import Stubs.RepairArea;
 import Stubs.SupplierSite;
-import genclass.GenericIO;
 
 import genclass.GenericIO;
 import java.util.*;
@@ -38,42 +37,42 @@ public class Lounge {
      * OutsideWorld stub class.
      */
     private final OutsideWorld outsideWorld;
-    
+
     /**
      * Park stub class.
      */
     private final Park park;
-    
+
     /**
      * RepairArea stub class.
      */
     private final RepairArea repairArea;
-    
+
     /**
      * SupplierSite stub class.
      */
-    private final SupplierSite supplierSite;  
-    
+    private final SupplierSite supplierSite;
+
     /**
      * Queue dedicated the service "ATENDING CUSTOMER".
      */
     Queue<String> atending_customer = new LinkedList<>();
-    
+
     /**
      * Queue dedicated the service "ALERTING CUSTOMER".
-     */    
+     */
     Queue<Integer> alerting_customer = new LinkedList<Integer>();
-    
+
     /**
      * Queue dedicated the service "GETING NEW PARTS".
-     */    
+     */
     Queue<String> getting_new_parts = new LinkedList<>();
-    
+
     /**
      * Number of entities that have sent a shutdown message.
      */
     private int shutdownNumber = 0;
-    
+
     /**
      * Lounge constructor
      * @param logger GeneralInformationRepo stub instance
@@ -81,7 +80,7 @@ public class Lounge {
      * @param park park stub instance
      * @param repairArea repairArea stub instance
      * @param supplierSite supplierSite stub instance
-     */    
+     */
     public Lounge(GeneralInformationRepo logger, OutsideWorld out,SupplierSite supplierSite, RepairArea repairArea,  Park park) {
         this.logger = logger;
         this.outsideWorld = out;
@@ -94,24 +93,23 @@ public class Lounge {
      *                              Synchronization Array
      *****************************************************************************************/
 
-     private boolean[] clients = new boolean[NUM_CUSTOMERS];   
-    
+     private boolean[] clients = new boolean[NUM_CUSTOMERS];
+
     /******************************************************************************************
      *
      *****************************************************************************************/
-     /** 
+     /**
       * Choose the next task
       * In theoretical terms, it will confirm if there is a new task to be done.
-      * In practical terms, the manager waits if the vectors of each service are empty. 
+      * In practical terms, the manager waits if the vectors of each service are empty.
       * As soon as they are not, they perform a task.
       * @param managerState manager's state
       * @return true, when the vectores are not empty
       */
     public synchronized boolean getNextTask(String managerState) {
         logger.setManagerState(managerState);
-        logger.setValueQueueIn(atending_customer.size());
-        
-        while(atending_customer.isEmpty() && alerting_customer.isEmpty() && getting_new_parts.isEmpty()){ 
+
+        while(atending_customer.isEmpty() && alerting_customer.isEmpty() && getting_new_parts.isEmpty()){
             try {
                 wait();
             } catch (InterruptedException ex) {
@@ -122,26 +120,28 @@ public class Lounge {
         GenericIO.writelnString(" Manager get next task ");
         return true;
 
-    }    
+    }
 
     /**
-     * In theoretical terms, you will choose one of the services. 
-     * In practical terms, it will choose one of the vectors, 
-     * prioritizing to look for new parts, followed by alerting 
-     * the customers and finally serving the customers. 
+     * In theoretical terms, you will choose one of the services.
+     * In practical terms, it will choose one of the vectors,
+     * prioritizing to look for new parts, followed by alerting
+     * the customers and finally serving the customers.
      * 0 - ATENDING_CUSTOMER
      * 1 - ALERTING_CUSTOMER
      * 2 - GETTING_NEW_PARTS
      * @return 0,1 or 2, which means the service number
      */
     public synchronized String appraiseSit() {
-        assert(!atending_customer.isEmpty() || !alerting_customer.isEmpty() || !getting_new_parts.isEmpty()); 
+        assert(!atending_customer.isEmpty() || !alerting_customer.isEmpty() || !getting_new_parts.isEmpty());
+        logger.setValueQueueIn(atending_customer.size());
+
         GenericIO.writelnString("The state of the queues\n Atending customer : "+atending_customer+"\n Alerting customer : "+alerting_customer+"\n Getting new parts : "+getting_new_parts+";");
         return (!getting_new_parts.isEmpty() ? GETTING_NEW_PARTS+"@"+getting_new_parts.poll() : ( !alerting_customer.isEmpty() ? ALERTING_CUSTOMER+"@"+alerting_customer.poll() : ATENDING_CUSTOMER+"@"+atending_customer.poll() ));
-        
-        
+
+
     }
-    
+
     /**
      * The costumer go into the Lounge and waits for his turn
      * @param info customer's info
@@ -151,6 +151,7 @@ public class Lounge {
         int customer = Integer.parseInt(info.split(",")[0]);
         logger.setCustomerState(customer, customerState);
         logger.setOwnCar(customer, info);
+        logger.setValueQueueIn(atending_customer.size());
         atending_customer.add(info);
         notifyAll();
         GenericIO.writelnString(" Customer "+customer+" queue in ");
@@ -160,22 +161,22 @@ public class Lounge {
      * In theoretical terms, you will receive the key to the replacement car.
      * In practical terms, synchronization will only be done using the key variable.
      * @param customer customer's id
-     * @param customerState customer's state 
+     * @param customerState customer's state
      */
-    public synchronized void collectKey(int customer, String customerState) {    
+    public synchronized void collectKey(int customer, String customerState) {
         logger.setCustomerState(customer, customerState);
         while(clients [customer] == false){
             try {
                 wait();
             } catch (InterruptedException ex) {
-                System.exit(1);                                        
+                System.exit(1);
             }
-        }      
+        }
         clients [customer] = false;
         notifyAll();
         GenericIO.writelnString(" Customer "+customer+" collect car key ");
     }
-    
+
     /**
      * Synchronization point.
      * In theoretical terms, it will give the key to the replacement car if the customer wants to.
@@ -188,18 +189,18 @@ public class Lounge {
             try {
                 wait();
             } catch (InterruptedException ex) {
-                System.exit(1);                                        
+                System.exit(1);
             }
-        }               
-        clients [Integer.parseInt(info.split(",")[0])] = true;      
+        }
+        clients [Integer.parseInt(info.split(",")[0])] = true;
         notifyAll();
-        
+
     }
     /**
      * In theoretical terms, spend some time talking to the customer.
-     * In practical terms, it is a synchronization point, 
+     * In practical terms, it is a synchronization point,
      * where the manager updates the "talkBetweenManCust" variable to true.
-     * If the variable is already true, you expect the client to respond 
+     * If the variable is already true, you expect the client to respond
      * before talking to another client.
      * Remove this customer from the service queue.
      * @param customer customer's info
@@ -218,47 +219,47 @@ public class Lounge {
 
             } catch (InterruptedException ex) {
                 GenericIO.writelnString("talkWithManager - One Customer thread was interrupted.");
-                System.exit(1);                                        
+                System.exit(1);
             }
         }
         clients [Integer.parseInt(customer.split(",")[0])] = true;
-        notifyAll();        
+        notifyAll();
         GenericIO.writelnString(" Manager talk to customer "+id);
     }
-    
+
     /**
      * In theoretical terms, the client spends some time talking to the manager.
-     * In practical terms, it is a synchronization point where the client updates the "talkBetweenManCust" 
+     * In practical terms, it is a synchronization point where the client updates the "talkBetweenManCust"
      * variable to false if that client is the client that the manager initiated a conversation.
-     * If the variable is already false, it means that the manager has not started a conversation 
+     * If the variable is already false, it means that the manager has not started a conversation
      * yet and therefore expects the manager to respond.
      * @param customer customer's id
      */
     public synchronized void talkWithManager(int customer) {
 
         /**
-         * If the manager has started a conversation and is the client to be answered, 
-         * it sets the "talkBetweenManCust" variable to false, 
+         * If the manager has started a conversation and is the client to be answered,
+         * it sets the "talkBetweenManCust" variable to false,
          * which means that it responded, and wakes up the other threads.
          */
-        
+
         while(clients [customer] == false){
             try {
                 wait();
 
             } catch (InterruptedException ex) {
                 GenericIO.writelnString("talkWithManager - One Customer thread was interrupted.");
-                System.exit(1);                                        
+                System.exit(1);
             }
-        }        
+        }
         clients [customer] = false;
         notifyAll();
         GenericIO.writelnString(" Customer "+customer+" talk with Manager ");
     }
-    
+
     /**
      * In theoretical terms, the manager receives payment from the customer for the service rendered.
-     * In practical terms, it is a synchronization point where the manager updates the variable "pay" to false, 
+     * In practical terms, it is a synchronization point where the manager updates the variable "pay" to false,
      * meaning the collection of the payment.
      * @param info customer's info
      */
@@ -270,15 +271,15 @@ public class Lounge {
 
             } catch (InterruptedException ex) {
                 GenericIO.writelnString("talkWithManager - One Customer thread was interrupted.");
-                System.exit(1);                                        
+                System.exit(1);
             }
-        }                
+        }
         clients [Integer.parseInt(info.split(",")[0])] = true;
         notifyAll();
         GenericIO.writelnString(" Manager receive payment from "+id);
 
     }
-    
+
     /**
      * In theoretical terms will effect the payment.
      * In practical terms, it is just a state of transition.
@@ -290,16 +291,16 @@ public class Lounge {
                 wait();
             } catch (InterruptedException ex) {
                 GenericIO.writelnString("talkWithManager - One Customer thread was interrupted.");
-                System.exit(1);                                        
+                System.exit(1);
             }
         }
         clients [customer] = false;
         notifyAll();
         GenericIO.writelnString(" Customer "+customer+" pay for the service ");
-        
-    }    
-    
-    
+
+    }
+
+
     /**
      * Let manager know that the mechanics needs more pieces from supplier site
      * @param peca piece's type
@@ -309,13 +310,11 @@ public class Lounge {
     public synchronized void letManagerKnow(String peca, int mechanic, String mechanicState) {
         logger.setMechanicState(mechanic, mechanicState);
         getting_new_parts.add(peca);
-        logger.setFlagAPieces(peca);
-        logger.setFlagBPieces(peca);
-        logger.setFlagCPieces(peca);
+
         notifyAll();
         GenericIO.writelnString(" Mechanic let Manager Know the piece "+peca);
     }
-    
+
     /**
      * Notify the repair is concluded
      * @param currentCar the atual car of the customer
@@ -334,9 +333,12 @@ public class Lounge {
      * check if a type # part has already been ordered.
      * @param peca piece's type
      * @return if the piece has already been ordered or not
-     */    
+     */
     public synchronized boolean checkRequest(String peca){
         GenericIO.writelnString(" Mechanic check the piece "+peca);
+        logger.setFlagAPieces(peca);
+        logger.setFlagBPieces(peca);
+        logger.setFlagCPieces(peca);
         return getting_new_parts.contains(peca) ? false : true;
     }
 
@@ -355,7 +357,7 @@ public class Lounge {
             logger.serviceEnd();
             MainProgram.serviceEnd = true;
             notifyAll();
-            GenericIO.writelnString(" Lounge will end all servers, include yourself ");   
+            GenericIO.writelnString(" Lounge will end all servers, include yourself ");
         }
-    }    
+    }
 }

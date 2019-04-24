@@ -33,8 +33,6 @@ public class OutsideWorld implements CustomerOutSideWorld {
         
     }
 
-   
-
     /**
      * Decide whether to get the car or not.
      * @param customer customer's id

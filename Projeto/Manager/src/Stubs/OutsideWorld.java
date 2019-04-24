@@ -9,7 +9,6 @@ package Stubs;
 import Communication.ClientCom;
 import Communication.Message;
 import Communication.MessageType;
-import EntitiesState.ManagerState;
 import Interfaces.ManagerOutsideWorld;
 import genclass.GenericIO;
 
@@ -17,6 +16,7 @@ import genclass.GenericIO;
 /**
  * Outside World stub. Class used to communicate with the Outside World
  * using TCP communication channels.
+ * @author giselapinto
  * @author danielmartins
  */
 public class OutsideWorld implements ManagerOutsideWorld {

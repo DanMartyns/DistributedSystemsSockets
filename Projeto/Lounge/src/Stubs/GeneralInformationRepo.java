@@ -13,6 +13,7 @@ import Communication.MessageType;
  * Logger stub. Class used to communicate with the logger
  * using TCP communication channels.
  * @author danielmartins
+ * @author giselapinto
  */
 public class GeneralInformationRepo {
     
@@ -204,5 +205,6 @@ public class GeneralInformationRepo {
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close ();   
-    }    
+    }
 }
+

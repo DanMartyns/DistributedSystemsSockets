@@ -12,7 +12,8 @@ import genclass.GenericIO;
  * Main Logger program.
  * Initializes the service provider and waits for a connection
  * in a communication channel.
- * @author Daniel Martins
+ * @author giselapinto
+ * @author danielmartins
  */
 public class MainProgram {
     

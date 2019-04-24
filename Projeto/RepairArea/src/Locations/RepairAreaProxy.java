@@ -10,6 +10,7 @@ import Communication.MessageType;
 
 /*
  * @author danielmartins
+ * @author giselapinto
  */
 public class RepairAreaProxy implements InterfaceLocation {
     /**
@@ -37,7 +38,7 @@ public class RepairAreaProxy implements InterfaceLocation {
         switch(inMessage.getType()){
             /**
              * Functions called by Manager
-             */            
+             **/            
             case REGISTER_SERVICE :
                 l.registerService(inMessage.getStr1(), inMessage.getStr2());
                 outMessage = new Message(MessageType.STATUS_OK);
@@ -52,7 +53,7 @@ public class RepairAreaProxy implements InterfaceLocation {
                 break;
             /**
              * Functions called by Mechanic
-             */                  
+             **/                  
             case READ_THE_PAPER :
                 String service = l.readThePaper(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message (MessageType.RETURN_READ_THE_PAPER, service);

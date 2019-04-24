@@ -13,6 +13,7 @@ import Communication.MessageType;
  * Logger stub. Class used to communicate with the logger
  * using TCP communication channels.
  * @author danielmartins
+ * @author giselapinto
  */
 public class GeneralInformationRepo {
     
@@ -87,7 +88,11 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();  
     }
-
+    
+    /**
+     * Updating number of customer waiting for a replacement vehicle
+     * @param wait number of replacement car
+     */
     public void setNumberWaitingReplece(int wait) {
         ClientCom com = new ClientCom (server, port);
         
@@ -101,5 +106,64 @@ public class GeneralInformationRepo {
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close ();          
+    }
+    
+    
+    /**
+     * Updating number of cars that have already been repaired
+     * @param numberRepair number of cars repaired
+     */
+    public synchronized void setNumberRepair(int numberRepair) {
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {
+            }
+        }
+        Message msg = new Message(MessageType.SET_NUMBER_REPAIR, numberRepair);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close (); 
+    }
+    
+    
+    /**
+     * update number of customer vehicles presently parked at the repair shop park
+     * @param numberParkCars number of cars in the park
+     */
+    public void setNumberParkCars(int numberParkCars) {
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {
+            }
+        }
+        Message msg = new Message(MessageType.SET_NUMBER_PARKED_CARS, numberParkCars);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close (); 
+    }
+    
+    /**
+     * Update number of replacement vehicles presently parked at the repair shop park
+     * @param numberReplacementPark number of replacement cars in the park
+     */
+    public void setNumberReplacementPark(int numberReplacementPark) {
+        ClientCom com = new ClientCom (server, port);
+        
+        while(!com.open()){
+            try {
+                Thread.currentThread ().sleep ((long) (10));
+            } catch (InterruptedException ex) {
+            }
+        }
+        Message msg = new Message(MessageType.SET_NUMBER_REPLACEMENT_CAR_PARKED, numberReplacementPark);
+        com.writeObject(msg);
+        Message inMessage = (Message) com.readObject();
+        com.close (); 
     }
 }

@@ -9,7 +9,6 @@ import Communication.ClientCom;
 import Communication.Message;
 import Communication.MessageType;
 import Interfaces.MechanicsPark;
-import genclass.GenericIO;
 
 /**
  * @author danielmartins
@@ -28,6 +27,7 @@ public class Park implements MechanicsPark{
     /**
      * To signal the return of the vehicle to the parking lot, the index of the position 
      * of the array corresponds to the id of the car, and the value of that position is set to 1.
+     * @param car id of the car
      */
     public void returnVehicle(int car) {
         
@@ -47,6 +47,7 @@ public class Park implements MechanicsPark{
     
     /**
      * To signal the output of the parking vehicle, that vehicle is removed from the array of cars
+     * @param car id of the car
      */
     public void getVehicle(int car) {
         ClientCom com = new ClientCom (server, port);
@@ -63,6 +64,10 @@ public class Park implements MechanicsPark{
         
     }
     
+    /**
+     * blocked current vehicle on par
+     * @param car id of the car
+     */
     public void blockVehicle(int car){
         ClientCom com = new ClientCom (server, port);
         

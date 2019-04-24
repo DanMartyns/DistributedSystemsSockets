@@ -12,8 +12,8 @@ import Communication.ServerComm;
  * Service Provider implementation.
  * Processes and replies messages accordingly to the internal implementation
  * of a shared region.
- * @author Daniel Martins
- * @author Gisela Pinto
+ * @author danielmartins
+ * @author giselapinto
  */
 public class ServiceProvider extends Thread {
     

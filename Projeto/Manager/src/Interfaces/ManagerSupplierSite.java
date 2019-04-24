@@ -9,6 +9,7 @@ package Interfaces;
 /**
  *
  * @author danielmartins
+ * @author giselapinto
  */
 public interface ManagerSupplierSite {
     

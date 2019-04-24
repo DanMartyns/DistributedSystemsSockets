@@ -18,7 +18,8 @@ import MainPackage.MainProgram;
 
 /**
  *
- * @author danielmartins and giselapinto
+ * @author danielmartins
+ * @author giselapinto
  */
 public class GeneralInformationRepo{
     
@@ -70,7 +71,6 @@ public class GeneralInformationRepo{
     
     /**
      * GeneralInformationRepo constructor
-     * 
      * @param fileName name of the logger file
      */
    
@@ -250,7 +250,11 @@ public class GeneralInformationRepo{
 
     }
     
-    /*TODO customer vehicle has already been repaired: T or F (# - 0 .. 29)*/
+    /**
+     * customer vehicle has already been repaired
+     * @param id customer id
+     * @param repairedCar if car is repaired or not
+     */
     public synchronized void setAlreadyRepaired(int id, int repairedCar[]) {
         this.repairedCar[id] = repairedCar[id]==1 ? "T" : "F";
         printHeaderLog();
@@ -302,7 +306,7 @@ public class GeneralInformationRepo{
      * @param numberReplacementPark number of replacement cars in the park
      */
     public synchronized void setNumberReplacementPark(int numberReplacementPark) {
-
+      
         this.numberReplacementPark = String.format("%02d",numberReplacementPark);    
         printHeaderLog();
     }
@@ -312,7 +316,7 @@ public class GeneralInformationRepo{
      * @param numberServiceRequest number of registed services by manager
      */
     public synchronized void setNumberServiceRequest(int numberServiceRequest) {
-
+        
         this.numberServiceRequest = String.format("%02d",numberServiceRequest);
         printHeaderLog();
     }

@@ -10,6 +10,7 @@ import Communication.MessageType;
 
 /*
  * @author danielmartins
+ * @author giselapinto
  */
 public class OutsideWorldProxy implements InterfaceLocation {
     /**

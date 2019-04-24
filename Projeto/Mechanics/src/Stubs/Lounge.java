@@ -16,10 +16,13 @@ import genclass.GenericIO;
  * @author giselapinto
  */
 public class Lounge implements MechanicsLounge {
-
+    
     private String server;
     private int port;
-     
+    
+    /**
+     * Constructor from lounge
+     **/
     public Lounge(String server, int port) {
         this.server = server;
         this.port = port;

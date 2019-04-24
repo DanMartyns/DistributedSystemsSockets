@@ -4,75 +4,76 @@ import java.io.Serializable;
 /**
  * Generic message that will pass through the socket
  * @author danielmartins
+ * @author giselapinto
  */
 public class Message implements Serializable {
 
     /**
-     * Serial version of the class. Format used is XXYYZZ 
+     * Serial version of the class. Format used is XXYYZZ
      * (classNumber-praticClassNumber-groupNumber)
      */
     private final long serialVersionUID = 010401L;
 
     /**
      * Type of the message.
-     */    
+     */
     private MessageType type;
- 
+
     /**
      * String argument
      */
     private String str1;
     /**
      * String argument
-     */    
+     */
     private String str2;
 
     /**
      * Integer argument
-     */    
+     */
     private int int1;
 
     /**
      * Integer argument
-     */      
+     */
     private int int2;
 
     private boolean boolean1;
 
     /**
      * Array argument
-     */      
+     */
     private int[] array;
-    
+
     /**
      * Empty constructor for the message that initializes the default
      * values for all the variables.
-     */     
+     */
     public Message(){
-        type = null;   
-        
+        type = null;
+
         str1 = null;
         str2 = null;
-        
+
         int1 = -1;
         int2 = -1;
-        
+
         boolean1 = false;
 
         array = null;
     }
-    
+
     /**
-     * Constructor with only the type of the message.    
+     * Constructor with only the type of the message.
      * @param type type of the Message
      */
     public Message(MessageType type){
         this();
         this.type = type;
     }
-    
+
     /**
-     * Constructor with the type of the message and two String arguments.     
+     * Constructor with the type of the message and two String arguments.
      * @param type type of the Message
      * @param value1 String argument
      * @param value2 state of the entity
@@ -91,13 +92,13 @@ public class Message implements Serializable {
            case COLLECT_CAR : {
                 this.str1 = value1;
                 this.str2 = value2;
-                break;             
-            }       
-        }        
-    }    
+                break;
+            }
+        }
+    }
 
     /**
-     * Constructor with the type of the message and an integer argument.    
+     * Constructor with the type of the message and an integer argument.
      * @param type type of the Message
      * @param value Integer argument
      */
@@ -109,12 +110,15 @@ public class Message implements Serializable {
             case PAY_FOR_THE_SERVICE:
             case RETURN_FIND_CAR :
             case RETURN_VEHICLE :
-            case GET_VEHICLE :            
+            case GET_VEHICLE :
             case BLOCK_VEHICLE :
             case RETURN_GO_TO_SUPPLIER :
             case SET_SIZE_QUEUE :
             case SET_WAITING_CARS :
             case SET_WAIT_REPLACEMENT:
+            case SET_NUMBER_REPAIR:
+            case SET_NUMBER_PARKED_CARS:
+            case SET_NUMBER_REPLACEMENT_CAR_PARKED:
             case SET_SERVICE :
             case PIECES_A_STORED :
             case PIECES_B_STORED :
@@ -123,12 +127,12 @@ public class Message implements Serializable {
             case PIECES_B_STORED_MANAGER:
             case PIECES_C_STORED_MANAGER:
                 this.int1 = value;
-                break;                                                 
-            }       
+                break;
+            }
     }
-    
+
     /**
-     * Constructor with the type of the message and two String arguments.     
+     * Constructor with the type of the message and two String arguments.
      * @param type type of the Message
      * @param value1 integer argument
      * @param value2 string argument
@@ -151,12 +155,12 @@ public class Message implements Serializable {
             case SET_OWN_CAR :
                 this.int1 = value1;
                 this.str1 = value2;
-                break;                   
-        }        
+                break;
+        }
     }
-    
+
     /**
-     * Constructor with the type of the message and a String argument.    
+     * Constructor with the type of the message and a String argument.
      * @param type type of the Message
      * @param value String argument
      */
@@ -176,14 +180,14 @@ public class Message implements Serializable {
             case SET_FLAG_A:
             case SET_FLAG_B:
             case SET_FLAG_C:
-            case SET_PIECE_AVAILABLE : 
+            case SET_PIECE_AVAILABLE :
                 this.str1 = value;
-                break;    
-            }       
+                break;
+            }
     }
 
     /**
-     * Constructor with the type of the message and two String arguments.     
+     * Constructor with the type of the message and two String arguments.
      * @param type type of the Message
      * @param value1 string argument
      * @param value2 integer argument
@@ -192,7 +196,7 @@ public class Message implements Serializable {
     public Message(MessageType type, String value1, int value2, String value3){
         this();
         this.type = type;
-        switch(type){ 
+        switch(type){
             case LET_MANAGER_KNOW :
             case STORE_PART :
             case RESUME_REPAIR_PROCEDURE :
@@ -200,15 +204,15 @@ public class Message implements Serializable {
                 this.int1 = value2;
                 this.str2 = value3;
                 break;
-                
-        }        
+
+        }
     }
     /**
-     * Constructor with the type of the message and two String arguments.     
+     * Constructor with the type of the message and two String arguments.
      * @param type type of the Message
      * @param value1 integer argument
      * @param value2 integer argument
-     * @param value3 string argument 
+     * @param value3 string argument
      */
     public Message(MessageType type, int value1, int value2, String value3){
         this();
@@ -219,14 +223,14 @@ public class Message implements Serializable {
                  this.int2 = value2;
                  this.str1 = value3;
                  break;
-        }        
+        }
     }
 
     /**
-     * Constructor with the type of the message and a boolean argument.     
+     * Constructor with the type of the message and a boolean argument.
      * @param type type of the Message
      * @param value boolean argument
-     */    
+     */
     public Message(MessageType type, boolean value){
         this();
         this.type = type;
@@ -236,12 +240,12 @@ public class Message implements Serializable {
             case RETURN_DECIDE_ON_REPAIR :
                 this.boolean1 = value;
                 break;
-                
-        }        
+
+        }
     }
 
     /**
-     * Constructor with the type of the message, one int argument and one int array.     
+     * Constructor with the type of the message, one int argument and one int array.
      * @param type type of the Message
      * @param value1 integer argument
      * @param array array argument
@@ -254,9 +258,9 @@ public class Message implements Serializable {
                  this.int1 = value1;
                  this.array = array;
                  break;
-        }        
-    }    
-    
+        }
+    }
+
     public MessageType getType() {
         return type;
     }

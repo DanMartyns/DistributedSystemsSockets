@@ -7,7 +7,8 @@ package Interfaces;
 
 /**
  *
- * @author giselapinto and  daniel  
+ * @author danielmartins
+ * @author giselapinto
  */
 public interface CustomerOutSideWorld {
     
@@ -37,9 +38,5 @@ public interface CustomerOutSideWorld {
      * @param customerState customer's state
      */
     void backToWorkByBus(int customer, String customerState);
-    
-    
-    
-    
-    
+  
 }

@@ -8,7 +8,6 @@ package Stubs;
 import Communication.ClientCom;
 import Communication.Message;
 import Communication.MessageType;
-import EntitiesState.ManagerState;
 
 import Interfaces.ManagerRepairArea;
 import genclass.GenericIO;
@@ -16,6 +15,7 @@ import genclass.GenericIO;
 /**
  * Repair Area stub. Class used to communicate with the Repair Area
  * using TCP communication channels.
+ * @author giselapinto
  * @author danielmartins
  */
 public class RepairArea implements ManagerRepairArea {

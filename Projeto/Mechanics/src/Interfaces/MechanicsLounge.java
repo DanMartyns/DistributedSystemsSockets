@@ -8,6 +8,7 @@ package Interfaces;
 /**
  *
  * @author giselapinto
+ * @author danielmartins
  */
 public interface MechanicsLounge {
     

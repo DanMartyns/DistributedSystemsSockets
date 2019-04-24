@@ -10,7 +10,6 @@ import Communication.Message;
 import Communication.MessageType;
 import Interfaces.MechanicsRepairArea;
 import genclass.GenericIO;
-import java.util.Map;
 /**
  * @author danielmartins
  * @author giselapinto
@@ -26,7 +25,12 @@ public class RepairArea implements MechanicsRepairArea {
         this.port = port;
     }
     
-    
+    /**
+     * send message with the state of Mechanic
+     * @param mechanic id of Mechanic
+     * @param mechanicState current state of Mechanic
+     * @return the service
+     **/
     public String readThePaper(int mechanic, String mechanicState) {
     
         ClientCom com = new ClientCom (server, port);
@@ -50,9 +54,10 @@ public class RepairArea implements MechanicsRepairArea {
 
 
     /**
-     * In terms of simulation, indicates the service to be done
-     * Transition state
-     */
+     * send message informing that they start Repair Procedure
+     * @param mechanic id of Mechanic
+     * @param mechanicState current state of Mechanic
+     **/
     public void startRepairProcedure(int mechanic, String mechanicState) {
         ClientCom com = new ClientCom (server, port);
         
@@ -68,6 +73,9 @@ public class RepairArea implements MechanicsRepairArea {
         
     }
     
+     /**
+     * send message informing that they start fix the car
+     **/
     public void fixIt(){
          ClientCom com = new ClientCom (server, port);
         
@@ -82,10 +90,12 @@ public class RepairArea implements MechanicsRepairArea {
         com.close();
     }
 
-    /*
-    * Theoretically the mechanic will find out which part is missing from the car
-    * A random value is generated to indicate the part missing from the car
-    */
+    /**
+    * send message informing that they need parts
+    * @param mechanic id of Mechanic
+    * @param mechanicState current state of Mechanic
+    * @return required part
+    **/
     public String getRequiredPart(int mechanic, String mechanicState) {       
         ClientCom com = new ClientCom (server, port);
         
@@ -102,11 +112,12 @@ public class RepairArea implements MechanicsRepairArea {
         return inMessage.getStr1();
     }
 
-    /*
-    * Checking the stock 
-    * If there are no parts, the car is locked and is passed to a next service
+    /**
+    * Check the part that is available
+    * @param piece piece that are in need
+    * @param car car id that needs the part
     * @return true or false, if mechanics has parts with him or not
-    */
+    **/
     public boolean partAvailable(String piece, int car) {       
         ClientCom com = new ClientCom (server, port);
         
@@ -122,9 +133,12 @@ public class RepairArea implements MechanicsRepairArea {
         return inMessage.isBoolean1();
     }
     
-    /*
-    * Decreases the number of pieces after verifying that they have
-    */
+   /**
+    * send message with resume repair
+    * @param piece piece that are in need
+    * @param mechanic id of mechanic
+    * @param mechanicState current state of mechanic
+    **/
     public void resumeRepairProcedure(String piece, int mechanic, String mechanicState) {
         ClientCom com = new ClientCom (server, port);
         

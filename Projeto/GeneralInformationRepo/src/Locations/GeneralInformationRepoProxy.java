@@ -9,6 +9,7 @@ import Communication.Message;
 import Communication.MessageType;
 
 /*
+ * @author giselapinto
  * @author danielmartins
  */
 public class GeneralInformationRepoProxy implements InterfaceLocation {
@@ -35,29 +36,35 @@ public class GeneralInformationRepoProxy implements InterfaceLocation {
         Message outMessage = null;
         
         switch(inMessage.getType()){
+            
             /**
-             * Funtion called by Lounge
-             */
-            case SET_MANAGER_STATE : //Function called by Lounge, RepairArea and Supplier Site
+            * Function called by Lounge, Outside World,RepairArea and Supplier Site
+            **/
+            case SET_MANAGER_STATE : 
                 l.setManagerState(inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
+            /**
+            * Function called by Lounge, Outside World and Park
+            **/
             case SET_CUSTOMER_STATE :
                 l.setCustomerState(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
+            /**
+            * Function called by Lounge and RepairArea
+            **/    
+            case SET_MECHANIC_STATE :
+                l.setMechanicState(inMessage.getInt1(), inMessage.getStr1());
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;           
+            /**
+             * Funtions called by Lounge
+             */
             case SET_SIZE_QUEUE :
                 l.setValueQueueIn(inMessage.getInt1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;                
-            case SET_WAITING_CARS :
-                l.setNumberWaitingReplece(inMessage.getInt1());
-                outMessage = new Message(MessageType.STATUS_OK);
-                break;    
-            case SET_MECHANIC_STATE :
-                l.setMechanicState(inMessage.getInt1(), inMessage.getStr1());
-                outMessage = new Message(MessageType.STATUS_OK);
-                break; 
             case SET_FLAG_A :
                 l.setFlagAPieces(inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
@@ -84,12 +91,35 @@ public class GeneralInformationRepoProxy implements InterfaceLocation {
                 l.setAlreadyRepaired(inMessage.getInt1(), inMessage.getArray());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
+                
+            case SET_WAITING_CARS :
+                l.setNumberWaitingReplece(inMessage.getInt1());
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;
+                
+            case SET_NUMBER_REPAIR:
+                l.setNumberRepair(inMessage.getInt1());
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;
+            
+            case SET_NUMBER_PARKED_CARS:
+                l.setNumberParkCars(inMessage.getInt1());
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;
+                
+            case SET_NUMBER_REPLACEMENT_CAR_PARKED:
+                l.setNumberReplacementPark(inMessage.getInt1());
+                outMessage = new Message(MessageType.STATUS_OK);
+                break;
+            /**
+            * Function called by Park, Outside World and Lounge
+            **/
             case SET_OWN_CAR :
                 l.setOwnCar(inMessage.getInt1(), inMessage.getStr1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             /**
-             * Function called by Repair Area
+             * Functions called by Repair Area
              */
             case SET_SERVICE:
                 l.setNumberServiceRequest(inMessage.getInt1());

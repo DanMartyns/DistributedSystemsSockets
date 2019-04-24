@@ -20,6 +20,7 @@ import genclass.GenericIO;
 /**
  *
  * @author danielmartins
+ * @author giselapinto
  */
 public class MainProgram {
 

@@ -6,16 +6,15 @@
 package Stubs;
 
 import genclass.GenericIO;
-import genclass.GenericIO;
 import Communication.ClientCom;
 import Communication.Message;
 import Communication.MessageType;
-import EntitiesState.ManagerState;
 import Interfaces.ManagerLounge;
 
 /**
  * Lounge stub. Class used to communicate with the Lounge
  * using TCP communication channels.
+ * @author giselapinto
  * @author danielmartins
  */
 public class Lounge implements ManagerLounge {

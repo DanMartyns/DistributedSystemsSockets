@@ -13,6 +13,7 @@ import Communication.MessageType;
  * Logger stub. Class used to communicate with the logger
  * using TCP communication channels.
  * @author danielmartins
+ * @author giselapinto
  */
 public class GeneralInformationRepo {
     
@@ -57,6 +58,12 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();  
     }
+    
+    /**
+     * Update the number of replecement car
+     * @param parseInt the id of the customer
+     * @param info info from the customer
+     **/
 
     public void setReplecementCar(int parseInt, String info) {
         ClientCom com = new ClientCom (server, port);

@@ -10,75 +10,76 @@ import java.io.Serializable;
 /**
  *
  * @author danielmartins
+ * @author giselapinto
  */
 public class Message implements Serializable {
 
     /**
-     * Serial version of the class. Format used is XXYYZZ 
+     * Serial version of the class. Format used is XXYYZZ
      * (classNumber-praticClassNumber-groupNumber)
      */
     private final long serialVersionUID = 010401L;
 
     /**
      * Type of the message.
-     */    
+     */
     private MessageType type;
 
     /**
      * State of an entity
-     */    
+     */
     private String state;
 
     /**
      * The Information about Customer
      */
     private String infoCustomer;
-    
+
     /**
      * Customer id
      */
     private int customerID;
-    
+
     /**
      * Mechanic id
      */
     private int mechanicID;
-    
+
     /**
      * The service chosen
      */
     private String apraiseSit;
-    
+
     /**
      * Type of the piece
      */
     private String piece;
-    
+
     /**
      * Number of pieces
      */
     private int quantity;
-    
+
     /**
      * Result from checkRequest function
      */
     private boolean checkRequest;
-    
+
     /**
      * Result from readThePaper function
      */
     private String readPaper;
-    
+
     /**
      * Result from partAvailable function
-     */    
+     */
     private boolean partAvailable;
-    
+
     /**
      * Result from decideOnRepair function
      */
     private boolean decideOnRepair;
-    
+
     /**
      * Result from findCar function
      */
@@ -98,13 +99,13 @@ public class Message implements Serializable {
      * Cars Repaired
      */
     private int[] repairedCars;
-    
+
     /**
      * Empty constructor for the message that initializes the default
      * values for all the variables.
-     */     
+     */
     public Message(){
-        type = null;   
+        type = null;
         state = null;
         infoCustomer = null;
         customerID = -1;
@@ -119,18 +120,18 @@ public class Message implements Serializable {
         waits = -1;
         repairedCars = null;
     }
-    
+
     /**
-     * Constructor with only the type of the message.    
+     * Constructor with only the type of the message.
      * @param type type of the Message
      */
     public Message(MessageType type){
         this();
         this.type = type;
     }
-    
+
     /**
-     * Constructor with the type of the message and two String arguments.     
+     * Constructor with the type of the message and two String arguments.
      * @param type type of the Message
      * @param value String argument
      * @param state state of the entity
@@ -164,12 +165,12 @@ public class Message implements Serializable {
                 this.piece = value;
                 this.state = state;
                 break;
-                
-        }        
-    }    
+
+        }
+    }
 
     /**
-     * Constructor with the type of the message and an integer argument.    
+     * Constructor with the type of the message and an integer argument.
      * @param type type of the Message
      * @param value Integer argument
      */
@@ -198,7 +199,7 @@ public class Message implements Serializable {
             case RETURN_GO_TO_SUPPLIER :
                 this.quantity = value;
                 break;
-            case SET_SIZE_QUEUE : 
+            case SET_SIZE_QUEUE :
                 this.queueIn = value;
                 break;
             case SET_WAITING_CARS :
@@ -212,13 +213,13 @@ public class Message implements Serializable {
                 break;
             case PIECES_A_STORED :
                 this.quantity = value;
-                break;                
+                break;
             case PIECES_B_STORED :
                 this.quantity = value;
                 break;
             case PIECES_C_STORED :
                 this.quantity = value;
-                break;  
+                break;
             case PIECES_A_STORED_MANAGER:
                 this.quantity = value;
                 break;
@@ -227,12 +228,12 @@ public class Message implements Serializable {
                 break;
             case PIECES_C_STORED_MANAGER:
                 this.quantity = value;
-                break;                                                    
-            }       
+                break;
+            }
     }
-    
+
     /**
-     * Constructor with the type of the message and two String arguments.     
+     * Constructor with the type of the message and two String arguments.
      * @param type type of the Message
      * @param value the id of the customer
      * @param state the customer state
@@ -275,7 +276,7 @@ public class Message implements Serializable {
                 break;
             case COLLECT_CAR :
                 this.customerID = value;
-                this.state = state;                
+                this.state = state;
                 break;
             case SET_CUSTOMER_STATE :
                 this.customerID = value;
@@ -293,12 +294,12 @@ public class Message implements Serializable {
                 this.customerID = value;
                 this.infoCustomer = state;
                 break;
-                            
-        }        
+
+        }
     }
-    
+
     /**
-     * Constructor with the type of the message and a String argument.    
+     * Constructor with the type of the message and a String argument.
      * @param type type of the Message
      * @param value String argument, the string can assume multiple definitions
      */
@@ -315,13 +316,13 @@ public class Message implements Serializable {
             case RECEIVE_PAYMENT :
                 this.infoCustomer = value;
                 break;
-            case HAND_CAR_KEY : 
+            case HAND_CAR_KEY :
                 this.infoCustomer = value;
                 break;
-            case CHECK_REQUEST : 
+            case CHECK_REQUEST :
                 this.piece = value;
                 break;
-            case SHUTDOWN : 
+            case SHUTDOWN :
                 this.state = value;
                 break;
             case RETURN_READ_THE_PAPER :
@@ -331,7 +332,7 @@ public class Message implements Serializable {
                 this.piece = value;
                 break;
             case SET_MANAGER_STATE :
-                this.state = value; 
+                this.state = value;
                 break;
             case SET_FLAG_A:
                 this.piece = value;
@@ -344,12 +345,12 @@ public class Message implements Serializable {
                 break;
             case SET_PIECE_AVAILABLE :
                 this.piece = value;
-                break;    
-            }       
+                break;
+            }
     }
 
     /**
-     * Constructor with the type of the message and two String arguments.     
+     * Constructor with the type of the message and two String arguments.
      * @param type type of the Message
      * @param piece the piece who'll be stored
      * @param value integer argument
@@ -358,7 +359,7 @@ public class Message implements Serializable {
     public Message(MessageType type, String piece, int value, String state){
         this();
         this.type = type;
-        switch(type){ 
+        switch(type){
             case LET_MANAGER_KNOW :
                 this.piece = piece;
                 this.mechanicID = value;
@@ -373,15 +374,15 @@ public class Message implements Serializable {
                 this.piece = piece;
                 this.mechanicID = value;
                 this.state = state;
-                
-        }        
+
+        }
     }
     /**
-     * Constructor with the type of the message and two String arguments.     
+     * Constructor with the type of the message and two String arguments.
      * @param type type of the Message
      * @param currentCar the current car of the customer
      * @param quantity the number of pieces who'll be stored
-     * @param state the state of an entity 
+     * @param state the state of an entity
      */
     public Message(MessageType type, int currentCar, int quantity, String state){
         this();
@@ -392,14 +393,14 @@ public class Message implements Serializable {
                  this.quantity = quantity;
                  this.state = state;
                  break;
-        }        
+        }
     }
 
     /**
-     * Constructor with the type of the message and a boolean argument.     
+     * Constructor with the type of the message and a boolean argument.
      * @param type type of the Message
      * @param value boolean argument
-     */    
+     */
     public Message(MessageType type, boolean value){
         this();
         this.type = type;
@@ -412,11 +413,11 @@ public class Message implements Serializable {
                 break;
             case RETURN_DECIDE_ON_REPAIR :
                 this.decideOnRepair = value;
-        }        
+        }
     }
 
     /**
-     * Constructor with the type of the message, one int argument and one int array.     
+     * Constructor with the type of the message, one int argument and one int array.
      * @param type type of the Message
      * @param car the current car of the customer
      * @param repairedCar cars already repaired
@@ -429,9 +430,9 @@ public class Message implements Serializable {
                  this.customerID = car;
                  this.repairedCars = repairedCars;
                  break;
-        }        
-    }    
-    
+        }
+    }
+
     public MessageType getType() {
         return type;
     }
@@ -479,11 +480,11 @@ public class Message implements Serializable {
     public boolean isDecideOnRepair() {
         return decideOnRepair;
     }
-    
+
     public int getQueueIn() {
         return queueIn;
     }
-    
+
     public int getWaits() {
         return waits;
     }

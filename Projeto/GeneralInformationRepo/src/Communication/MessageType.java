@@ -8,6 +8,7 @@ package Communication;
 /**
  * 
  * @author danielmartins
+ * @author giselapinto
  */
 public enum MessageType {
 
@@ -77,82 +78,82 @@ public enum MessageType {
     SHUTDOWN, 
 
     /**
-     * Call the function setManagerState
+     * Call the function setManagerState  (general Information)
      */    
     SET_MANAGER_STATE,
 
     /**
-     * Call the function setCustomerState
+     * Call the function setCustomerState  (general Information)
      */        
     SET_CUSTOMER_STATE, 
     
     /**
-     * Call the function setMechanicState
+     * Call the function setMechanicState  (general Information)
      */        
     SET_MECHANIC_STATE, 
     
     /**
-     * Call the function setSizeQueue
+     * Call the function setSizeQueue  (general Information)
      */        
     SET_SIZE_QUEUE, 
 
     /**
-     * Call the function setWaitingCars
+     * Call the function setWaitingCars  (general Information)
      */        
     SET_WAITING_CARS, 
 
     /**
-     * Call the function setFlagA
+     * Call the function setFlagA  (general Information)
      */    
     SET_FLAG_A, 
 
     /**
-     * Call the function setFlagB
+     * Call the function setFlagB  (general Information)
      */   
     SET_FLAG_B, 
     
     /**
-     * Call the function setFlagC
+     * Call the function setFlagC  (general Information)
      */    
     SET_FLAG_C, 
     
     /**
-     * Call the function setNumberServiceRequest
+     * Call the function setNumberServiceRequest  (general Information)
      */
     SET_SERVICE, 
     
     /**
-     * Call the function setPiecesAvabal
+     * Call the function setPiecesAvabal  (general Information)
      */
     SET_PIECE_AVAILABLE, 
     
     /**
-     * Call the function setPieces0Stored
+     * Call the function setPieces0Stored  (general Information)
      */
     PIECES_A_STORED, 
 
     /**
-     * Call the function setPieces1Stored
+     * Call the function setPieces1Stored  (general Information)
      */    
     PIECES_B_STORED, 
 
     /**
-     * Call the function setPieces2Stored
+     * Call the function setPieces2Stored  (general Information)
      */    
     PIECES_C_STORED,
 
     /**
-     * Call the function setPieces0Manager
+     * Call the function setPieces0Manager  (general Information)
      */    
     PIECES_A_STORED_MANAGER, 
 
     /**
-     * Call the function setPieces1Manager
+     * Call the function setPieces1Manager  (general Information)
      */        
     PIECES_B_STORED_MANAGER, 
 
     /**
-     * Call the function setPieces2Manager
+     * Call the function setPieces2Manager  (general Information)
      */        
     PIECES_C_STORED_MANAGER,
     
@@ -294,14 +295,44 @@ public enum MessageType {
      * Call the function resumeRepairProcedure
      */    
     RESUME_REPAIR_PROCEDURE,
-
+    
+    /**
+    * Call the function setReplacementCar (general Information)
+    */  
     SET_REPLACEMENT_CAR,
-
+    
+    /**
+    * Call the function setAlreadyRepaired (general Information)
+    */  
     SET_ALREADY_REPAIRED,
-
+    
+    /**
+    * Call the function setOwnCar (general Information)
+    */
     SET_OWN_CAR,
-
+    
+    /**
+    * Call the function setWaitReplacement (general Information)
+    */
     SET_WAIT_REPLACEMENT,
+    
+    /**
+    * Call the function setNumberRepair (general Information)
+    */
+    SET_NUMBER_REPAIR,
+    
+    /**
+    * Call the function setNumberParkCars (general Information)
+    */
+    SET_NUMBER_PARKED_CARS,
+    
+    /**
+    * Call the function setNumberReplacementPark (general Information)
+    */
+    SET_NUMBER_REPLACEMENT_CAR_PARKED,
 
+    /**
+    * Call the function serviceEnd (general Information)
+    */
     SERVICE_END
 }

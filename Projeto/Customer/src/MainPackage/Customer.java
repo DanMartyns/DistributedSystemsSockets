@@ -11,9 +11,7 @@ import Interfaces.CustomerOutSideWorld;
 import Interfaces.CustomerPark;
 
 import static MainPackage.Constants.NUM_CUSTOMERS;
-import Stubs.Lounge;
-import Stubs.OutsideWorld;
-import Stubs.Park;
+
 
 /**
  * @author giselapinto
@@ -22,9 +20,9 @@ import Stubs.Park;
 public class Customer extends Thread {
 
   
-     /**
-     * Identifier of the Customer.
-     */       
+    /**
+    * Identifier of the Customer.
+    */       
     private int id;
     
     private String info;
@@ -81,7 +79,9 @@ public class Customer extends Thread {
         this.lounge = lounge;
         
     }
-    
+    /**
+     * Implements the life cycle of the broker.
+     */ 
     @Override
     public void run() {
         while ( outsideWorld.decideOnRepair(id,CustomerState.NORMAL_LIFE_WITH_CAR.toString()) == false){}                         
@@ -114,24 +114,34 @@ public class Customer extends Thread {
         lounge.payForTheService(this.id); 
 
         setCurrentCar(info,""+this.id);        
-        park.collectCar(info, CustomerState.PARK.toString());
+        park.collectCar(info, CustomerState.NORMAL_LIFE_WITH_CAR.toString());
                       
     }
     
     /**
-     * 
+     * Get id from Customer
      * @return id of the Customer 
      */
     public int getID(){
         return id;
     }
     
+    /**
+     * Set current car information
+     * @param id currentCar id
+     * @param value information about customer
+     */
     private void setCurrentCar(String id, String value){
         String[] temp = id.split(",");
         temp[2] = value;
         this.info = String.join(",",temp);
     }
-
+    
+    /**
+     * Set payment information
+     * @param id customer id
+     * @param value information about customer
+     */
     private void setPay(String id, String value){
         String[] temp = id.split(",");
         temp[4] = value;

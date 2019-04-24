@@ -8,7 +8,6 @@ package Stubs;
 import Communication.ClientCom;
 import Communication.Message;
 import Communication.MessageType;
-import EntitiesState.ManagerState;
 
 import Interfaces.ManagerSupplierSite;
 import genclass.GenericIO;
@@ -16,6 +15,7 @@ import genclass.GenericIO;
 /**
  * Supplier Site stub. Class used to communicate with the Supplier Site
  * using TCP communication channels.
+ * @author giselapinto
  * @author danielmartins
  */
 public class SupplierSite implements ManagerSupplierSite {
@@ -41,6 +41,12 @@ public class SupplierSite implements ManagerSupplierSite {
         this.port = port;
     }   
     
+    /**
+    * send message to go to supplier
+    * @param peca piece in need
+    * @param managerState current state of manager
+    * @return number of pieces
+    **/
     public int goToSupplier(String peca, String managerState){
         ClientCom com = new ClientCom (server, port);
         

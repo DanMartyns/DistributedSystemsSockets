@@ -7,11 +7,11 @@ package Locations;
 
 import Communication.Message;
 import Communication.MessageType;
-import Communication.ServerComm;
 
 /*
- * @author danielmartins
- */
+* @author danielmartins
+* @author giselapinto
+*/
 public class LoungeProxy implements InterfaceLocation {
     /**
      * Lounge used to process the messages.

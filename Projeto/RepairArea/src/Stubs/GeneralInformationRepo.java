@@ -13,6 +13,7 @@ import Communication.MessageType;
  * Logger stub. Class used to communicate with the logger
  * using TCP communication channels.
  * @author danielmartins
+ * @author giselapinto
  */
 public class GeneralInformationRepo {
     
@@ -75,7 +76,11 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close (); 
     }
-
+    
+    /**
+     * Update the number of service requested
+     * @param size number of service
+     **/
     public void setNumberServiceRequest(int size) {
         ClientCom com = new ClientCom (server, port);
         
@@ -89,7 +94,11 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();      
     }
-
+    
+    /**
+     * Update of Avaible pieces
+     * @param piece number of pieces
+     **/
     public void setPiecesAvabal(String piece) {
         ClientCom com = new ClientCom (server, port);
         
@@ -103,7 +112,11 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();  
     }
-
+    
+    /**
+     * Update of Stored Pieces 0
+     * @param pieceA number of pieces stored
+     **/
     public void setPieces0Stored(int pieceA) {
         ClientCom com = new ClientCom (server, port);
         
@@ -117,7 +130,11 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();      
     }
-
+    
+   /**
+    * Update of Stored Pieces 1
+    * @param pieceB number of pieces stored
+    **/
     public void setPieces1Stored(int pieceB) {
         ClientCom com = new ClientCom (server, port);
         
@@ -131,7 +148,11 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();  
     }
-
+    
+    /**
+     * Update of Stored Pieces 2
+     * @param pieceC number of pieces stored
+     **/
     public void setPieces2Stored(int pieceC) {
         ClientCom com = new ClientCom (server, port);
         
@@ -145,6 +166,10 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();      }
 
+    /**
+     * Update of Pieces 0 that manager stored
+     * @param pieceA number of pieces stored
+     **/
     public void setPieces0Manager(int pieceA) {
         ClientCom com = new ClientCom (server, port);
         
@@ -158,7 +183,11 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();  
     }
-
+    
+    /**
+     * Update of Pieces 1 that manager stored
+     * @param pieceB number of pieces stored
+     **/
     public void setPieces1Manager(int pieceB) {
         ClientCom com = new ClientCom (server, port);
         
@@ -172,7 +201,11 @@ public class GeneralInformationRepo {
         Message inMessage = (Message) com.readObject();
         com.close ();  
     }
-
+    
+    /**
+     * Update of Pieces 2 that manager stored
+     * @param pieceC number of pieces stored
+     **/
     public void setPieces2Manager(int pieceC) {
         ClientCom com = new ClientCom (server, port);
         

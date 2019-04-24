@@ -14,6 +14,7 @@ import Interfaces.CustomerLounge;
 /**
  * Lounge stub. Class used to communicate with the Lounge
  * using TCP communication channels.
+ * @author giselapinto
  * @author danielmartins
  */
 public class Lounge implements CustomerLounge {

@@ -8,6 +8,7 @@ package EntitiesState;
 /**
  *
  * @author giselapinto
+ * @author danielmartins
  */
 public enum MechanicState {
     /**
@@ -29,13 +30,25 @@ public enum MechanicState {
     * ALEARTING THE STOCK.
     */
    ALERTING_MANAGER ("ALM");
-
+   
+   /**
+   * String with a description of the enum
+   */
    private final String description;
-
+   
+   
+   /**
+   * Get the state of the mechanic
+   * @param description string with description
+   */
    private MechanicState(String description){
        this.description = description;
    }
 
+   /**
+   * To string method
+   * @return description string with description
+   */
    @Override
    public String toString(){
        return this.description;

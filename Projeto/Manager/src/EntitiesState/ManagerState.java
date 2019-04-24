@@ -8,6 +8,7 @@ package EntitiesState;
 /**
  * Enum with the possible states of the manager on his lifecycle.
  * @author danielmartins
+ * @author giselapinto
  */
 public enum ManagerState { 
     /**

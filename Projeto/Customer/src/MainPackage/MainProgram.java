@@ -10,7 +10,8 @@ import genclass.GenericIO;
 /**
  * Main manager program.
  * Initialize stubs and start manager lifecycle.
- * @author Daniel Martins
+ * @author giselapinto
+ * @author danielmartins
  */
 public class MainProgram {
     

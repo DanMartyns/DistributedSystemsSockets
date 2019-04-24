@@ -67,7 +67,9 @@ public class Mechanic extends Thread {
     
     }
     
-    
+    /**
+     * Implements the life cycle of the broker.
+     */ 
     @Override
     public void run() {
         
@@ -106,11 +108,18 @@ public class Mechanic extends Thread {
         return id;
     }
     
-
+    /**
+     * Get current service
+     * @return current Service
+     */
     public String getCurrentService() {
         return currentService;
     }
-
+    
+    /**
+     * Get current piece
+     * @return current piece
+     */
     public String getCurrentPiece() {
         return currentPiece;
     }

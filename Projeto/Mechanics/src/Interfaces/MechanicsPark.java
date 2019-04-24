@@ -7,6 +7,7 @@ package Interfaces;
 
 /**
  *
+ * @author giselapinto
  * @author danielmartins
  */
 public interface MechanicsPark {

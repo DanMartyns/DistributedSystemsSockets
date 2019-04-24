@@ -6,11 +6,11 @@
 package Locations;
 
 import Communication.Message;
-import Communication.ServerComm;
 
 /**
  * This interface represents a location interface
  * It has a method to process and reply messages.
+ * @author giselapinto
  * @author danielmartins
  */
 public interface InterfaceLocation {

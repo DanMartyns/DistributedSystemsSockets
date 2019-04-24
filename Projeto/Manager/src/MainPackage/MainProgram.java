@@ -11,7 +11,8 @@ import genclass.GenericIO;
 /**
  * Main manager program.
  * Initialize stubs and start manager lifecycle.
- * @author Daniel Martins
+ * @author danielmartins
+ * @author giselapinto
  */
 public class MainProgram {
     

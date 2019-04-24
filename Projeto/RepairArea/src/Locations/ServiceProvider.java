@@ -12,26 +12,26 @@ import Communication.ServerComm;
  * Service Provider implementation.
  * Processes and replies messages accordingly to the internal implementation
  * of a shared region.
- * @author Daniel Martins
- * @author Gisela Pinto
+ * @author danielmartins
+ * @author giselapinto
  */
 public class ServiceProvider extends Thread {
     
     /**
      * Communication channel with the server.
-     */
+     **/
     private final ServerComm com;
     
     /**
      * Shared region implementation.
-     */
+     **/
     private final InterfaceLocation il;
     
     /**
      * Service Provider constructor.
      * @param com communication channel with the server.
      * @param il shared region.
-     */
+     **/
     public ServiceProvider(ServerComm com, InterfaceLocation il){
         this.com = com;
         this.il = il;
@@ -39,7 +39,7 @@ public class ServiceProvider extends Thread {
     
     /**
      * Lifecycle of the service provider.
-     */
+     **/
     @Override
     public void run(){
         /**

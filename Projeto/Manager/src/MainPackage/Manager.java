@@ -41,8 +41,15 @@ public class Manager extends Thread {
      */
     private ManagerRepairArea repairArea;
     
+    
+    /**
+     * Instance of the manager interface outside world
+     */
     private ManagerOutsideWorld outsideWorld;
     
+    /**
+     * Give the number of cars to repair
+     */
     private int numRepairedClients = 0;  
     
     /**
