@@ -98,6 +98,7 @@ public class GeneralInformationRepo {
     /**
      * Update of Avaible pieces
      * @param piece number of pieces
+     * @param numberOfCustomersWaiting number of customer waiting for a piece
      **/
     public void setPiecesAvabal(String piece, int numberOfCustomersWaiting) {
         ClientCom com = new ClientCom (server, port);

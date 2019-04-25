@@ -116,6 +116,7 @@ public class RepairArea {
     * A random value is generated to indicate the part missing from the car
     * @param mechanic mechanic id
     * @param mechanicState the state of the mecaninc
+    * @return a random value generated to indicate the part missing from the car
     **/
     public synchronized String getRequiredPart(int mechanic, String mechanicState) {
         logger.setMechanicState(mechanic, mechanicState);

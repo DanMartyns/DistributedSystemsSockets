@@ -33,7 +33,9 @@ public interface CustomerPark {
      * customer find the replecment car on park
      * (Class Park)
      * @param id customer's id
-     * @param customerState customer's state    
+     * @param customerState customer's state
+     * @return Each customer will poll the list of replacement cars, and 
+     * if there are no cars, they wait.
     */
     int findCar(int id, String customerState);
 }

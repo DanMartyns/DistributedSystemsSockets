@@ -71,6 +71,8 @@ public class Park implements CustomerPark{
      * if there are no cars, they wait.
      * @param id customer's id
      * @param customerState customer's state
+     * @return Each customer will poll the list of replacement cars, and 
+     * if there are no cars, they wait.
      */
     public int findCar(int id, String customerState) {
        ClientCom com = new ClientCom (server, port);

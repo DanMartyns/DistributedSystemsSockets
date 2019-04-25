@@ -350,7 +350,8 @@ public class GeneralInformationRepo{
 
     /**
      * number of customer vehicles waiting for part # to be available so that the repair may resume 
-     * @param piecesAvabal piece's type
+     * @param piece piece's type
+     * @param quantityOfCustomersWaiting quantity on waiting
      */
     public synchronized void setPiecesAvabal(String piece, int quantityOfCustomersWaiting) {
         if (piece.equals("0")) this.piecesAAvabal = String.format("%02d",quantityOfCustomersWaiting) ;

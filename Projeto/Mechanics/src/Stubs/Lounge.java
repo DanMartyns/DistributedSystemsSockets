@@ -22,6 +22,8 @@ public class Lounge implements MechanicsLounge {
     
     /**
      * Constructor from lounge
+     * @param server server name
+     * @param port port in use
      **/
     public Lounge(String server, int port) {
         this.server = server;
