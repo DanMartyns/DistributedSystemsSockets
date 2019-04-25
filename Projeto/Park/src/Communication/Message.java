@@ -153,6 +153,7 @@ public class Message implements Serializable {
             case SET_MECHANIC_STATE :
             case SET_REPLACEMENT_CAR :
             case SET_OWN_CAR :
+            case SET_PIECE_AVAILABLE :	
                 this.int1 = value1;
                 this.str1 = value2;
                 break;
@@ -180,7 +181,6 @@ public class Message implements Serializable {
             case SET_FLAG_A:
             case SET_FLAG_B:
             case SET_FLAG_C:
-            case SET_PIECE_AVAILABLE :
                 this.str1 = value;
                 break;
             }

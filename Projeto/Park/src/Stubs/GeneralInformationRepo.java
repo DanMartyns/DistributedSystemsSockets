@@ -113,7 +113,7 @@ public class GeneralInformationRepo {
      * Updating number of cars that have already been repaired
      * @param numberRepair number of cars repaired
      */
-    public synchronized void setNumberRepair(int numberRepair) {
+    public void setNumberRepair(int numberRepair) {
         ClientCom com = new ClientCom (server, port);
         
         while(!com.open()){

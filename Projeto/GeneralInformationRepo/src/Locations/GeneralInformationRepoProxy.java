@@ -126,7 +126,7 @@ public class GeneralInformationRepoProxy implements InterfaceLocation {
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case SET_PIECE_AVAILABLE :
-                l.setPiecesAvabal(inMessage.getStr1());
+                l.setPiecesAvabal(inMessage.getStr1(), inMessage.getInt1());
                 outMessage = new Message(MessageType.STATUS_OK);
                 break;
             case PIECES_A_STORED : 

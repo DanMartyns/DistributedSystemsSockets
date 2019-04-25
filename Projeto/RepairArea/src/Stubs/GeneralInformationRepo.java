@@ -99,7 +99,7 @@ public class GeneralInformationRepo {
      * Update of Avaible pieces
      * @param piece number of pieces
      **/
-    public void setPiecesAvabal(String piece) {
+    public void setPiecesAvabal(String piece, int numberOfCustomersWaiting) {
         ClientCom com = new ClientCom (server, port);
         
         while(!com.open()){
@@ -107,7 +107,7 @@ public class GeneralInformationRepo {
                 Thread.currentThread ().sleep ((long) (10));
             } catch (InterruptedException ex) {}
         }
-        Message msg = new Message(MessageType.SET_PIECE_AVAILABLE, piece);
+        Message msg = new Message(MessageType.SET_PIECE_AVAILABLE,numberOfCustomersWaiting, piece);
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
         com.close ();  

@@ -352,10 +352,10 @@ public class GeneralInformationRepo{
      * number of customer vehicles waiting for part # to be available so that the repair may resume 
      * @param piecesAvabal piece's type
      */
-    public synchronized void setPiecesAvabal(String piecesAvabal) {
-        if (piecesAvabal.equals("0")) this.piecesAAvabal = String.format("%02d",Integer.parseInt(piecesAvabal)) ;
-        if (piecesAvabal.equals("1")) this.piecesBAvabal = String.format("%02d",Integer.parseInt(piecesAvabal)) ;
-        if (piecesAvabal.equals("2")) this.piecesCAvabal = String.format("%02d",Integer.parseInt(piecesAvabal)) ;
+    public synchronized void setPiecesAvabal(String piece, int quantityOfCustomersWaiting) {
+        if (piece.equals("0")) this.piecesAAvabal = String.format("%02d",quantityOfCustomersWaiting) ;
+        if (piece.equals("1")) this.piecesBAvabal = String.format("%02d",quantityOfCustomersWaiting) ;
+        if (piece.equals("2")) this.piecesCAvabal = String.format("%02d",quantityOfCustomersWaiting) ;
         printHeaderLog();
     }
     

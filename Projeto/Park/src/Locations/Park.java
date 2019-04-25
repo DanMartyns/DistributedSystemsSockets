@@ -126,7 +126,7 @@ public class Park {
         logger.setNumberWaitingReplece(Collections.frequency(Arrays.asList(CustomersInWait), 1));
         notifyAll();
         GenericIO.writelnString("Customer "+id+" find car");
-	GenericIO.writelnString("Customer "+id+" will take it off a replacement car.\n The replacementCars before poll : "+replacementCars);
+	    GenericIO.writelnString("Customer "+id+" will take it off a replacement car.\n The replacementCars before poll : "+replacementCars);
 
         retrevieReplacementCar = replacementCars.poll();
 

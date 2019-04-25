@@ -55,6 +55,7 @@ public class RepairArea {
 
         logger.setMechanicState(mechanic, mechanicState);
         logger.setNumberServiceRequest(services.size());
+
         while ( blockedServices.isEmpty() && services.isEmpty() && shutdown == false ){
             try {
                 wait();
@@ -69,7 +70,9 @@ public class RepairArea {
             String value = entry.getValue();
             service = key+","+value;
             blockedServices.remove(key,value);
-
+            logger.setPiecesAvabal("0", (int) blockedServices.values().stream().filter(x -> x.equals("0")).count() );
+            logger.setPiecesAvabal("1", (int) blockedServices.values().stream().filter(x -> x.equals("1")).count() );
+            logger.setPiecesAvabal("2", (int) blockedServices.values().stream().filter(x -> x.equals("2")).count() );
         } else {
             service = services.poll()+",-1";
         }
@@ -140,10 +143,12 @@ public class RepairArea {
         GenericIO.writelnString(" A-type pieces quantity : "+Constants.pieceA);
         GenericIO.writelnString(" B-type pieces quantity : "+Constants.pieceB);
         GenericIO.writelnString(" C-type pieces quantity : "+Constants.pieceC);
-        logger.setPiecesAvabal(piece);
 
         if (piece.equals("0") && Constants.pieceA <= 1 || piece.equals("1") && Constants.pieceB <= 1 || piece.equals("2") && Constants.pieceC <= 1){
-            blockedServices.put(car, piece);
+            blockedServices.put(car, piece);          
+            logger.setPiecesAvabal("0", (int) blockedServices.values().stream().filter(x -> x.equals("0")).count() );
+            logger.setPiecesAvabal("1", (int) blockedServices.values().stream().filter(x -> x.equals("1")).count() );
+            logger.setPiecesAvabal("2", (int) blockedServices.values().stream().filter(x -> x.equals("2")).count() );
             return false;
         } else {
 
