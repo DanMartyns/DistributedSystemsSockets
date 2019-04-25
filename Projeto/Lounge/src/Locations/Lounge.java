@@ -108,7 +108,6 @@ public class Lounge {
       */
     public synchronized boolean getNextTask(String managerState) {
         logger.setManagerState(managerState);
-
         while(atending_customer.isEmpty() && alerting_customer.isEmpty() && getting_new_parts.isEmpty()){
             try {
                 wait();
@@ -135,7 +134,9 @@ public class Lounge {
     public synchronized String appraiseSit() {
         assert(!atending_customer.isEmpty() || !alerting_customer.isEmpty() || !getting_new_parts.isEmpty());
         logger.setValueQueueIn(atending_customer.size());
-
+        logger.setFlagAPieces(getting_new_parts.contains("0") ? "0" : "--");
+        logger.setFlagBPieces(getting_new_parts.contains("1") ? "1" : "--");
+        logger.setFlagCPieces(getting_new_parts.contains("2") ? "2" : "--");
         GenericIO.writelnString("The state of the queues\n Atending customer : "+atending_customer+"\n Alerting customer : "+alerting_customer+"\n Getting new parts : "+getting_new_parts+";");
         return (!getting_new_parts.isEmpty() ? GETTING_NEW_PARTS+"@"+getting_new_parts.poll() : ( !alerting_customer.isEmpty() ? ALERTING_CUSTOMER+"@"+alerting_customer.poll() : ATENDING_CUSTOMER+"@"+atending_customer.poll() ));
 
@@ -310,6 +311,9 @@ public class Lounge {
     public synchronized void letManagerKnow(String peca, int mechanic, String mechanicState) {
         logger.setMechanicState(mechanic, mechanicState);
         getting_new_parts.add(peca);
+        logger.setFlagAPieces(getting_new_parts.contains("0") ? "0" : "--");
+        logger.setFlagBPieces(getting_new_parts.contains("1") ? "1" : "--");
+        logger.setFlagCPieces(getting_new_parts.contains("2") ? "2" : "--");
 
         notifyAll();
         GenericIO.writelnString(" Mechanic let Manager Know the piece "+peca);
@@ -336,9 +340,9 @@ public class Lounge {
      */
     public synchronized boolean checkRequest(String peca){
         GenericIO.writelnString(" Mechanic check the piece "+peca);
-        logger.setFlagAPieces(peca);
-        logger.setFlagBPieces(peca);
-        logger.setFlagCPieces(peca);
+        logger.setFlagAPieces(getting_new_parts.contains("0") ? "0" : "--");
+        logger.setFlagBPieces(getting_new_parts.contains("1") ? "1" : "--");
+        logger.setFlagCPieces(getting_new_parts.contains("2") ? "2" : "--");
         return getting_new_parts.contains(peca) ? false : true;
     }
 
@@ -348,6 +352,9 @@ public class Lounge {
      */
     public synchronized void serviceEnd(){
         logger.setValueQueueIn(atending_customer.size());
+        logger.setFlagAPieces(getting_new_parts.contains("0") ? "0" : "--");
+        logger.setFlagBPieces(getting_new_parts.contains("1") ? "1" : "--");
+        logger.setFlagCPieces(getting_new_parts.contains("2") ? "2" : "--");
         shutdownNumber++;
         if(shutdownNumber==3){
             repairArea.serviceEnd();

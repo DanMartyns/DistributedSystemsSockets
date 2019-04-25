@@ -59,7 +59,7 @@ public class Lounge implements ManagerLounge {
         Message inMessage = (Message) com.readObject();
         
         if ( inMessage.getType() != MessageType.STATUS_OK ){
-            GenericIO.writelnString("appraiseSit - Manager thread was interrupted.");
+            GenericIO.writelnString("getNextTask - Manager thread was interrupted.");
             System.exit(1);                     
         }        
         

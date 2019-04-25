@@ -23,10 +23,10 @@ public class MainProgram {
         Lounge lounge = new Lounge( Constants.LOUNGE_HOST_NAME,Constants.LOUNGE_PORT );
         OutsideWorld outsideWorld = new OutsideWorld ( Constants.OUTSIDEWORLD_HOST_NAME, Constants.OUTSIDEWORLD_PORT );
         Park park = new Park(Constants.PARK_HOST_NAME, Constants.PARK_PORT);
-        /**
-         * Manager lifecycle start.
-         */
         
+	/**
+         * Manager lifecycle start.
+         */        
         Customer[] customer = new Customer[NUM_CUSTOMERS];
  
 

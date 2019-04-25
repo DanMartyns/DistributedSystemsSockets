@@ -30,7 +30,7 @@ public class Park {
     /**
      * Replacement Car Kit
      */
-    private Queue<Integer> replacementCars = new LinkedList<Integer>() {{add(-1); }};
+    private Queue<Integer> replacementCars = new LinkedList<Integer>() {{add(-1); add(-2); add(-3); }};
 
     /**
      * Set of parked cars

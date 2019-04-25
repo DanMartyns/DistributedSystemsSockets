@@ -124,7 +124,7 @@ public class GeneralInformationRepo{
     public synchronized void initStateLog(){
         
         try {
-            FileWriter fw = new FileWriter(Constants.FILE_NAME);
+            FileWriter fw = new FileWriter(this.fileName);
             BufferedWriter bw = new BufferedWriter(fw);
             
             bw.write("\t\t\t\t REPAIR SHOP ACTIVITIES - Description of the internal state of the problem\n");
@@ -157,7 +157,7 @@ public class GeneralInformationRepo{
      */
     public synchronized void printHeaderLog(){
         try{
-            FileWriter fw = new FileWriter(Constants.FILE_NAME, true);
+            FileWriter fw = new FileWriter(this.fileName, true);
             BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(""+ managerState);
