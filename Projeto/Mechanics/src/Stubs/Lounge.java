@@ -8,7 +8,7 @@ package Stubs;
 import Communication.ClientCom;
 import Communication.Message;
 import Communication.MessageType;
-import Interfaces.*;
+import Interfaces.MechanicsLounge;
 import genclass.GenericIO;
 
 /**
@@ -39,7 +39,7 @@ public class Lounge implements MechanicsLounge {
     **/
     public void letManagerKnow(String peca, int mechanic, String mechanicState) {
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic let manager know");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -60,7 +60,7 @@ public class Lounge implements MechanicsLounge {
     **/
     public void repairConcluded(int currentCar, int mechanic, String mechanicState) {
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic repair concluded");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -80,7 +80,7 @@ public class Lounge implements MechanicsLounge {
      */
     public boolean checkRequest(String peca){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic check request");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -98,7 +98,7 @@ public class Lounge implements MechanicsLounge {
      */
     public void serviceEnd(){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic alerts that the job is finished");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));

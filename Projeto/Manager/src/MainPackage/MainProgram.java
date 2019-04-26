@@ -17,7 +17,8 @@ import genclass.GenericIO;
 public class MainProgram {
     
     public static void main(String [] args){
-        
+        long start = System.currentTimeMillis();
+
         /**
          * Stub initialization.
          */
@@ -36,6 +37,9 @@ public class MainProgram {
         } catch (InterruptedException ex) { GenericIO.writelnString("Manager was interrupted - "+ex); }
         lounge.serviceEnd();
         GenericIO.writelnString("Manager it's over");
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
+        GenericIO.writelnString("The program takes "+timeElapsed+" miliseconds");
     }
     
     

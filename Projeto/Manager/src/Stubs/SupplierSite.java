@@ -49,7 +49,7 @@ public class SupplierSite implements ManagerSupplierSite {
     **/
     public int goToSupplier(String peca, String managerState){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager go to supplier");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));

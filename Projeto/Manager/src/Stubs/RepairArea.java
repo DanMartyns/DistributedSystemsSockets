@@ -48,7 +48,7 @@ public class RepairArea implements ManagerRepairArea {
      */
     public void registerService(String info, String managerState){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager register service");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -72,7 +72,7 @@ public class RepairArea implements ManagerRepairArea {
      */
     public void storePart(String peca, int quantidade, String managerState){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager store part");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -93,7 +93,7 @@ public class RepairArea implements ManagerRepairArea {
      */
     public void shutdownNow(String managerState){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager alert to stop mechanics work");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));

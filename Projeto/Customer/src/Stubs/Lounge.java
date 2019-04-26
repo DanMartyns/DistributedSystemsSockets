@@ -48,7 +48,7 @@ public class Lounge implements CustomerLounge {
      */
     public void queueIn(String id, String customerState){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Customer "+id+" queueIn");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -77,6 +77,7 @@ public class Lounge implements CustomerLounge {
      */
     public void talkWithManager(int customer){
         ClientCom com = new ClientCom (server, port);
+        GenericIO.writelnString("Customer "+customer+" talk with manager");
         
         while(!com.open()){
             try {
@@ -85,14 +86,13 @@ public class Lounge implements CustomerLounge {
         } 
         Message msg = new Message(MessageType.TALK_WITH_MANAGER, customer);
         com.writeObject(msg);
-        //GenericIO.writelnString("talk with manager "+customer+" send Message");        
+      
         Message inMessage = (Message) com.readObject();
         if ( inMessage.getType() != MessageType.STATUS_OK ){
             GenericIO.writelnString("talkWithManager - Customer thread was interrupted.");
             System.exit(1);                     
         }
-        //GenericIO.writelnString("talk with manager "+customer+" receive Message - "+inMessage.getType());            
-        
+
         com.close();    
     }
     
@@ -106,7 +106,7 @@ public class Lounge implements CustomerLounge {
     
     public void collectKey(int customer, String customerState){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Customer "+customer+" collectKey");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -131,7 +131,7 @@ public class Lounge implements CustomerLounge {
      */
     public void payForTheService(int customer){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Customer "+customer+" pay for the service");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -140,12 +140,12 @@ public class Lounge implements CustomerLounge {
         Message msg = new Message(MessageType.PAY_FOR_THE_SERVICE, customer);
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
-        //GenericIO.writelnString("payForTheService "+customer+" send Message");
+
         if ( inMessage.getType() != MessageType.STATUS_OK ){
             GenericIO.writelnString("payForTheService - Customer thread was interrupted.");
             System.exit(1);                     
         }            
-        //GenericIO.writelnString("payForTheService "+customer+" receice Message - "+inMessage.getType()); 
+        
         com.close();    
     
     }
@@ -155,7 +155,7 @@ public class Lounge implements CustomerLounge {
      */
     public void serviceEnd(){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Client serviceEnd");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -164,6 +164,7 @@ public class Lounge implements CustomerLounge {
         Message msg = new Message(MessageType.SERVICE_END);
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
+        
         if ( inMessage.getType() != MessageType.STATUS_OK ){
             GenericIO.writelnString("serviceEnd - Customer thread was interrupted.");
             System.exit(1);                     

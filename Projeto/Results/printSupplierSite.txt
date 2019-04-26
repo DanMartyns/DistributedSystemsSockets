@@ -1,0 +1,8 @@
+ Manager go to supplier. Restore type 0, quantity : 7
+ Manager go to supplier. Restore type 0, quantity : 1
+ Manager go to supplier. Restore type 1, quantity : 3
+ Manager go to supplier. Restore type 1, quantity : 3
+ Manager go to supplier. Restore type 2, quantity : 7
+ Manager go to supplier. Restore type 2, quantity : 3
+ Supplier Site will end
+SupplierSite it's over

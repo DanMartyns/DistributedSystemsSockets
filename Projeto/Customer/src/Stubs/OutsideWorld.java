@@ -41,7 +41,7 @@ public class OutsideWorld implements CustomerOutSideWorld {
      */
     public boolean decideOnRepair(int customer, String customerState) {
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Customer "+customer+" decide on repair");
          while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -50,14 +50,14 @@ public class OutsideWorld implements CustomerOutSideWorld {
         
         Message msg = new Message(MessageType.DECIDE_ON_REPAIR, customer, customerState);
         com.writeObject(msg);
-        //GenericIO.writelnString("decide On Repair "+customer+" send Message");
+
         Message inMessage = (Message) com.readObject();
         
         if ( inMessage.getType() != MessageType.RETURN_DECIDE_ON_REPAIR ){
             GenericIO.writelnString("decideOnRepair - Manager thread was interrupted.");
             System.exit(1);                     
         }        
-        //GenericIO.writelnString("decide On Repair "+customer+" receive Message");
+
         com.close ();
         
         return inMessage.isBoolean1();
@@ -73,7 +73,7 @@ public class OutsideWorld implements CustomerOutSideWorld {
      */
     public void backToWorkByBus(int customer, String customerState) {
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Customer "+customer+" back to work by bus");
          while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -82,14 +82,14 @@ public class OutsideWorld implements CustomerOutSideWorld {
         
         Message msg = new Message(MessageType.BACK_TO_WORK_BY_BUS, customer, customerState);
         com.writeObject(msg);
-        //GenericIO.writelnString("backToWorkByBus "+customer+" send Message");
+
         Message inMessage = (Message) com.readObject();
         
         if ( inMessage.getType() != MessageType.STATUS_OK ){
             GenericIO.writelnString("backToWorkByBus - Manager thread was interrupted.");
             System.exit(1);                     
         }        
-        //GenericIO.writelnString("backToWorkByBus "+customer+" receive Message");        
+       
         com.close ();
         
         
@@ -105,7 +105,7 @@ public class OutsideWorld implements CustomerOutSideWorld {
      */
     public void backToWorkByCar(String info, String customerState) {
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Customer "+info+" back to work by car");
          while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -114,14 +114,14 @@ public class OutsideWorld implements CustomerOutSideWorld {
         
         Message msg = new Message(MessageType.BACK_TO_WORK_BY_CAR, info, customerState);
         com.writeObject(msg);
-        //GenericIO.writelnString("backToWorkByCar "+info+" send Message");
+
         Message inMessage = (Message) com.readObject();
         
         if ( inMessage.getType() != MessageType.STATUS_OK ){
             GenericIO.writelnString("backToWorkByCar - Manager thread was interrupted.");
             System.exit(1);                     
         }        
-        //GenericIO.writelnString("backToWorkByCar "+info+" receive Message");        
+     
         com.close ();
         
 

@@ -48,5 +48,6 @@ cd ..
 echo -e "${bold}->${normal} A limpar o General Information Repository"
 cd GeneralInformationRepo/
 find . -name '*.class' -delete
+find . -name 'log.txt' -delete
 cd ..
 echo -e "\n${bold}->${normal} A limpeza terminou"

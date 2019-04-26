@@ -49,7 +49,7 @@ public class OutsideWorld implements ManagerOutsideWorld {
      */
     public void phoneCustomer(String info, String managerState){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager phone customer "+info);
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));

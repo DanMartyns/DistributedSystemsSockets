@@ -19,7 +19,11 @@ public class RepairArea implements MechanicsRepairArea {
     private String server;
     private int port;
     
-
+    /**
+     * Constructor from lounge
+     * @param server server name
+     * @param port port in use
+     **/
     public RepairArea(String server, int port) {
         this.server = server;
         this.port = port;
@@ -34,7 +38,7 @@ public class RepairArea implements MechanicsRepairArea {
     public String readThePaper(int mechanic, String mechanicState) {
     
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic read paper");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -60,7 +64,7 @@ public class RepairArea implements MechanicsRepairArea {
      **/
     public void startRepairProcedure(int mechanic, String mechanicState) {
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic start repair procedure");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -77,8 +81,8 @@ public class RepairArea implements MechanicsRepairArea {
      * send message informing that they start fix the car
      **/
     public void fixIt(){
-         ClientCom com = new ClientCom (server, port);
-        
+        ClientCom com = new ClientCom (server, port);
+        GenericIO.writelnString("Mechanic fix it");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -98,7 +102,7 @@ public class RepairArea implements MechanicsRepairArea {
     **/
     public String getRequiredPart(int mechanic, String mechanicState) {       
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic get required part");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -120,7 +124,7 @@ public class RepairArea implements MechanicsRepairArea {
     **/
     public boolean partAvailable(String piece, int car) {       
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic part available");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -141,7 +145,7 @@ public class RepairArea implements MechanicsRepairArea {
     **/
     public void resumeRepairProcedure(String piece, int mechanic, String mechanicState) {
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic resume repair procedure");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));

@@ -47,7 +47,7 @@ public class Lounge implements ManagerLounge {
      */
     public boolean getNextTask(String managerState){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager get next task");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -73,7 +73,7 @@ public class Lounge implements ManagerLounge {
      */
     public String appraiseSit(){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager apraise sit");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -93,7 +93,7 @@ public class Lounge implements ManagerLounge {
      */
     public void talkToCustomer(String info, String managerState){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager talk to customer "+info);
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -115,7 +115,7 @@ public class Lounge implements ManagerLounge {
      */
     public void receivePayment(String info){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager receive payment");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -124,6 +124,7 @@ public class Lounge implements ManagerLounge {
         Message msg = new Message(MessageType.RECEIVE_PAYMENT, info);
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
+        
         if ( inMessage.getType() != MessageType.STATUS_OK ){
             GenericIO.writelnString("receivePayment - Manager thread was interrupted.");
             System.exit(1);                     
@@ -138,7 +139,7 @@ public class Lounge implements ManagerLounge {
      */
     public void handCarKey(String info){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager hand car key");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -147,6 +148,7 @@ public class Lounge implements ManagerLounge {
         Message msg = new Message(MessageType.HAND_CAR_KEY, info);
         com.writeObject(msg);
         Message inMessage = (Message) com.readObject();
+        
         if ( inMessage.getType() != MessageType.STATUS_OK ){
             GenericIO.writelnString("handCarKey - Manager thread was interrupted.");
             System.exit(1);                     
@@ -160,7 +162,7 @@ public class Lounge implements ManagerLounge {
      */
     public void serviceEnd(){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Manager end service");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));

@@ -108,6 +108,7 @@ public class Lounge {
       */
     public synchronized boolean getNextTask(String managerState) {
         logger.setManagerState(managerState);
+        GenericIO.writelnString("I'm waiting for a new task");
         while(atending_customer.isEmpty() && alerting_customer.isEmpty() && getting_new_parts.isEmpty()){
             try {
                 wait();
@@ -310,7 +311,8 @@ public class Lounge {
      */
     public synchronized void letManagerKnow(String peca, int mechanic, String mechanicState) {
         logger.setMechanicState(mechanic, mechanicState);
-        getting_new_parts.add(peca);
+        if (!getting_new_parts.contains(peca))
+            getting_new_parts.add(peca);
         logger.setFlagAPieces(getting_new_parts.contains("0") ? "0" : "--");
         logger.setFlagBPieces(getting_new_parts.contains("1") ? "1" : "--");
         logger.setFlagCPieces(getting_new_parts.contains("2") ? "2" : "--");

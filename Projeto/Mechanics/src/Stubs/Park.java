@@ -9,15 +9,22 @@ import Communication.ClientCom;
 import Communication.Message;
 import Communication.MessageType;
 import Interfaces.MechanicsPark;
+import genclass.GenericIO;
 
 /**
  * @author danielmartins
  * @author giselapinto
  */
 public class Park implements MechanicsPark{
+    
     private String server;
     private int port;
     
+    /**
+     * Constructor from lounge
+     * @param server server name
+     * @param port port in use
+     **/
     public Park(String server, int port) {
         this.server = server;
         this.port = port;
@@ -32,7 +39,7 @@ public class Park implements MechanicsPark{
     public void returnVehicle(int car) {
         
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic return vehicle");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -51,7 +58,7 @@ public class Park implements MechanicsPark{
      */
     public void getVehicle(int car) {
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic get vehicle");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -70,7 +77,7 @@ public class Park implements MechanicsPark{
      */
     public void blockVehicle(int car){
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Mechanic block vehicle");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));

@@ -45,8 +45,8 @@ public class Park implements CustomerPark{
     public void goToRepairShop(String info, String customerState) {
         
         ClientCom com = new ClientCom (server, port);
-        
-         while(!com.open()){
+        GenericIO.writelnString("Customer "+info+" go to repair shop");
+        while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
             } catch (InterruptedException ex) {}
@@ -75,8 +75,8 @@ public class Park implements CustomerPark{
      * if there are no cars, they wait.
      */
     public int findCar(int id, String customerState) {
-       ClientCom com = new ClientCom (server, port);
-        
+        ClientCom com = new ClientCom (server, port);
+        GenericIO.writelnString("Customer "+id+" find car");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
@@ -99,7 +99,7 @@ public class Park implements CustomerPark{
      */
     public void collectCar( String info , String customerState ) {
         ClientCom com = new ClientCom (server, port);
-        
+        GenericIO.writelnString("Customer "+info+" collect car");
         while(!com.open()){
             try {
                 Thread.currentThread ().sleep ((long) (10));
