@@ -90,6 +90,7 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws01.ua.pt << EO
 	find . -name "*.java" > files.txt
 	javac @files.txt
 	rm files.txt
+	find . -name '*.java' -type f -delete	
 	exit
 EOF
 
@@ -100,6 +101,7 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws02.ua.pt << EO
 	find . -name "*.java" > files.txt
 	javac @files.txt
 	rm files.txt
+	find . -name '*.java' -type f -delete	
 	exit
 EOF
 
@@ -110,6 +112,7 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws03.ua.pt << EO
 	find . -name "*.java" > files.txt
 	javac @files.txt
 	rm files.txt
+	find . -name '*.java' -type f -delete	
 	exit	
 EOF
 
@@ -120,6 +123,7 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws04.ua.pt << EO
 	find . -name "*.java" > files.txt
 	javac @files.txt
 	rm files.txt
+	find . -name '*.java' -type f -delete	
 	exit
 EOF
 
@@ -130,6 +134,7 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws05.ua.pt << EO
 	find . -name "*.java" > files.txt
 	javac @files.txt
 	rm files.txt
+	find . -name '*.java' -type f -delete	
 	exit
 EOF
 
@@ -140,6 +145,7 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws06.ua.pt << EO
 	find . -name "*.java" > files.txt
 	javac @files.txt
 	rm files.txt
+	find . -name '*.java' -type f -delete
 	exit
 EOF
 
@@ -149,6 +155,7 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws07.ua.pt << EO
 	find . -name "*.java" > files.txt
 	javac @files.txt
 	rm files.txt
+	find . -name '*.java' -type f -delete	
 	exit
 EOF
 
@@ -158,6 +165,7 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws08.ua.pt << EO
 	find . -name "*.java" > files.txt
 	javac @files.txt
 	rm files.txt
+	find . -name '*.java' -type f -delete	
 	exit
 EOF
 
@@ -167,6 +175,7 @@ sshpass -e ssh -t -t -o StrictHostKeyChecking=no sd0401@l040101-ws09.ua.pt << EO
 	find . -name "*.java" > files.txt
 	javac @files.txt
 	rm files.txt
+	find . -name '*.java' -type f -delete	
 	exit
 EOF
 

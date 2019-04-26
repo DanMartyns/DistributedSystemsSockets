@@ -201,6 +201,8 @@ public class Park {
      * Terminate the park service.
      */
     public synchronized void serviceEnd(){
+        logger.setNumberParkCars(cars.size());
+        
         MainProgram.serviceEnd = true;
         notifyAll();
         GenericIO.writelnString(" Park will end");
